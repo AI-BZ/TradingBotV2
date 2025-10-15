@@ -458,8 +458,14 @@ class BinanceClient:
             # Sort by volume descending
             sorted_pairs = sorted(usdt_pairs, key=lambda x: x['volume'], reverse=True)
 
-            # Get top N symbols
-            top_symbols = [pair['symbol'] for pair in sorted_pairs[:limit]]
+            # Get top N symbols and clean format
+            # Remove :USDT suffix that CCXT adds for futures (ETH/USDT:USDT → ETH/USDT)
+            top_symbols = []
+            for pair in sorted_pairs[:limit]:
+                symbol = pair['symbol']
+                # Clean symbol format: remove :USDT suffix if present
+                clean_symbol = symbol.split(':')[0] if ':' in symbol else symbol
+                top_symbols.append(clean_symbol)
 
             logger.info(f"Top {limit} coins by 24h volume (filtered): {', '.join(top_symbols)}")
             return top_symbols
