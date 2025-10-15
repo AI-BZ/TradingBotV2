@@ -1,0 +1,96 @@
+version: '3.8'
+
+services:
+  # FastAPI Backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: tradingbot_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - ENV=development
+      - POSTGRES_HOST=postgres
+      - REDIS_HOST=redis
+      - QUESTDB_HOST=questdb
+    volumes:
+      - ./backend:/app
+      - ./data:/data
+      - ./logs:/logs
+    depends_on:
+      - postgres
+      - redis
+      - questdb
+    restart: unless-stopped
+    networks:
+      - tradingbot_network
+
+  # PostgreSQL
+  postgres:
+    image: postgres:15-alpine
+    container_name: tradingbot_postgres
+    environment:
+      POSTGRES_DB: tradingbot_v2
+      POSTGRES_USER: tradingbot
+      POSTGRES_PASSWORD: tradingbot_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - tradingbot_network
+
+  # QuestDB (Time-series)
+  questdb:
+    image: questdb/questdb:7.3.10
+    container_name: tradingbot_questdb
+    ports:
+      - "9000:9000"  # HTTP/REST API
+      - "8812:8812"  # PostgreSQL wire protocol
+      - "9009:9009"  # InfluxDB line protocol
+    volumes:
+      - questdb_data:/var/lib/questdb
+    environment:
+      - QDB_TELEMETRY_ENABLED=false
+    restart: unless-stopped
+    networks:
+      - tradingbot_network
+
+  # Redis
+  redis:
+    image: redis:7-alpine
+    container_name: tradingbot_redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    networks:
+      - tradingbot_network
+
+  # Nginx (API Gateway)
+  nginx:
+    image: nginx:alpine
+    container_name: tradingbot_nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - tradingbot_network
+
+volumes:
+  postgres_data:
+  questdb_data:
+  redis_data:
+
+networks:
+  tradingbot_network:
+    driver: bridge
