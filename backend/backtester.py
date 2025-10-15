@@ -363,16 +363,20 @@ class Backtester:
             # Get symbols if not set
             if not self.symbols:
                 logger.info("Loading Top 10 coins by volume...")
-                self.symbols = await client.get_top_coins(limit=10)
-                # Convert to format without /
-                self.symbols = [s.replace('/', '') for s in self.symbols]
+                raw_symbols = await client.get_top_coins(limit=10)
+                # Clean symbol format (BTC/USDT:USDT → BTC/USDT)
+                self.symbols = []
+                for s in raw_symbols:
+                    if ':' in s:
+                        s = s.split(':')[0]  # Remove :USDT suffix
+                    self.symbols.append(s)
                 logger.info(f"Testing symbols: {', '.join(self.symbols)}")
 
             # Load historical data for all symbols
             historical_data = {}
             for symbol in self.symbols:
-                ccxt_symbol = symbol.replace('USDT', '/USDT') if '/' not in symbol else symbol
-                data = await self.load_historical_data(client, ccxt_symbol, start_date, end_date, interval)
+                # Symbol is already in CCXT format (BTC/USDT)
+                data = await self.load_historical_data(client, symbol, start_date, end_date, interval)
                 if not data.empty:
                     historical_data[symbol] = data
 

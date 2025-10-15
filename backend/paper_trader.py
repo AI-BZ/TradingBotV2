@@ -343,8 +343,13 @@ class PaperTrader:
         # Load top 10 coins if symbols not set
         if not self.symbols:
             logger.info("Loading top 10 coins by 24h volume...")
-            self.symbols = await self.client.get_top_coins(limit=10)
-            self.symbols = [s.replace('/', '') for s in self.symbols]
+            raw_symbols = await self.client.get_top_coins(limit=10)
+            # Clean symbol format (BTC/USDT:USDT → BTC/USDT)
+            self.symbols = []
+            for s in raw_symbols:
+                if ':' in s:
+                    s = s.split(':')[0]  # Remove :USDT suffix
+                self.symbols.append(s)
 
         # Set leverage for all symbols
         for symbol in self.symbols:
