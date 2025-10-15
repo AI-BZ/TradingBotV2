@@ -13,24 +13,28 @@ class TrailingStopManager:
     """ATR-based trailing stop manager with ML-driven parameter optimization"""
 
     def __init__(self,
-                 base_atr_multiplier: float = 2.5,
-                 min_profit_threshold: float = 0.01,
-                 acceleration_step: float = 0.1):
+                 base_atr_multiplier: float = 1.8,  # 2.5 → 1.8 (더 타이트하게)
+                 min_profit_threshold: float = 0.005,  # 1% → 0.5% (더 빠른 익절 시작)
+                 acceleration_step: float = 0.3,  # 0.1 → 0.3 (더 빠른 가속)
+                 max_loss_pct: float = 0.01):  # NEW: 최대 손실 1% 하드스톱
         """Initialize trailing stop manager
 
         Args:
-            base_atr_multiplier: Base ATR multiplier for stop distance (2-3)
-            min_profit_threshold: Minimum profit % to activate trailing (1%)
+            base_atr_multiplier: Base ATR multiplier for stop distance (1.5-2.0)
+            min_profit_threshold: Minimum profit % to activate trailing (0.5%)
             acceleration_step: How much to tighten stop as profit increases
+            max_loss_pct: Maximum loss percentage before hard stop (1%)
         """
         self.base_atr_multiplier = base_atr_multiplier
         self.min_profit_threshold = min_profit_threshold
         self.acceleration_step = acceleration_step
+        self.max_loss_pct = max_loss_pct  # NEW
 
         # Track highest/lowest prices for trailing
         self.position_peaks = {}  # symbol -> {'highest': float, 'lowest': float}
 
-        logger.info(f"TrailingStopManager initialized: ATR multiplier={base_atr_multiplier}")
+        logger.info(f"TrailingStopManager initialized: ATR={base_atr_multiplier}, "
+                   f"Min profit={min_profit_threshold:.1%}, Max loss={max_loss_pct:.1%}")
 
     def calculate_atr_multiplier(self,
                                  current_profit_pct: float,
@@ -46,28 +50,34 @@ class TrailingStopManager:
         Returns:
             Adjusted ATR multiplier
         """
-        # Base multiplier
+        # Base multiplier (이미 1.8로 더 타이트함)
         multiplier = self.base_atr_multiplier
 
         # Calculate volatility percentage
         volatility_pct = atr_value / price
 
-        # High volatility (>3%) → wider stops
+        # 변동성 기반 조정 (더 보수적으로)
+        # High volatility (>3%) → 약간 넓힘
         if volatility_pct > 0.03:
-            multiplier = 3.0
-        # Medium volatility (1-3%) → standard stops
+            multiplier = 2.2  # 3.0 → 2.2
+        # Medium volatility (1-3%) → 표준
         elif volatility_pct > 0.01:
-            multiplier = 2.5
-        # Low volatility (<1%) → tighter stops
+            multiplier = 1.8  # 2.5 → 1.8
+        # Low volatility (<1%) → 더 타이트
         else:
-            multiplier = 2.0
+            multiplier = 1.5  # 2.0 → 1.5
 
-        # As profit increases, tighten the stop progressively
+        # 수익 발생 시 빠르게 스톱 조이기 (개선됨)
         if current_profit_pct > self.min_profit_threshold:
-            # Reduce multiplier by acceleration_step for each 1% profit above threshold
+            # 0.5% 수익부터 스톱 조이기 시작
             profit_excess = current_profit_pct - self.min_profit_threshold
-            tightening_factor = profit_excess * self.acceleration_step
-            multiplier = max(1.5, multiplier - tightening_factor)
+            # acceleration_step=0.3이므로 더 빠르게 조여짐
+            tightening_factor = profit_excess * self.acceleration_step * 10  # 10배 더 빠르게
+            multiplier = max(1.0, multiplier - tightening_factor)  # 최소 1.0까지
+
+            # 2% 이상 수익 시 매우 타이트하게
+            if current_profit_pct > 0.02:
+                multiplier = max(0.8, multiplier - 0.5)  # 더욱 조임
 
         logger.debug(f"ATR multiplier adjusted to {multiplier:.2f} "
                     f"(profit: {current_profit_pct:.2%}, volatility: {volatility_pct:.2%})")
@@ -133,23 +143,41 @@ class TrailingStopManager:
             current_profit_pct, atr_value, current_price
         )
 
+        # 하드스톱 체크 (최대 손실 제한)
+        hard_stop_hit = False
+        if current_profit_pct < -self.max_loss_pct:
+            hard_stop_hit = True
+            logger.warning(f"{symbol}: 🛑 HARD STOP HIT! Loss {current_profit_pct:.2%} exceeds max {-self.max_loss_pct:.2%}")
+
         # Calculate trailing stop price
         if position_type == 'LONG':
             # Stop trails below the highest price reached
             stop_price = peak_price - (atr_multiplier * atr_value)
-            should_close = current_price <= stop_price
+
+            # 하드스톱 적용: 진입가 대비 최대 손실 제한
+            hard_stop_price = entry_price * (1 - self.max_loss_pct)
+            stop_price = max(stop_price, hard_stop_price)  # 둘 중 더 높은 스톱 사용
+
+            should_close = current_price <= stop_price or hard_stop_hit
 
             if should_close:
-                logger.info(f"{symbol}: LONG trailing stop hit! "
+                reason = "HARD STOP" if hard_stop_hit else "trailing stop"
+                logger.info(f"{symbol}: LONG {reason} hit! "
                            f"Price ${current_price:.2f} <= Stop ${stop_price:.2f} "
                            f"(Peak: ${peak_price:.2f}, Profit: {current_profit_pct:+.2%})")
         else:  # SHORT
             # Stop trails above the lowest price reached
             stop_price = peak_price + (atr_multiplier * atr_value)
-            should_close = current_price >= stop_price
+
+            # 하드스톱 적용: 진입가 대비 최대 손실 제한
+            hard_stop_price = entry_price * (1 + self.max_loss_pct)
+            stop_price = min(stop_price, hard_stop_price)  # 둘 중 더 낮은 스톱 사용
+
+            should_close = current_price >= stop_price or hard_stop_hit
 
             if should_close:
-                logger.info(f"{symbol}: SHORT trailing stop hit! "
+                reason = "HARD STOP" if hard_stop_hit else "trailing stop"
+                logger.info(f"{symbol}: SHORT {reason} hit! "
                            f"Price ${current_price:.2f} >= Stop ${stop_price:.2f} "
                            f"(Peak: ${peak_price:.2f}, Profit: {current_profit_pct:+.2%})")
 

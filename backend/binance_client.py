@@ -417,29 +417,43 @@ class BinanceClient:
             logger.error(f"Error fetching positions: {e}")
             return []
 
-    async def get_top_coins(self, limit: int = 10, quote_currency: str = 'USDT') -> List[str]:
-        """Get top trading coins by 24h volume
+    async def get_top_coins(self, limit: int = 10, quote_currency: str = 'USDT',
+                          filter_volatile: bool = True, max_volatility: float = 0.05) -> List[str]:
+        """Get top trading coins by 24h volume with volatility filtering
 
         Args:
             limit: Number of top coins to return
             quote_currency: Quote currency (default: 'USDT')
+            filter_volatile: Filter out extremely volatile coins (default: True)
+            max_volatility: Maximum 24h price change % to allow (default: 5%)
 
         Returns:
-            List of top trading symbols
+            List of top trading symbols (stable, liquid, major coins)
         """
         try:
             # Fetch all tickers
             tickers = await self.exchange.fetch_tickers()
 
-            # Filter by quote currency and sort by 24h volume
-            usdt_pairs = [
-                {
+            # Filter by quote currency, volume, and volatility
+            usdt_pairs = []
+
+            for symbol, ticker in tickers.items():
+                if quote_currency not in symbol or not ticker['quoteVolume']:
+                    continue
+
+                # Calculate 24h volatility
+                price_change_pct = abs(ticker.get('percentage', 0) / 100) if ticker.get('percentage') else 0
+
+                # Skip extremely volatile coins if filtering enabled
+                if filter_volatile and price_change_pct > max_volatility:
+                    logger.debug(f"Skipping {symbol}: Too volatile ({price_change_pct:.2%})")
+                    continue
+
+                usdt_pairs.append({
                     'symbol': symbol,
-                    'volume': ticker['quoteVolume'] if ticker['quoteVolume'] else 0
-                }
-                for symbol, ticker in tickers.items()
-                if quote_currency in symbol and ticker['quoteVolume']
-            ]
+                    'volume': ticker['quoteVolume'],
+                    'volatility': price_change_pct
+                })
 
             # Sort by volume descending
             sorted_pairs = sorted(usdt_pairs, key=lambda x: x['volume'], reverse=True)
@@ -447,15 +461,15 @@ class BinanceClient:
             # Get top N symbols
             top_symbols = [pair['symbol'] for pair in sorted_pairs[:limit]]
 
-            logger.info(f"Top {limit} coins by 24h volume: {', '.join(top_symbols)}")
+            logger.info(f"Top {limit} coins by 24h volume (filtered): {', '.join(top_symbols)}")
             return top_symbols
 
         except Exception as e:
             logger.error(f"Error fetching top coins: {e}")
-            # Fallback to default list
+            # Fallback to safe, major coins only
             return [
                 'BTC/USDT', 'ETH/USDT', 'BNB/USDT', 'SOL/USDT', 'XRP/USDT',
-                'ADA/USDT', 'DOGE/USDT', 'AVAX/USDT', 'DOT/USDT', 'MATIC/USDT'
+                'ADA/USDT', 'AVAX/USDT', 'DOT/USDT', 'MATIC/USDT', 'LINK/USDT'
             ]
 
     async def close(self):
