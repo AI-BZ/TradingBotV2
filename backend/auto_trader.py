@@ -25,16 +25,22 @@ class AutoTrader:
                  api_key: Optional[str] = None,
                  api_secret: Optional[str] = None,
                  testnet: bool = True,
-                 initial_balance: float = 10000.0):
+                 use_futures: bool = True,
+                 initial_balance: float = 10000.0,
+                 leverage: int = 10):
         """Initialize auto trader
 
         Args:
             api_key: Binance API key
             api_secret: Binance API secret
             testnet: Use testnet or mainnet
+            use_futures: Use futures trading for LONG/SHORT (default: True)
             initial_balance: Initial balance in USDT
+            leverage: Leverage for futures trading (1-125)
         """
-        self.client = BinanceClient(api_key, api_secret, testnet)
+        self.client = BinanceClient(api_key, api_secret, testnet, use_futures)
+        self.use_futures = use_futures
+        self.leverage = leverage
         self.strategy = TradingStrategy(ml_weight=0.6, technical_weight=0.4)
         self.risk_manager = RiskManager(
             max_position_size=0.2,
@@ -49,10 +55,13 @@ class AutoTrader:
         self.trade_history = []
         self.is_running = False
 
-        # Trading symbols
-        self.symbols = ['BTCUSDT', 'ETHUSDT', 'BNBUSDT']
+        # Trading symbols - will be auto-populated with top 10
+        self.symbols = []
 
         logger.info(f"AutoTrader initialized with balance ${initial_balance:,.2f}")
+        logger.info(f"Trading mode: {'FUTURES (LONG/SHORT)' if use_futures else 'SPOT (LONG only)'}")
+        if use_futures:
+            logger.info(f"Leverage: {leverage}x")
 
     def set_ml_engine(self, ml_engine: MLEngine):
         """Set ML engine for predictions"""
@@ -106,7 +115,7 @@ class AutoTrader:
         return signal
 
     async def execute_trade(self, signal: Dict) -> Optional[Dict]:
-        """Execute trade based on signal
+        """Execute trade based on signal (supports LONG/SHORT for futures)
 
         Args:
             signal: Trading signal dictionary
@@ -128,16 +137,16 @@ class AutoTrader:
             logger.warning(f"{symbol}: Risk limits reached, cannot open position")
             return None
 
-        # Execute based on signal
+        # Execute based on signal and futures mode
         if action == 'BUY' and symbol not in self.positions:
-            # Open long position
+            # Open LONG position
             position_size = self.risk_manager.calculate_position_size(
                 self.balance, price, signal['confidence']
             )
 
             logger.info(f"{symbol}: Opening LONG position - Size: {position_size:.6f}, Price: ${price:.2f}")
 
-            # Store position (in real trading, would call client.place_order)
+            # Store position
             self.positions[symbol] = {
                 'type': 'LONG',
                 'entry_price': price,
@@ -147,12 +156,13 @@ class AutoTrader:
             }
 
             # Update balance (simulated)
-            cost = position_size * price
+            cost = position_size * price / self.leverage if self.use_futures else position_size * price
             self.balance -= cost
 
             trade = {
                 'symbol': symbol,
-                'action': 'BUY',
+                'action': 'OPEN_LONG',
+                'type': 'LONG',
                 'price': price,
                 'size': position_size,
                 'cost': cost,
@@ -163,41 +173,89 @@ class AutoTrader:
 
             return trade
 
-        elif action == 'SELL' and symbol in self.positions:
-            # Close long position
+        elif action == 'SELL' and symbol not in self.positions and self.use_futures:
+            # Open SHORT position (futures only)
+            position_size = self.risk_manager.calculate_position_size(
+                self.balance, price, signal['confidence']
+            )
+
+            logger.info(f"{symbol}: Opening SHORT position - Size: {position_size:.6f}, Price: ${price:.2f}")
+
+            # Store position
+            self.positions[symbol] = {
+                'type': 'SHORT',
+                'entry_price': price,
+                'size': position_size,
+                'entry_time': datetime.now(),
+                'signal': signal
+            }
+
+            # Update balance (simulated - margin required)
+            cost = position_size * price / self.leverage
+            self.balance -= cost
+
+            trade = {
+                'symbol': symbol,
+                'action': 'OPEN_SHORT',
+                'type': 'SHORT',
+                'price': price,
+                'size': position_size,
+                'cost': cost,
+                'timestamp': datetime.now(),
+                'signal': signal
+            }
+            self.trade_history.append(trade)
+
+            return trade
+
+        elif symbol in self.positions:
+            # Close existing position
             position = self.positions[symbol]
-            if position['type'] == 'LONG':
-                entry_price = position['entry_price']
-                size = position['size']
+            entry_price = position['entry_price']
+            size = position['size']
+            position_type = position['type']
+
+            # Calculate P&L based on position type
+            if position_type == 'LONG':
                 pnl = (price - entry_price) * size
                 pnl_pct = (price - entry_price) / entry_price
+            else:  # SHORT
+                pnl = (entry_price - price) * size  # Profit when price goes down
+                pnl_pct = (entry_price - price) / entry_price
 
-                logger.info(f"{symbol}: Closing LONG position - P&L: ${pnl:.2f} ({pnl_pct:+.2%})")
+            logger.info(f"{symbol}: Closing {position_type} position - P&L: ${pnl:.2f} ({pnl_pct:+.2%})")
 
-                # Update balance (simulated)
+            # Update balance (simulated)
+            if self.use_futures:
+                # Return margin + P&L
+                proceeds = (size * entry_price / self.leverage) + pnl
+            else:
                 proceeds = size * price
-                self.balance += proceeds
 
-                # Update risk manager
-                self.risk_manager.update_daily_pnl(pnl)
+            self.balance += proceeds
 
-                trade = {
-                    'symbol': symbol,
-                    'action': 'SELL',
-                    'price': price,
-                    'size': size,
-                    'proceeds': proceeds,
-                    'pnl': pnl,
-                    'pnl_pct': pnl_pct,
-                    'timestamp': datetime.now(),
-                    'signal': signal
-                }
-                self.trade_history.append(trade)
+            # Update risk manager
+            self.risk_manager.update_daily_pnl(pnl)
 
-                # Remove position
-                del self.positions[symbol]
+            trade = {
+                'symbol': symbol,
+                'action': f'CLOSE_{position_type}',
+                'type': position_type,
+                'price': price,
+                'size': size,
+                'entry_price': entry_price,
+                'proceeds': proceeds,
+                'pnl': pnl,
+                'pnl_pct': pnl_pct,
+                'timestamp': datetime.now(),
+                'signal': signal
+            }
+            self.trade_history.append(trade)
 
-                return trade
+            # Remove position
+            del self.positions[symbol]
+
+            return trade
 
         return None
 
@@ -257,6 +315,21 @@ class AutoTrader:
         Args:
             interval: Time between iterations in seconds (default 5 minutes)
         """
+        # Load top 10 coins if symbols not set
+        if not self.symbols:
+            logger.info("Loading top 10 coins by 24h volume...")
+            self.symbols = await self.client.get_top_coins(limit=10)
+            # Convert to CCXT format (BTC/USDT)
+            self.symbols = [s.replace('/', '') for s in self.symbols]
+
+        # Set leverage for all symbols if using futures
+        if self.use_futures:
+            for symbol in self.symbols:
+                try:
+                    await self.client.set_leverage(symbol, self.leverage)
+                except Exception as e:
+                    logger.warning(f"Could not set leverage for {symbol}: {e}")
+
         logger.info(f"Starting trading loop with {len(self.symbols)} symbols")
         logger.info(f"Symbols: {', '.join(self.symbols)}")
 

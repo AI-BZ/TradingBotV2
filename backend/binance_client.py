@@ -15,21 +15,23 @@ logger = logging.getLogger(__name__)
 class BinanceClient:
     """Async Binance API client for trading bot"""
 
-    def __init__(self, api_key: str = None, api_secret: str = None, testnet: bool = True):
+    def __init__(self, api_key: str = None, api_secret: str = None, testnet: bool = True, use_futures: bool = True):
         """Initialize Binance client
 
         Args:
             api_key: Binance API key
             api_secret: Binance API secret
             testnet: Use testnet (default: True)
+            use_futures: Use futures market (default: True for LONG/SHORT trading)
         """
         self.testnet = testnet
+        self.use_futures = use_futures
         self.exchange = ccxt.binance({
             'apiKey': api_key,
             'secret': api_secret,
             'enableRateLimit': True,
             'options': {
-                'defaultType': 'spot',
+                'defaultType': 'future' if use_futures else 'spot',
                 'test': testnet
             }
         })
@@ -228,6 +230,233 @@ class BinanceClient:
         except Exception as e:
             logger.error(f"Error fetching balance: {e}")
             raise
+
+    async def set_leverage(self, symbol: str, leverage: int = 10):
+        """Set leverage for futures trading
+
+        Args:
+            symbol: Trading pair
+            leverage: Leverage multiplier (1-125)
+        """
+        if not self.use_futures:
+            logger.warning("Leverage setting only available for futures trading")
+            return
+
+        try:
+            await self.exchange.set_leverage(leverage, symbol)
+            logger.info(f"Leverage set to {leverage}x for {symbol}")
+        except Exception as e:
+            logger.error(f"Error setting leverage: {e}")
+            raise
+
+    async def open_long_position(
+        self,
+        symbol: str,
+        amount: float,
+        stop_loss_pct: float = 0.03,
+        take_profit_pct: float = 0.05
+    ) -> Dict:
+        """Open a LONG position (buy futures contract)
+
+        Args:
+            symbol: Trading pair
+            amount: Position size
+            stop_loss_pct: Stop loss percentage (default 3%)
+            take_profit_pct: Take profit percentage (default 5%)
+
+        Returns:
+            Order information with stop loss and take profit
+        """
+        try:
+            # Get current price
+            current_price = await self.get_price(symbol)
+
+            # Open LONG position (market buy)
+            order = await self.exchange.create_market_order(
+                symbol, 'buy', amount
+            )
+
+            # Calculate stop loss and take profit prices
+            stop_loss_price = current_price * (1 - stop_loss_pct)
+            take_profit_price = current_price * (1 + take_profit_pct)
+
+            logger.info(f"LONG position opened: {amount} {symbol} @ ${current_price:.2f}")
+            logger.info(f"  Stop Loss: ${stop_loss_price:.2f} (-{stop_loss_pct:.1%})")
+            logger.info(f"  Take Profit: ${take_profit_price:.2f} (+{take_profit_pct:.1%})")
+
+            # Place stop loss order
+            try:
+                stop_order = await self.exchange.create_order(
+                    symbol, 'STOP_MARKET', 'sell', amount,
+                    params={'stopPrice': stop_loss_price}
+                )
+                order['stop_loss_order'] = stop_order
+            except Exception as e:
+                logger.warning(f"Could not place stop loss: {e}")
+
+            # Place take profit order
+            try:
+                tp_order = await self.exchange.create_order(
+                    symbol, 'TAKE_PROFIT_MARKET', 'sell', amount,
+                    params={'stopPrice': take_profit_price}
+                )
+                order['take_profit_order'] = tp_order
+            except Exception as e:
+                logger.warning(f"Could not place take profit: {e}")
+
+            return order
+
+        except Exception as e:
+            logger.error(f"Error opening LONG position: {e}")
+            raise
+
+    async def open_short_position(
+        self,
+        symbol: str,
+        amount: float,
+        stop_loss_pct: float = 0.03,
+        take_profit_pct: float = 0.05
+    ) -> Dict:
+        """Open a SHORT position (sell futures contract)
+
+        Args:
+            symbol: Trading pair
+            amount: Position size
+            stop_loss_pct: Stop loss percentage (default 3%)
+            take_profit_pct: Take profit percentage (default 5%)
+
+        Returns:
+            Order information with stop loss and take profit
+        """
+        try:
+            # Get current price
+            current_price = await self.get_price(symbol)
+
+            # Open SHORT position (market sell)
+            order = await self.exchange.create_market_order(
+                symbol, 'sell', amount
+            )
+
+            # Calculate stop loss and take profit prices
+            stop_loss_price = current_price * (1 + stop_loss_pct)  # Higher for shorts
+            take_profit_price = current_price * (1 - take_profit_pct)  # Lower for shorts
+
+            logger.info(f"SHORT position opened: {amount} {symbol} @ ${current_price:.2f}")
+            logger.info(f"  Stop Loss: ${stop_loss_price:.2f} (+{stop_loss_pct:.1%})")
+            logger.info(f"  Take Profit: ${take_profit_price:.2f} (-{take_profit_pct:.1%})")
+
+            # Place stop loss order
+            try:
+                stop_order = await self.exchange.create_order(
+                    symbol, 'STOP_MARKET', 'buy', amount,
+                    params={'stopPrice': stop_loss_price}
+                )
+                order['stop_loss_order'] = stop_order
+            except Exception as e:
+                logger.warning(f"Could not place stop loss: {e}")
+
+            # Place take profit order
+            try:
+                tp_order = await self.exchange.create_order(
+                    symbol, 'TAKE_PROFIT_MARKET', 'buy', amount,
+                    params={'stopPrice': take_profit_price}
+                )
+                order['take_profit_order'] = tp_order
+            except Exception as e:
+                logger.warning(f"Could not place take profit: {e}")
+
+            return order
+
+        except Exception as e:
+            logger.error(f"Error opening SHORT position: {e}")
+            raise
+
+    async def close_position(self, symbol: str, position_type: str) -> Dict:
+        """Close an open futures position
+
+        Args:
+            symbol: Trading pair
+            position_type: 'LONG' or 'SHORT'
+
+        Returns:
+            Order information
+        """
+        try:
+            # Get current position
+            positions = await self.exchange.fetch_positions([symbol])
+            position = next((p for p in positions if p['symbol'] == symbol), None)
+
+            if not position or position['contracts'] == 0:
+                logger.warning(f"No open position for {symbol}")
+                return None
+
+            amount = abs(position['contracts'])
+            side = 'sell' if position_type == 'LONG' else 'buy'
+
+            # Close position with market order
+            order = await self.exchange.create_market_order(symbol, side, amount)
+
+            logger.info(f"{position_type} position closed: {amount} {symbol}")
+            return order
+
+        except Exception as e:
+            logger.error(f"Error closing position: {e}")
+            raise
+
+    async def get_open_positions(self) -> List[Dict]:
+        """Get all open futures positions
+
+        Returns:
+            List of open positions
+        """
+        try:
+            positions = await self.exchange.fetch_positions()
+            open_positions = [p for p in positions if p['contracts'] != 0]
+            return open_positions
+        except Exception as e:
+            logger.error(f"Error fetching positions: {e}")
+            return []
+
+    async def get_top_coins(self, limit: int = 10, quote_currency: str = 'USDT') -> List[str]:
+        """Get top trading coins by 24h volume
+
+        Args:
+            limit: Number of top coins to return
+            quote_currency: Quote currency (default: 'USDT')
+
+        Returns:
+            List of top trading symbols
+        """
+        try:
+            # Fetch all tickers
+            tickers = await self.exchange.fetch_tickers()
+
+            # Filter by quote currency and sort by 24h volume
+            usdt_pairs = [
+                {
+                    'symbol': symbol,
+                    'volume': ticker['quoteVolume'] if ticker['quoteVolume'] else 0
+                }
+                for symbol, ticker in tickers.items()
+                if quote_currency in symbol and ticker['quoteVolume']
+            ]
+
+            # Sort by volume descending
+            sorted_pairs = sorted(usdt_pairs, key=lambda x: x['volume'], reverse=True)
+
+            # Get top N symbols
+            top_symbols = [pair['symbol'] for pair in sorted_pairs[:limit]]
+
+            logger.info(f"Top {limit} coins by 24h volume: {', '.join(top_symbols)}")
+            return top_symbols
+
+        except Exception as e:
+            logger.error(f"Error fetching top coins: {e}")
+            # Fallback to default list
+            return [
+                'BTC/USDT', 'ETH/USDT', 'BNB/USDT', 'SOL/USDT', 'XRP/USDT',
+                'ADA/USDT', 'DOGE/USDT', 'AVAX/USDT', 'DOT/USDT', 'MATIC/USDT'
+            ]
 
     async def close(self):
         """Close all connections"""
