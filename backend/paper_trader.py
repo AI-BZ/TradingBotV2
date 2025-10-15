@@ -346,10 +346,12 @@ class PaperTrader:
             raw_symbols = await self.client.get_top_coins(limit=10)
             # Clean symbol format (BTC/USDT:USDT → BTC/USDT)
             self.symbols = []
-            for s in raw_symbols:
-                if ':' in s:
-                    s = s.split(':')[0]  # Remove :USDT suffix
-                self.symbols.append(s)
+            for raw_symbol in raw_symbols:
+                # Remove :USDT suffix if present
+                clean_symbol = raw_symbol.split(':')[0] if ':' in raw_symbol else raw_symbol
+                self.symbols.append(clean_symbol)
+                logger.debug(f"Cleaned symbol: {raw_symbol} → {clean_symbol}")
+            logger.info(f"Trading {len(self.symbols)} symbols")
 
         # Set leverage for all symbols
         for symbol in self.symbols:
