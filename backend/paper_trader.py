@@ -14,6 +14,7 @@ from technical_indicators import TechnicalIndicators
 from trading_strategy import TradingStrategy, RiskManager
 from ml_engine import MLEngine
 from trailing_stop_manager import TrailingStopManager, MLTrailingStopOptimizer
+from ai_strategy_manager import AIStrategyManager
 
 logging.basicConfig(
     level=logging.INFO,
@@ -27,16 +28,19 @@ class PaperTrader:
 
     def __init__(self,
                  initial_balance: float = 10000.0,
-                 leverage: int = 10):
+                 leverage: int = 10,
+                 use_ai_adaptation: bool = True):
         """Initialize paper trader
 
         Args:
             initial_balance: Starting balance in USDT
             leverage: Leverage for futures trading
+            use_ai_adaptation: Enable AI-driven strategy adaptation
         """
         self.initial_balance = initial_balance
         self.balance = initial_balance
         self.leverage = leverage
+        self.use_ai_adaptation = use_ai_adaptation
 
         # Initialize Binance client
         self.client = BinanceClient(testnet=True, use_futures=True)
@@ -55,6 +59,9 @@ class PaperTrader:
         )
         self.ml_engine = None
 
+        # AI Strategy Manager (if enabled)
+        self.ai_manager = AIStrategyManager(self.client, self.ml_engine) if use_ai_adaptation else None
+
         # Trading state
         self.positions = {}
         self.trade_history = []
@@ -67,11 +74,15 @@ class PaperTrader:
         self.hourly_snapshots = []
 
         logger.info(f"PaperTrader initialized: ${initial_balance:,.2f} @ {leverage}x leverage")
+        if use_ai_adaptation:
+            logger.info("  AI Strategy Adaptation: ENABLED")
 
     def set_ml_engine(self, ml_engine: MLEngine):
         """Set ML engine for predictions"""
         self.ml_engine = ml_engine
         self.strategy.set_ml_engine(ml_engine)
+        if self.ai_manager:
+            self.ai_manager.ml_engine = ml_engine
 
     async def get_market_data(self, symbol: str, interval: str = '1h', limit: int = 100) -> pd.DataFrame:
         """Fetch market data for symbol
@@ -110,7 +121,23 @@ class PaperTrader:
         )
         indicators['close'] = data['close'].iloc[-1]
 
-        # Generate signal
+        # Apply AI-selected strategy if enabled
+        if self.ai_manager and symbol in self.ai_manager.active_strategies:
+            # Determine direction based on signal
+            preliminary_signal = self.strategy.generate_signal(data, indicators)
+            direction = 'LONG' if preliminary_signal['signal'] == 'BUY' else 'SHORT'
+
+            # Get AI-selected strategy for this direction
+            active_strategy = self.ai_manager.get_current_strategy(symbol, direction)
+
+            # Apply strategy configuration
+            self.strategy.ml_weight = active_strategy.ml_weight
+            self.strategy.technical_weight = active_strategy.technical_weight
+            self.risk_manager.max_position_size = active_strategy.max_position_size
+            self.trailing_stop_manager.base_atr_multiplier = active_strategy.atr_multiplier
+            self.trailing_stop_manager.min_profit_threshold = active_strategy.min_profit_threshold
+
+        # Generate signal with current configuration
         signal = self.strategy.generate_signal(data, indicators)
         signal['symbol'] = symbol
         signal['price'] = float(data['close'].iloc[-1])
@@ -242,6 +269,11 @@ class PaperTrader:
             # Update risk manager
             self.risk_manager.update_daily_pnl(pnl)
 
+            # Update AI manager with performance feedback
+            if self.ai_manager:
+                win = pnl > 0
+                self.ai_manager.update_strategy_performance(symbol, position_type, pnl, win)
+
             trade = {
                 'symbol': symbol,
                 'action': f'CLOSE_{position_type}',
@@ -353,6 +385,11 @@ class PaperTrader:
                 logger.debug(f"Cleaned symbol: {raw_symbol} → {clean_symbol}")
             logger.info(f"Trading {len(self.symbols)} symbols")
 
+        # Initialize AI strategies if enabled
+        if self.ai_manager:
+            logger.info("\n🤖 Initializing AI Strategy Manager...")
+            await self.ai_manager.initialize_strategies(self.symbols)
+
         # Set leverage for all symbols
         for symbol in self.symbols:
             try:
@@ -366,6 +403,8 @@ class PaperTrader:
         logger.info(f"Symbols: {', '.join(self.symbols)}")
         logger.info(f"Initial Balance: ${self.balance:,.2f}")
         logger.info(f"Leverage: {self.leverage}x")
+        if self.ai_manager:
+            logger.info(f"AI Adaptation: ENABLED")
 
         iteration = 0
 
@@ -394,6 +433,12 @@ class PaperTrader:
 
                     except Exception as e:
                         logger.error(f"Error analyzing {symbol}: {e}")
+
+                # AI Strategy Adaptation (every 10 iterations = ~50 minutes)
+                if self.ai_manager and iteration % 10 == 0:
+                    logger.info(f"\n🤖 AI Strategy Adaptation Check...")
+                    for symbol in self.symbols:
+                        await self.ai_manager.check_and_adapt_strategy(symbol)
 
                 # Save snapshot
                 await self.save_snapshot()
