@@ -1,0 +1,953 @@
+{
+  "paper_trading_summary": {
+    "start_time": "2025-10-16T01:34:37.409569",
+    "end_time": "2025-10-16T04:05:52.602076",
+    "duration_hours": 2.520886801666667,
+    "initial_balance": 10000.0,
+    "final_balance": 9356.395018720712,
+    "total_pnl": -66.99671104655192,
+    "total_return_pct": -0.6699671104655193
+  },
+  "trade_statistics": {
+    "total_trades": 17,
+    "winning_trades": 7,
+    "losing_trades": 10,
+    "win_rate_pct": 41.17647058823529
+  },
+  "performance_metrics": {
+    "avg_win": 2.571299684327196,
+    "avg_loss": -8.49958088368423,
+    "profit_factor": 0.2117645332941226
+  },
+  "trades": [
+    {
+      "symbol": "XRP/USDT",
+      "action": "CLOSE_LONG",
+      "type": "LONG",
+      "price": 2.4387,
+      "size": 615.6877231867996,
+      "entry_price": 2.4363,
+      "proceeds": 151.47765053564817,
+      "pnl": 1.4776505356481564,
+      "pnl_pct": 0.000985100357098771,
+      "timestamp": "2025-10-16T01:39:44.401652",
+      "signal": {
+        "signal": "BUY",
+        "signal_value": 1,
+        "confidence": 0.5,
+        "source": "technical",
+        "technical": {
+          "signal": "BUY",
+          "strength": 0.5
+        },
+        "ml": {
+          "signal": "HOLD",
+          "confidence": 0.0
+        },
+        "timestamp": "2025-10-16T01:39:44.401437",
+        "indicators": {
+          "rsi": 27.925696594427293,
+          "macd_histogram": -0.005942153237245093,
+          "price": 2.4387
+        },
+        "symbol": "XRP/USDT",
+        "price": 2.4387,
+        "atr": 0.030714285714285694
+      }
+    },
+    {
+      "symbol": "BTC/USDT",
+      "action": "CLOSE_LONG",
+      "type": "LONG",
+      "price": 110650.0,
+      "size": 0.013557624472960578,
+      "entry_price": 110655.2,
+      "proceeds": 149.95166511077537,
+      "pnl": -0.07049964725935555,
+      "pnl_pct": -4.6992820942866577e-05,
+      "timestamp": "2025-10-16T01:49:47.456986",
+      "signal": {
+        "signal": "BUY",
+        "signal_value": 1,
+        "confidence": 0.5,
+        "source": "technical",
+        "technical": {
+          "signal": "BUY",
+          "strength": 0.5
+        },
+        "ml": {
+          "signal": "HOLD",
+          "confidence": 0.0
+        },
+        "timestamp": "2025-10-16T01:49:47.456774",
+        "indicators": {
+          "rsi": 23.288502376377778,
+          "macd_histogram": -173.8865215013874,
+          "price": 110650.0
+        },
+        "symbol": "BTC/USDT",
+        "price": 110650.0,
+        "atr": 859.3214285714255
+      }
+    },
+    {
+      "symbol": "XRP/USDT",
+      "action": "CLOSE_LONG",
+      "type": "LONG",
+      "price": 2.4426,
+      "size": 596.8804018796204,
+      "entry_price": 2.4386,
+      "proceeds": 147.94277640988273,
+      "pnl": 2.387521607518484,
+      "pnl_pct": 0.0016402854096612826,
+      "timestamp": "2025-10-16T01:49:48.565057",
+      "signal": {
+        "signal": "BUY",
+        "signal_value": 1,
+        "confidence": 0.5,
+        "source": "technical",
+        "technical": {
+          "signal": "BUY",
+          "strength": 0.5
+        },
+        "ml": {
+          "signal": "HOLD",
+          "confidence": 0.0
+        },
+        "timestamp": "2025-10-16T01:49:48.564850",
+        "indicators": {
+          "rsi": 29.625151148730495,
+          "macd_histogram": -0.005693264348355995,
+          "price": 2.4426
+        },
+        "symbol": "XRP/USDT",
+        "price": 2.4426,
+        "atr": 0.030714285714285694
+      }
+    },
+    {
+      "symbol": "XRP/USDT",
+      "action": "CLOSE_LONG",
+      "type": "LONG",
+      "price": 2.432,
+      "size": 605.0599271635369,
+      "entry_price": 2.4434,
+      "proceeds": 140.94265943347423,
+      "pnl": -6.897683169664368,
+      "pnl_pct": -0.004665629860031136,
+      "timestamp": "2025-10-16T01:59:52.769565",
+      "signal": {
+        "signal": "BUY",
+        "signal_value": 1,
+        "confidence": 0.5,
+        "source": "technical",
+        "technical": {
+          "signal": "BUY",
+          "strength": 0.5
+        },
+        "ml": {
+          "signal": "HOLD",
+          "confidence": 0.0
+        },
+        "timestamp": "2025-10-16T01:59:52.769333",
+        "indicators": {
+          "rsi": 25.00000000000007,
+          "macd_histogram": -0.006369731584823099,
+          "price": 2.432
+        },
+        "symbol": "XRP/USDT",
+        "price": 2.432,
+        "atr": 0.03073571428571428
+      }
+    },
+    {
+      "symbol": "COAI/USDT",
+      "action": "CLOSE_SHORT",
+      "type": "SHORT",
+      "price": 15.9,
+      "size": 92.30670250271396,
+      "entry_price": 16.005,
+      "proceeds": 157.4290811183785,
+      "pnl": 9.69220376278484,
+      "pnl_pct": 0.006560449859418848,
+      "timestamp": "2025-10-16T02:09:56.784574",
+      "signal": {
+        "signal": "SELL",
+        "signal_value": -1,
+        "confidence": 0.5,
+        "source": "technical",
+        "technical": {
+          "signal": "SELL",
+          "strength": 0.5
+        },
+        "ml": {
+          "signal": "HOLD",
+          "confidence": 0.0
+        },
+        "timestamp": "2025-10-16T02:09:56.784280",
+        "indicators": {
+          "rsi": 60.68216714191709,
+          "macd_histogram": -0.13507359340813352,
+          "price": 15.9
+        },
+        "symbol": "COAI/USDT",
+        "price": 15.9,
+        "atr": 1.917857142857143
+      }
+    },
+    {
+      "symbol": "XRP/USDT",
+      "action": "CLOSE_LONG",
+      "type": "LONG",
+      "price": 2.4245,
+      "size": 598.1373019658012,
+      "entry_price": 2.4329,
+      "proceeds": 140.49647085874705,
+      "pnl": -5.024353336512708,
+      "pnl_pct": -0.0034526696534999232,
+      "timestamp": "2025-10-16T02:09:56.948099",
+      "signal": {
+        "signal": "BUY",
+        "signal_value": 1,
+        "confidence": 0.5,
+        "source": "technical",
+        "technical": {
+          "signal": "BUY",
+          "strength": 0.5
+        },
+        "ml": {
+          "signal": "HOLD",
+          "confidence": 0.0
+        },
+        "timestamp": "2025-10-16T02:09:56.947893",
+        "indicators": {
+          "rsi": 27.73826458036993,
+          "macd_histogram": -0.007539542590611676,
+          "price": 2.4245
+        },
+        "symbol": "XRP/USDT",
+        "price": 2.4245,
+        "atr": 0.02911428571428571
+      }
+    },
+    {
+      "symbol": "BTC/USDT",
+      "action": "CLOSE_LONG",
+      "type": "LONG",
+      "price": 110206.6,
+      "size": 0.012991399837975117,
+      "entry_price": 110333.0,
+      "proceeds": 141.69589889281087,
+      "pnl": -1.6421129395199792,
+      "pnl_pct": -0.001145622796443441,
+      "timestamp": "2025-10-16T02:14:58.041718",
+      "signal": {
+        "signal": "BUY",
+        "signal_value": 1,
+        "confidence": 0.5,
+        "source": "technical",
+        "technical": {
+          "signal": "BUY",
+          "strength": 0.5
+        },
+        "ml": {
+          "signal": "HOLD",
+          "confidence": 0.0
+        },
+        "timestamp": "2025-10-16T02:14:58.041505",
+        "indicators": {
+          "rsi": 25.486235993913425,
+          "macd_histogram": -198.9550408408445,
+          "price": 110206.6
+        },
+        "symbol": "BTC/USDT",
+        "price": 110206.6,
+        "atr": 821.1214285714252
+      }
+    },
+    {
+      "symbol": "DOGE/USDT",
+      "action": "CLOSE_LONG",
+      "type": "LONG",
+      "price": 0.19639,
+      "size": 7432.069219265915,
+      "entry_price": 0.19883,
+      "proceeds": 129.63758339165537,
+      "pnl": -18.134248895008817,
+      "pnl_pct": -0.012271789971332282,
+      "timestamp": "2025-10-16T02:14:58.706930",
+      "signal": {
+        "signal": "BUY",
+        "signal_value": 1,
+        "confidence": 0.5,
+        "source": "technical",
+        "technical": {
+          "signal": "BUY",
+          "strength": 0.5
+        },
+        "ml": {
+          "signal": "HOLD",
+          "confidence": 0.0
+        },
+        "timestamp": "2025-10-16T02:14:58.706709",
+        "indicators": {
+          "rsi": 27.69571639586424,
+          "macd_histogram": -0.0006730866256670724,
+          "price": 0.19639
+        },
+        "symbol": "DOGE/USDT",
+        "price": 0.19639,
+        "atr": 0.0030064285714285705
+      }
+    },
+    {
+      "symbol": "XRP/USDT",
+      "action": "CLOSE_LONG",
+      "type": "LONG",
+      "price": 2.4193,
+      "size": 601.1534443550399,
+      "entry_price": 2.4175,
+      "proceeds": 146.41092137266983,
+      "pnl": 1.0820761998389528,
+      "pnl_pct": 0.0007445708376421104,
+      "timestamp": "2025-10-16T02:20:01.466853",
+      "signal": {
+        "signal": "BUY",
+        "signal_value": 1,
+        "confidence": 0.5,
+        "source": "technical",
+        "technical": {
+          "signal": "BUY",
+          "strength": 0.5
+        },
+        "ml": {
+          "signal": "HOLD",
+          "confidence": 0.0
+        },
+        "timestamp": "2025-10-16T02:20:01.466681",
+        "indicators": {
+          "rsi": 26.74897119341567,
+          "macd_histogram": -0.00787139444246357,
+          "price": 2.4193
+        },
+        "symbol": "XRP/USDT",
+        "price": 2.4193,
+        "atr": 0.02960714285714285
+      }
+    },
+    {
+      "symbol": "BTC/USDT",
+      "action": "CLOSE_LONG",
+      "type": "LONG",
+      "price": 110336.9,
+      "size": 0.01296867766455474,
+      "entry_price": 110380.5,
+      "proceeds": 142.58347814906378,
+      "pnl": -0.5654343461746622,
+      "pnl_pct": -0.0003949973047776176,
+      "timestamp": "2025-10-16T02:30:06.390281",
+      "signal": {
+        "signal": "BUY",
+        "signal_value": 1,
+        "confidence": 0.5,
+        "source": "technical",
+        "technical": {
+          "signal": "BUY",
+          "strength": 0.5
+        },
+        "ml": {
+          "signal": "HOLD",
+          "confidence": 0.0
+        },
+        "timestamp": "2025-10-16T02:30:06.390088",
+        "indicators": {
+          "rsi": 26.439354801676075,
+          "macd_histogram": -190.63959924540745,
+          "price": 110336.9
+        },
+        "symbol": "BTC/USDT",
+        "price": 110336.9,
+        "atr": 827.1285714285685
+      }
+    },
+    {
+      "symbol": "DOGE/USDT",
+      "action": "CLOSE_LONG",
+      "type": "LONG",
+      "price": 0.19698,
+      "size": 7159.262696512306,
+      "entry_price": 0.19695,
+      "proceeds": 141.21645668870525,
+      "pnl": 0.21477788089538527,
+      "pnl_pct": 0.00015232292460016375,
+      "timestamp": "2025-10-16T02:30:07.071633",
+      "signal": {
+        "signal": "BUY",
+        "signal_value": 1,
+        "confidence": 0.5,
+        "source": "technical",
+        "technical": {
+          "signal": "BUY",
+          "strength": 0.5
+        },
+        "ml": {
+          "signal": "HOLD",
+          "confidence": 0.0
+        },
+        "timestamp": "2025-10-16T02:30:07.071438",
+        "indicators": {
+          "rsi": 28.957528957529036,
+          "macd_histogram": -0.0006354342040146604,
+          "price": 0.19698
+        },
+        "symbol": "DOGE/USDT",
+        "price": 0.19698,
+        "atr": 0.0030257142857142865
+      }
+    },
+    {
+      "symbol": "XRP/USDT",
+      "action": "CLOSE_LONG",
+      "type": "LONG",
+      "price": 2.4168,
+      "size": 583.3243092958024,
+      "entry_price": 2.4186,
+      "proceeds": 140.0328336895502,
+      "pnl": -1.0499837567325878,
+      "pnl_pct": -0.0007442322004466409,
+      "timestamp": "2025-10-16T02:30:07.475593",
+      "signal": {
+        "signal": "BUY",
+        "signal_value": 1,
+        "confidence": 0.5,
+        "source": "technical",
+        "technical": {
+          "signal": "BUY",
+          "strength": 0.5
+        },
+        "ml": {
+          "signal": "HOLD",
+          "confidence": 0.0
+        },
+        "timestamp": "2025-10-16T02:30:07.475386",
+        "indicators": {
+          "rsi": 26.298044504383043,
+          "macd_histogram": -0.008030938602007681,
+          "price": 2.4168
+        },
+        "symbol": "XRP/USDT",
+        "price": 2.4168,
+        "atr": 0.029800000000000017
+      }
+    },
+    {
+      "symbol": "XRP/USDT",
+      "action": "CLOSE_LONG",
+      "type": "LONG",
+      "price": 2.4192,
+      "size": 583.3073085641804,
+      "entry_price": 2.4172,
+      "proceeds": 142.16365724326218,
+      "pnl": 1.1666146171284915,
+      "pnl_pct": 0.0008274036074798213,
+      "timestamp": "2025-10-16T02:40:12.296641",
+      "signal": {
+        "signal": "BUY",
+        "signal_value": 1,
+        "confidence": 0.5,
+        "source": "technical",
+        "technical": {
+          "signal": "BUY",
+          "strength": 0.5
+        },
+        "ml": {
+          "signal": "HOLD",
+          "confidence": 0.0
+        },
+        "timestamp": "2025-10-16T02:40:12.296448",
+        "indicators": {
+          "rsi": 26.73063742289247,
+          "macd_histogram": -0.00787777620884505,
+          "price": 2.4192
+        },
+        "symbol": "XRP/USDT",
+        "price": 2.4192,
+        "atr": 0.02992142857142856
+      }
+    },
+    {
+      "symbol": "XRP/USDT",
+      "action": "CLOSE_LONG",
+      "type": "LONG",
+      "price": 2.427,
+      "size": 581.8391724929469,
+      "entry_price": 2.4236,
+      "proceeds": 142.99279503186668,
+      "pnl": 1.97825318647606,
+      "pnl_pct": 0.0014028717610166982,
+      "timestamp": "2025-10-16T02:50:17.491832",
+      "signal": {
+        "signal": "BUY",
+        "signal_value": 1,
+        "confidence": 0.5,
+        "source": "technical",
+        "technical": {
+          "signal": "BUY",
+          "strength": 0.5
+        },
+        "ml": {
+          "signal": "HOLD",
+          "confidence": 0.0
+        },
+        "timestamp": "2025-10-16T02:50:17.491617",
+        "indicators": {
+          "rsi": 28.240405503258586,
+          "macd_histogram": -0.007379998431067564,
+          "price": 2.427
+        },
+        "symbol": "XRP/USDT",
+        "price": 2.427,
+        "atr": 0.02992142857142856
+      }
+    },
+    {
+      "symbol": "XRP/USDT",
+      "action": "CLOSE_LONG",
+      "type": "LONG",
+      "price": 2.4228,
+      "size": 580.7156441172092,
+      "entry_price": 2.4288,
+      "proceeds": 137.55992177848464,
+      "pnl": -3.484293864703129,
+      "pnl_pct": -0.002470355731225207,
+      "timestamp": "2025-10-16T03:05:25.535660",
+      "signal": {
+        "signal": "BUY",
+        "signal_value": 1,
+        "confidence": 0.5,
+        "source": "technical",
+        "technical": {
+          "signal": "BUY",
+          "strength": 0.5
+        },
+        "ml": {
+          "signal": "HOLD",
+          "confidence": 0.0
+        },
+        "timestamp": "2025-10-16T03:05:25.535475",
+        "indicators": {
+          "rsi": 22.590139808682835,
+          "macd_histogram": -0.007559512817504669,
+          "price": 2.4228
+        },
+        "symbol": "XRP/USDT",
+        "price": 2.4228,
+        "atr": 0.029535714285714252
+      }
+    },
+    {
+      "symbol": "COAI/USDT",
+      "action": "CLOSE_SHORT",
+      "type": "SHORT",
+      "price": 16.197,
+      "size": 91.68653666091986,
+      "entry_price": 16.092,
+      "proceeds": 137.9148884453556,
+      "pnl": -9.627086349396624,
+      "pnl_pct": -0.006524981357196149,
+      "timestamp": "2025-10-16T03:30:38.190677",
+      "signal": {
+        "signal": "SELL",
+        "signal_value": -1,
+        "confidence": 0.5,
+        "source": "technical",
+        "technical": {
+          "signal": "SELL",
+          "strength": 0.5
+        },
+        "ml": {
+          "signal": "HOLD",
+          "confidence": 0.0
+        },
+        "timestamp": "2025-10-16T03:30:38.190449",
+        "indicators": {
+          "rsi": 61.13868908925134,
+          "macd_histogram": -0.27290388734115556,
+          "price": 16.197
+        },
+        "symbol": "COAI/USDT",
+        "price": 16.197,
+        "atr": 1.9977857142857143
+      }
+    },
+    {
+      "symbol": "COAI/USDT",
+      "action": "CLOSE_SHORT",
+      "type": "SHORT",
+      "price": 16.37,
+      "size": 89.74385205564113,
+      "entry_price": 15.941,
+      "proceeds": 104.56056203002748,
+      "pnl": -38.500112531870066,
+      "pnl_pct": -0.026911737030299244,
+      "timestamp": "2025-10-16T03:55:49.809237",
+      "signal": {
+        "signal": "SELL",
+        "signal_value": -1,
+        "confidence": 0.5,
+        "source": "technical",
+        "technical": {
+          "signal": "SELL",
+          "strength": 0.5
+        },
+        "ml": {
+          "signal": "HOLD",
+          "confidence": 0.0
+        },
+        "timestamp": "2025-10-16T03:55:49.809033",
+        "indicators": {
+          "rsi": 61.80804460374354,
+          "macd_histogram": -0.2618634315006987,
+          "price": 16.37
+        },
+        "symbol": "COAI/USDT",
+        "price": 16.37,
+        "atr": 2.0275714285714286
+      }
+    }
+  ],
+  "equity_curve": [
+    {
+      "timestamp": "2025-10-16T01:34:42.869825",
+      "equity": 9850.0
+    },
+    {
+      "timestamp": "2025-10-16T01:39:44.725386",
+      "equity": 10001.477650535648
+    },
+    {
+      "timestamp": "2025-10-16T01:44:46.390621",
+      "equity": 9558.128398688585
+    },
+    {
+      "timestamp": "2025-10-16T01:49:48.885902",
+      "equity": 9856.022840209242
+    },
+    {
+      "timestamp": "2025-10-16T01:54:50.988430",
+      "equity": 9708.182497606103
+    },
+    {
+      "timestamp": "2025-10-16T01:59:53.090875",
+      "equity": 9849.125157039578
+    },
+    {
+      "timestamp": "2025-10-16T02:04:54.982668",
+      "equity": 9555.867455488724
+    },
+    {
+      "timestamp": "2025-10-16T02:09:57.268796",
+      "equity": 9710.454995633518
+    },
+    {
+      "timestamp": "2025-10-16T02:14:59.357279",
+      "equity": 9543.260833015896
+    },
+    {
+      "timestamp": "2025-10-16T02:20:01.862596",
+      "equity": 9405.521163085517
+    },
+    {
+      "timestamp": "2025-10-16T02:25:04.900950",
+      "equity": 9264.438345639235
+    },
+    {
+      "timestamp": "2025-10-16T02:30:07.803932",
+      "equity": 9688.271114166555
+    },
+    {
+      "timestamp": "2025-10-16T02:35:09.904768",
+      "equity": 9258.805799116111
+    },
+    {
+      "timestamp": "2025-10-16T02:40:12.633235",
+      "equity": 9400.969456359373
+    },
+    {
+      "timestamp": "2025-10-16T02:45:15.111194",
+      "equity": 9259.954914513983
+    },
+    {
+      "timestamp": "2025-10-16T02:50:17.819692",
+      "equity": 9402.94770954585
+    },
+    {
+      "timestamp": "2025-10-16T02:55:20.451854",
+      "equity": 9261.903493902662
+    },
+    {
+      "timestamp": "2025-10-16T03:00:23.151316",
+      "equity": 9261.903493902662
+    },
+    {
+      "timestamp": "2025-10-16T03:05:25.861388",
+      "equity": 9399.463415681146
+    },
+    {
+      "timestamp": "2025-10-16T03:10:28.378302",
+      "equity": 9399.463415681146
+    },
+    {
+      "timestamp": "2025-10-16T03:15:31.245640",
+      "equity": 9399.463415681146
+    },
+    {
+      "timestamp": "2025-10-16T03:20:33.724517",
+      "equity": 9399.463415681146
+    },
+    {
+      "timestamp": "2025-10-16T03:25:36.202515",
+      "equity": 9399.463415681146
+    },
+    {
+      "timestamp": "2025-10-16T03:30:38.677203",
+      "equity": 9537.378304126501
+    },
+    {
+      "timestamp": "2025-10-16T03:35:40.952325",
+      "equity": 9537.378304126501
+    },
+    {
+      "timestamp": "2025-10-16T03:40:43.220389",
+      "equity": 9537.378304126501
+    },
+    {
+      "timestamp": "2025-10-16T03:45:45.538836",
+      "equity": 9537.378304126501
+    },
+    {
+      "timestamp": "2025-10-16T03:50:47.810197",
+      "equity": 9394.317629564604
+    },
+    {
+      "timestamp": "2025-10-16T03:55:50.301403",
+      "equity": 9498.878191594631
+    },
+    {
+      "timestamp": "2025-10-16T04:00:52.601563",
+      "equity": 9356.395018720712
+    }
+  ],
+  "hourly_snapshots": [
+    {
+      "timestamp": "2025-10-16T01:34:42.869822",
+      "balance": 9850.0,
+      "equity": 9850.0,
+      "positions": 1,
+      "total_trades": 1
+    },
+    {
+      "timestamp": "2025-10-16T01:39:44.725383",
+      "balance": 10001.477650535648,
+      "equity": 10001.477650535648,
+      "positions": 0,
+      "total_trades": 2
+    },
+    {
+      "timestamp": "2025-10-16T01:44:46.390619",
+      "balance": 9558.128398688585,
+      "equity": 9558.128398688585,
+      "positions": 3,
+      "total_trades": 5
+    },
+    {
+      "timestamp": "2025-10-16T01:49:48.885900",
+      "balance": 9856.022840209242,
+      "equity": 9856.022840209242,
+      "positions": 1,
+      "total_trades": 7
+    },
+    {
+      "timestamp": "2025-10-16T01:54:50.988427",
+      "balance": 9708.182497606103,
+      "equity": 9708.182497606103,
+      "positions": 2,
+      "total_trades": 8
+    },
+    {
+      "timestamp": "2025-10-16T01:59:53.090873",
+      "balance": 9849.125157039578,
+      "equity": 9849.125157039578,
+      "positions": 1,
+      "total_trades": 9
+    },
+    {
+      "timestamp": "2025-10-16T02:04:54.982666",
+      "balance": 9555.867455488724,
+      "equity": 9555.867455488724,
+      "positions": 3,
+      "total_trades": 11
+    },
+    {
+      "timestamp": "2025-10-16T02:09:57.268794",
+      "balance": 9710.454995633518,
+      "equity": 9710.454995633518,
+      "positions": 2,
+      "total_trades": 14
+    },
+    {
+      "timestamp": "2025-10-16T02:14:59.357276",
+      "balance": 9543.260833015896,
+      "equity": 9543.260833015896,
+      "positions": 3,
+      "total_trades": 19
+    },
+    {
+      "timestamp": "2025-10-16T02:20:01.862594",
+      "balance": 9405.521163085517,
+      "equity": 9405.521163085517,
+      "positions": 4,
+      "total_trades": 22
+    },
+    {
+      "timestamp": "2025-10-16T02:25:04.900948",
+      "balance": 9264.438345639235,
+      "equity": 9264.438345639235,
+      "positions": 5,
+      "total_trades": 23
+    },
+    {
+      "timestamp": "2025-10-16T02:30:07.803929",
+      "balance": 9688.271114166555,
+      "equity": 9688.271114166555,
+      "positions": 2,
+      "total_trades": 26
+    },
+    {
+      "timestamp": "2025-10-16T02:35:09.904766",
+      "balance": 9258.805799116111,
+      "equity": 9258.805799116111,
+      "positions": 5,
+      "total_trades": 29
+    },
+    {
+      "timestamp": "2025-10-16T02:40:12.633231",
+      "balance": 9400.969456359373,
+      "equity": 9400.969456359373,
+      "positions": 4,
+      "total_trades": 30
+    },
+    {
+      "timestamp": "2025-10-16T02:45:15.111192",
+      "balance": 9259.954914513983,
+      "equity": 9259.954914513983,
+      "positions": 5,
+      "total_trades": 31
+    },
+    {
+      "timestamp": "2025-10-16T02:50:17.819690",
+      "balance": 9402.94770954585,
+      "equity": 9402.94770954585,
+      "positions": 4,
+      "total_trades": 32
+    },
+    {
+      "timestamp": "2025-10-16T02:55:20.451852",
+      "balance": 9261.903493902662,
+      "equity": 9261.903493902662,
+      "positions": 5,
+      "total_trades": 33
+    },
+    {
+      "timestamp": "2025-10-16T03:00:23.151313",
+      "balance": 9261.903493902662,
+      "equity": 9261.903493902662,
+      "positions": 5,
+      "total_trades": 33
+    },
+    {
+      "timestamp": "2025-10-16T03:05:25.861386",
+      "balance": 9399.463415681146,
+      "equity": 9399.463415681146,
+      "positions": 4,
+      "total_trades": 34
+    },
+    {
+      "timestamp": "2025-10-16T03:10:28.378300",
+      "balance": 9399.463415681146,
+      "equity": 9399.463415681146,
+      "positions": 4,
+      "total_trades": 34
+    },
+    {
+      "timestamp": "2025-10-16T03:15:31.245638",
+      "balance": 9399.463415681146,
+      "equity": 9399.463415681146,
+      "positions": 4,
+      "total_trades": 34
+    },
+    {
+      "timestamp": "2025-10-16T03:20:33.724515",
+      "balance": 9399.463415681146,
+      "equity": 9399.463415681146,
+      "positions": 4,
+      "total_trades": 34
+    },
+    {
+      "timestamp": "2025-10-16T03:25:36.202513",
+      "balance": 9399.463415681146,
+      "equity": 9399.463415681146,
+      "positions": 4,
+      "total_trades": 34
+    },
+    {
+      "timestamp": "2025-10-16T03:30:38.677201",
+      "balance": 9537.378304126501,
+      "equity": 9537.378304126501,
+      "positions": 3,
+      "total_trades": 35
+    },
+    {
+      "timestamp": "2025-10-16T03:35:40.952323",
+      "balance": 9537.378304126501,
+      "equity": 9537.378304126501,
+      "positions": 3,
+      "total_trades": 35
+    },
+    {
+      "timestamp": "2025-10-16T03:40:43.220387",
+      "balance": 9537.378304126501,
+      "equity": 9537.378304126501,
+      "positions": 3,
+      "total_trades": 35
+    },
+    {
+      "timestamp": "2025-10-16T03:45:45.538834",
+      "balance": 9537.378304126501,
+      "equity": 9537.378304126501,
+      "positions": 3,
+      "total_trades": 35
+    },
+    {
+      "timestamp": "2025-10-16T03:50:47.810195",
+      "balance": 9394.317629564604,
+      "equity": 9394.317629564604,
+      "positions": 4,
+      "total_trades": 36
+    },
+    {
+      "timestamp": "2025-10-16T03:55:50.301401",
+      "balance": 9498.878191594631,
+      "equity": 9498.878191594631,
+      "positions": 3,
+      "total_trades": 37
+    },
+    {
+      "timestamp": "2025-10-16T04:00:52.601561",
+      "balance": 9356.395018720712,
+      "equity": 9356.395018720712,
+      "positions": 4,
+      "total_trades": 38
+    }
+  ]
+}

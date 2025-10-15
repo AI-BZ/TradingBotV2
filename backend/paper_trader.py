@@ -53,9 +53,10 @@ class PaperTrader:
             take_profit_pct=0.05
         )
         self.trailing_stop_manager = TrailingStopManager(
-            base_atr_multiplier=2.5,
-            min_profit_threshold=0.01,
-            acceleration_step=0.1
+            base_atr_multiplier=1.8,  # Improved: 2.5 → 1.8 (28% tighter)
+            min_profit_threshold=0.005,  # Improved: 1% → 0.5% (faster profit locking)
+            acceleration_step=0.3,  # Improved: 0.1 → 0.3 (3x faster tightening)
+            max_loss_pct=0.01  # NEW: Hard stop at -1% maximum loss
         )
         self.ml_engine = None
 

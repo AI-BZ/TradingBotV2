@@ -1,0 +1,6780 @@
+{
+  "test_info": {
+    "start_time": "2025-10-16T01:25:57.886098",
+    "test_duration_hours": 5.0,
+    "end_time": "2025-10-16T04:05:52.857493",
+    "actual_duration_hours": 2.665269831944445
+  },
+  "backtest": {
+    "backtest_summary": {
+      "initial_balance": 10000.0,
+      "final_balance": 8812.142890201234,
+      "total_pnl": -670.3861791751882,
+      "total_return_pct": -6.703861791751882
+    },
+    "trade_statistics": {
+      "total_trades": 157,
+      "winning_trades": 52,
+      "losing_trades": 105,
+      "win_rate_pct": 33.12101910828025
+    },
+    "performance_metrics": {
+      "avg_win": 90.54299247305147,
+      "avg_loss": -51.22496940737014,
+      "profit_factor": 0.8753609743114785,
+      "max_drawdown_pct": 24.13088781564462,
+      "sharpe_ratio": -0.472047477510947
+    },
+    "trades": [
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 210.84,
+        "exit_price": 215.15,
+        "size": 7.114399544678429,
+        "pnl": -30.663062037564046,
+        "pnl_pct": -0.02044204135837603,
+        "entry_time": "2025-09-08T09:00:00",
+        "exit_time": "2025-09-08T10:00:00",
+        "duration_hours": 1.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 112022.0,
+        "exit_price": 112152.2,
+        "size": 0.012954057864383335,
+        "pnl": -1.6866183339426726,
+        "pnl_pct": -0.001162271696630993,
+        "entry_time": "2025-09-08T11:00:00",
+        "exit_time": "2025-09-09T05:00:00",
+        "duration_hours": 18.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 215.15,
+        "exit_price": 218.36,
+        "size": 6.847492636274067,
+        "pnl": -21.98045136243981,
+        "pnl_pct": -0.014919823379037918,
+        "entry_time": "2025-09-08T10:00:00",
+        "exit_time": "2025-09-09T06:00:00",
+        "duration_hours": 20.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 2.9622,
+        "exit_price": 2.9915,
+        "size": 482.5374309745091,
+        "pnl": -14.138346727552953,
+        "pnl_pct": -0.009891297008979697,
+        "entry_time": "2025-09-08T12:00:00",
+        "exit_time": "2025-09-09T06:00:00",
+        "duration_hours": 18.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 4369.82,
+        "exit_price": 4363.99,
+        "size": 0.32219445935123203,
+        "pnl": 1.8783936980176592,
+        "pnl_pct": 0.0013341510634305137,
+        "entry_time": "2025-09-08T15:00:00",
+        "exit_time": "2025-09-09T06:00:00",
+        "duration_hours": 15.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 879.4,
+        "exit_price": 881.55,
+        "size": 1.5533438972533729,
+        "pnl": -3.3396893790947164,
+        "pnl_pct": -0.0024448487605185096,
+        "entry_time": "2025-09-08T20:00:00",
+        "exit_time": "2025-09-09T06:00:00",
+        "duration_hours": 10.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.23751,
+        "exit_price": 0.24568,
+        "size": 5838.966003438876,
+        "pnl": -47.70435224809568,
+        "pnl_pct": -0.034398551639930997,
+        "entry_time": "2025-09-08T19:00:00",
+        "exit_time": "2025-09-09T12:00:00",
+        "duration_hours": 17.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 218.36,
+        "exit_price": 219.11,
+        "size": 7.949510029198362,
+        "pnl": -5.962132521898772,
+        "pnl_pct": -0.003434694999084081,
+        "entry_time": "2025-09-09T06:00:00",
+        "exit_time": "2025-09-10T02:00:00",
+        "duration_hours": 20.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XPL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.7206,
+        "exit_price": 0.6766,
+        "size": 2050.3746877602,
+        "pnl": 90.21648626144886,
+        "pnl_pct": 0.06106022758812106,
+        "entry_time": "2025-09-08T09:00:00",
+        "exit_time": "2025-09-10T07:00:00",
+        "duration_hours": 46.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.2398,
+        "exit_price": 0.24442,
+        "size": 5980.627839415191,
+        "pnl": -27.630500618098097,
+        "pnl_pct": -0.019266055045871498,
+        "entry_time": "2025-09-09T16:00:00",
+        "exit_time": "2025-09-10T13:00:00",
+        "duration_hours": 21.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 222.15,
+        "exit_price": 224.87,
+        "size": 6.537434536127186,
+        "pnl": -17.78182193826594,
+        "pnl_pct": -0.012243979293270308,
+        "entry_time": "2025-09-10T07:00:00",
+        "exit_time": "2025-09-11T00:00:00",
+        "duration_hours": 17.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 113388.0,
+        "exit_price": 114354.4,
+        "size": 0.012616032701587863,
+        "pnl": -12.192134002814438,
+        "pnl_pct": -0.00852294775461243,
+        "entry_time": "2025-09-10T12:00:00",
+        "exit_time": "2025-09-11T03:00:00",
+        "duration_hours": 15.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 4416.72,
+        "exit_price": 4402.0,
+        "size": 0.3229584077038598,
+        "pnl": 4.753947761400899,
+        "pnl_pct": 0.0033327899436686624,
+        "entry_time": "2025-09-10T13:00:00",
+        "exit_time": "2025-09-11T03:00:00",
+        "duration_hours": 14.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 3.0114,
+        "exit_price": 3.0081,
+        "size": 459.56873763456684,
+        "pnl": 1.5165768341940056,
+        "pnl_pct": 0.0010958358238692496,
+        "entry_time": "2025-09-10T13:00:00",
+        "exit_time": "2025-09-11T03:00:00",
+        "duration_hours": 14.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.24789,
+        "exit_price": 0.25221,
+        "size": 5499.15735634775,
+        "pnl": -23.756359779422226,
+        "pnl_pct": -0.017427084593973095,
+        "entry_time": "2025-09-10T16:00:00",
+        "exit_time": "2025-09-11T03:00:00",
+        "duration_hours": 11.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "COAI/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 0.2246,
+        "exit_price": 0.33538,
+        "size": 6289.591440576076,
+        "pnl": 696.7609397870178,
+        "pnl_pct": 0.493232413178985,
+        "entry_time": "2025-10-01T00:00:00",
+        "exit_time": "2025-09-11T04:00:00",
+        "duration_hours": -476.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 903.85,
+        "exit_price": 900.0,
+        "size": 1.5544842679611495,
+        "pnl": 5.9847644316504605,
+        "pnl_pct": 0.004259556342313462,
+        "entry_time": "2025-09-10T13:00:00",
+        "exit_time": "2025-09-11T09:00:00",
+        "duration_hours": 20.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 114279.6,
+        "exit_price": 115037.3,
+        "size": 0.013713456489390784,
+        "pnl": -10.390685982011357,
+        "pnl_pct": -0.0066302297172898495,
+        "entry_time": "2025-09-11T06:00:00",
+        "exit_time": "2025-09-11T22:00:00",
+        "duration_hours": 16.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.24787,
+        "exit_price": 0.25591,
+        "size": 6128.281252736731,
+        "pnl": -49.27138127200344,
+        "pnl_pct": -0.032436357768185015,
+        "entry_time": "2025-09-11T12:00:00",
+        "exit_time": "2025-09-11T23:00:00",
+        "duration_hours": 11.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 224.37,
+        "exit_price": 232.93,
+        "size": 6.977910688328682,
+        "pnl": -59.73091549209353,
+        "pnl_pct": -0.03815126799482998,
+        "entry_time": "2025-09-11T09:00:00",
+        "exit_time": "2025-09-12T00:00:00",
+        "duration_hours": 15.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 3.0266,
+        "exit_price": 3.0531,
+        "size": 509.53192156981487,
+        "pnl": -13.502595921600077,
+        "pnl_pct": -0.008755699464745909,
+        "entry_time": "2025-09-11T09:00:00",
+        "exit_time": "2025-09-12T00:00:00",
+        "duration_hours": 15.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 4410.41,
+        "exit_price": 4510.81,
+        "size": 0.33925005112996653,
+        "pnl": -34.06070513344883,
+        "pnl_pct": -0.02276432349826899,
+        "entry_time": "2025-09-11T15:00:00",
+        "exit_time": "2025-09-12T00:00:00",
+        "duration_hours": 9.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 232.93,
+        "exit_price": 238.38,
+        "size": 6.426226196466174,
+        "pnl": -35.022932770740574,
+        "pnl_pct": -0.02339758725797445,
+        "entry_time": "2025-09-12T00:00:00",
+        "exit_time": "2025-09-12T09:00:00",
+        "duration_hours": 9.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 4510.81,
+        "exit_price": 4573.66,
+        "size": 0.33689197804724547,
+        "pnl": -21.173660820269195,
+        "pnl_pct": -0.013933196033528224,
+        "entry_time": "2025-09-12T00:00:00",
+        "exit_time": "2025-09-12T16:00:00",
+        "duration_hours": 16.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.26151,
+        "exit_price": 0.27075,
+        "size": 5553.484897708949,
+        "pnl": -51.31420045483052,
+        "pnl_pct": -0.035333256854422276,
+        "entry_time": "2025-09-12T02:00:00",
+        "exit_time": "2025-09-12T16:00:00",
+        "duration_hours": 14.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 115427.0,
+        "exit_price": 115746.4,
+        "size": 0.012900144563057634,
+        "pnl": -4.120306173440533,
+        "pnl_pct": -0.0027671168790663727,
+        "entry_time": "2025-09-11T23:00:00",
+        "exit_time": "2025-09-12T17:00:00",
+        "duration_hours": 18.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 906.0,
+        "exit_price": 917.98,
+        "size": 1.5742266217421779,
+        "pnl": -18.85923492847132,
+        "pnl_pct": -0.013222958057395163,
+        "entry_time": "2025-09-12T11:00:00",
+        "exit_time": "2025-09-12T17:00:00",
+        "duration_hours": 6.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 3.0714,
+        "exit_price": 3.0779,
+        "size": 465.7509468209511,
+        "pnl": -3.027381154336159,
+        "pnl_pct": -0.002116298756267484,
+        "entry_time": "2025-09-12T05:00:00",
+        "exit_time": "2025-09-12T18:00:00",
+        "duration_hours": 13.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 4611.34,
+        "exit_price": 4710.83,
+        "size": 0.3111012507421225,
+        "pnl": -30.951463436333704,
+        "pnl_pct": -0.021575073622851444,
+        "entry_time": "2025-09-12T17:00:00",
+        "exit_time": "2025-09-12T23:00:00",
+        "duration_hours": 6.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "COAI/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.33451,
+        "exit_price": 0.38751,
+        "size": 4407.664807998934,
+        "pnl": -233.60623482394368,
+        "pnl_pct": -0.15844070431377252,
+        "entry_time": "2025-10-03T06:00:00",
+        "exit_time": "2025-09-13T01:00:00",
+        "duration_hours": -485.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 917.98,
+        "exit_price": 927.97,
+        "size": 1.5162406761788092,
+        "pnl": -15.147244355026318,
+        "pnl_pct": -0.010882590034641287,
+        "entry_time": "2025-09-12T17:00:00",
+        "exit_time": "2025-09-13T02:00:00",
+        "duration_hours": 9.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 238.7,
+        "exit_price": 243.49,
+        "size": 6.42842782138405,
+        "pnl": -30.79216926442973,
+        "pnl_pct": -0.020067029744449186,
+        "entry_time": "2025-09-12T16:00:00",
+        "exit_time": "2025-09-13T03:00:00",
+        "duration_hours": 11.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.27075,
+        "exit_price": 0.28428,
+        "size": 5228.235004947862,
+        "pnl": -70.7380196169445,
+        "pnl_pct": -0.04997229916897502,
+        "entry_time": "2025-09-12T16:00:00",
+        "exit_time": "2025-09-13T04:00:00",
+        "duration_hours": 12.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 3.1221,
+        "exit_price": 3.1429,
+        "size": 445.85501469449457,
+        "pnl": -9.273784305645457,
+        "pnl_pct": -0.006662182505364956,
+        "entry_time": "2025-09-12T20:00:00",
+        "exit_time": "2025-09-13T08:00:00",
+        "duration_hours": 12.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 925.77,
+        "exit_price": 939.25,
+        "size": 1.5863860197092046,
+        "pnl": -21.384483545680105,
+        "pnl_pct": -0.014560852047484816,
+        "entry_time": "2025-09-13T05:00:00",
+        "exit_time": "2025-09-13T09:00:00",
+        "duration_hours": 4.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XPL/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 0.5911,
+        "exit_price": 0.6693,
+        "size": 2493.2978188699954,
+        "pnl": 194.97588943563375,
+        "pnl_pct": 0.13229571984435806,
+        "entry_time": "2025-09-11T17:00:00",
+        "exit_time": "2025-09-13T20:00:00",
+        "duration_hours": 51.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 243.49,
+        "exit_price": 241.75,
+        "size": 6.856591252859494,
+        "pnl": 11.930468779975582,
+        "pnl_pct": 0.00714608402809154,
+        "entry_time": "2025-09-13T03:00:00",
+        "exit_time": "2025-09-13T22:00:00",
+        "duration_hours": 19.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 115746.4,
+        "exit_price": 115862.7,
+        "size": 0.012208368787048424,
+        "pnl": -1.4198332899337671,
+        "pnl_pct": -0.001004782870136807,
+        "entry_time": "2025-09-12T17:00:00",
+        "exit_time": "2025-09-13T23:00:00",
+        "duration_hours": 30.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 4710.83,
+        "exit_price": 4674.24,
+        "size": 0.29464023693606517,
+        "pnl": 10.780886269490667,
+        "pnl_pct": 0.007767208750899554,
+        "entry_time": "2025-09-12T23:00:00",
+        "exit_time": "2025-09-14T05:00:00",
+        "duration_hours": 30.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 939.25,
+        "exit_price": 943.22,
+        "size": 1.483226635951578,
+        "pnl": -5.888409744727805,
+        "pnl_pct": -0.004226776683524117,
+        "entry_time": "2025-09-13T09:00:00",
+        "exit_time": "2025-09-14T05:00:00",
+        "duration_hours": 20.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 115684.1,
+        "exit_price": 116023.3,
+        "size": 0.01254183025617492,
+        "pnl": -4.254188822894497,
+        "pnl_pct": -0.002932122910581463,
+        "entry_time": "2025-09-14T06:00:00",
+        "exit_time": "2025-09-14T21:00:00",
+        "duration_hours": 15.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "COAI/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.39648,
+        "exit_price": 0.4895,
+        "size": 3550.4693439768976,
+        "pnl": -330.264658376731,
+        "pnl_pct": -0.2346146085552865,
+        "entry_time": "2025-10-06T01:00:00",
+        "exit_time": "2025-09-14T22:00:00",
+        "duration_hours": -507.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "COAI/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.4895,
+        "exit_price": 0.72553,
+        "size": 2817.7234190052955,
+        "pnl": -665.0672585878199,
+        "pnl_pct": -0.48218590398365685,
+        "entry_time": "2025-10-06T04:00:00",
+        "exit_time": "2025-09-15T00:00:00",
+        "duration_hours": -508.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 4664.69,
+        "exit_price": 4640.98,
+        "size": 0.31577342167946315,
+        "pnl": 7.486987828020083,
+        "pnl_pct": 0.005082867243053673,
+        "entry_time": "2025-09-14T06:00:00",
+        "exit_time": "2025-09-15T04:00:00",
+        "duration_hours": 22.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 3.1791,
+        "exit_price": 3.0646,
+        "size": 425.16449668837186,
+        "pnl": 48.681334870818596,
+        "pnl_pct": 0.036016482652323,
+        "entry_time": "2025-09-13T09:00:00",
+        "exit_time": "2025-09-15T05:00:00",
+        "duration_hours": 44.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 115210.0,
+        "exit_price": 114697.0,
+        "size": 0.011792261777615186,
+        "pnl": -6.0494302919165905,
+        "pnl_pct": -0.004452738477562712,
+        "entry_time": "2025-09-14T23:00:00",
+        "exit_time": "2025-09-15T08:00:00",
+        "duration_hours": 9.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.29849,
+        "exit_price": 0.26818,
+        "size": 4597.218695937074,
+        "pnl": 139.34169867385273,
+        "pnl_pct": 0.10154444034976048,
+        "entry_time": "2025-09-13T09:00:00",
+        "exit_time": "2025-09-15T23:00:00",
+        "duration_hours": 62.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 2.958,
+        "exit_price": 2.9776,
+        "size": 436.24054633189456,
+        "pnl": 8.550314708104967,
+        "pnl_pct": 0.006626098715348079,
+        "entry_time": "2025-09-15T08:00:00",
+        "exit_time": "2025-09-16T03:00:00",
+        "duration_hours": 19.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 245.14,
+        "exit_price": 236.44,
+        "size": 5.829840052032675,
+        "pnl": 50.719608452684206,
+        "pnl_pct": 0.03548992412498976,
+        "entry_time": "2025-09-14T12:00:00",
+        "exit_time": "2025-09-16T05:00:00",
+        "duration_hours": 41.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "COAI/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 2.60553,
+        "exit_price": 2.90287,
+        "size": 495.2091855557846,
+        "pnl": -147.24549923315706,
+        "pnl_pct": -0.114118816517177,
+        "entry_time": "2025-10-06T11:00:00",
+        "exit_time": "2025-09-16T07:00:00",
+        "duration_hours": -484.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 930.09,
+        "exit_price": 938.0,
+        "size": 1.4214547304750433,
+        "pnl": -11.243706918057548,
+        "pnl_pct": -0.008504553322796683,
+        "entry_time": "2025-09-16T05:00:00",
+        "exit_time": "2025-09-16T15:00:00",
+        "duration_hours": 10.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 115893.3,
+        "exit_price": 116414.8,
+        "size": 0.011581463646998955,
+        "pnl": -6.039733291909955,
+        "pnl_pct": -0.004499828721763899,
+        "entry_time": "2025-09-16T05:00:00",
+        "exit_time": "2025-09-16T17:00:00",
+        "duration_hours": 12.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 938.0,
+        "exit_price": 953.11,
+        "size": 1.3594120392664382,
+        "pnl": -20.5407159133159,
+        "pnl_pct": -0.016108742004264407,
+        "entry_time": "2025-09-16T15:00:00",
+        "exit_time": "2025-09-16T17:00:00",
+        "duration_hours": 2.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 4660.48,
+        "exit_price": 4517.9,
+        "size": 0.28107219849365284,
+        "pnl": 40.075274061225,
+        "pnl_pct": 0.030593415270530062,
+        "entry_time": "2025-09-15T05:00:00",
+        "exit_time": "2025-09-16T22:00:00",
+        "duration_hours": 41.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "COAI/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 3.14988,
+        "exit_price": 3.81318,
+        "size": 412.5608050996114,
+        "pnl": -273.65158202257226,
+        "pnl_pct": -0.21057945064573888,
+        "entry_time": "2025-10-07T15:00:00",
+        "exit_time": "2025-09-17T02:00:00",
+        "duration_hours": -493.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 2.9801,
+        "exit_price": 3.0152,
+        "size": 447.356362264787,
+        "pnl": 15.702208315493982,
+        "pnl_pct": 0.01177812825072981,
+        "entry_time": "2025-09-16T04:00:00",
+        "exit_time": "2025-09-17T03:00:00",
+        "duration_hours": 23.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 953.11,
+        "exit_price": 992.91,
+        "size": 1.3548012674972945,
+        "pnl": -53.921090446392256,
+        "pnl_pct": -0.041758034224800865,
+        "entry_time": "2025-09-16T17:00:00",
+        "exit_time": "2025-09-17T22:00:00",
+        "duration_hours": 29.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 0.26198,
+        "exit_price": 0.27769,
+        "size": 5863.154164450676,
+        "pnl": 92.11015192352014,
+        "pnl_pct": 0.05996640964959158,
+        "entry_time": "2025-09-16T13:00:00",
+        "exit_time": "2025-09-18T22:00:00",
+        "duration_hours": 57.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XPL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.7105,
+        "exit_price": 0.6479,
+        "size": 2148.186657041601,
+        "pnl": 134.4764847308042,
+        "pnl_pct": 0.0881069669247009,
+        "entry_time": "2025-09-16T17:00:00",
+        "exit_time": "2025-09-20T01:00:00",
+        "duration_hours": 80.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 115562.6,
+        "exit_price": 115624.9,
+        "size": 0.011648863222004214,
+        "pnl": 0.7257241787307269,
+        "pnl_pct": 0.0005391017509123917,
+        "entry_time": "2025-09-20T01:00:00",
+        "exit_time": "2025-09-20T23:00:00",
+        "duration_hours": 22.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 4464.01,
+        "exit_price": 4467.26,
+        "size": 0.30615366368411406,
+        "pnl": 0.9949994069733707,
+        "pnl_pct": 0.0007280449640569801,
+        "entry_time": "2025-09-20T01:00:00",
+        "exit_time": "2025-09-21T08:00:00",
+        "duration_hours": 31.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 1062.06,
+        "exit_price": 997.27,
+        "size": 1.2676136749392632,
+        "pnl": 82.12868999931482,
+        "pnl_pct": 0.0610040863981319,
+        "entry_time": "2025-09-21T00:00:00",
+        "exit_time": "2025-09-23T06:00:00",
+        "duration_hours": 54.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "COAI/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 10.275,
+        "exit_price": 8.834,
+        "size": 131.069284483337,
+        "pnl": 188.87083894048868,
+        "pnl_pct": 0.14024330900243315,
+        "entry_time": "2025-10-12T18:00:00",
+        "exit_time": "2025-09-23T06:00:00",
+        "duration_hours": -468.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "COAI/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 8.834,
+        "exit_price": 11.265,
+        "size": 159.3367731606688,
+        "pnl": -387.347695553586,
+        "pnl_pct": -0.2751867783563506,
+        "entry_time": "2025-10-14T12:00:00",
+        "exit_time": "2025-09-23T19:00:00",
+        "duration_hours": -497.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 4147.1,
+        "exit_price": 4126.73,
+        "size": 0.4011865655392427,
+        "pnl": -8.172170340034695,
+        "pnl_pct": -0.00491186612331528,
+        "entry_time": "2025-09-23T17:00:00",
+        "exit_time": "2025-09-25T00:00:00",
+        "duration_hours": 31.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XPL/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 0.7349,
+        "exit_price": 1.4182,
+        "size": 1852.6478788959191,
+        "pnl": 1265.9142956495814,
+        "pnl_pct": 0.9297863654919035,
+        "entry_time": "2025-09-23T18:00:00",
+        "exit_time": "2025-09-28T11:00:00",
+        "duration_hours": 113.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 109990.0,
+        "exit_price": 110748.0,
+        "size": 0.013567979757768679,
+        "pnl": -10.284528656388659,
+        "pnl_pct": -0.006891535594144922,
+        "entry_time": "2025-09-28T15:00:00",
+        "exit_time": "2025-09-28T20:00:00",
+        "duration_hours": 5.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 110748.0,
+        "exit_price": 111881.5,
+        "size": 0.01346118588379491,
+        "pnl": -15.258254199281529,
+        "pnl_pct": -0.010234947809441255,
+        "entry_time": "2025-09-28T20:00:00",
+        "exit_time": "2025-09-28T22:00:00",
+        "duration_hours": 2.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.23287,
+        "exit_price": 0.23722,
+        "size": 6305.824808024395,
+        "pnl": -27.430337914906072,
+        "pnl_pct": -0.018679950186799472,
+        "entry_time": "2025-09-28T20:00:00",
+        "exit_time": "2025-09-28T23:00:00",
+        "duration_hours": 3.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 988.89,
+        "exit_price": 1000.36,
+        "size": 1.439104584513556,
+        "pnl": -16.506529584370526,
+        "pnl_pct": -0.011598863372063655,
+        "entry_time": "2025-09-28T22:00:00",
+        "exit_time": "2025-09-29T02:00:00",
+        "duration_hours": 4.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 2.8418,
+        "exit_price": 2.8854,
+        "size": 508.97700812828884,
+        "pnl": -22.191397554393436,
+        "pnl_pct": -0.015342388626926624,
+        "entry_time": "2025-09-28T20:00:00",
+        "exit_time": "2025-09-29T07:00:00",
+        "duration_hours": 11.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 199.75,
+        "exit_price": 206.52,
+        "size": 7.700326500949898,
+        "pnl": 52.131210411430885,
+        "pnl_pct": 0.033892365456821075,
+        "entry_time": "2025-09-28T11:00:00",
+        "exit_time": "2025-09-29T10:00:00",
+        "duration_hours": 23.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 111881.5,
+        "exit_price": 113168.2,
+        "size": 0.01291355543014236,
+        "pnl": -16.615871771964137,
+        "pnl_pct": -0.011500560861268369,
+        "entry_time": "2025-09-28T22:00:00",
+        "exit_time": "2025-09-29T13:00:00",
+        "duration_hours": 15.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.23722,
+        "exit_price": 0.23666,
+        "size": 5984.661500924668,
+        "pnl": 3.3514104405176774,
+        "pnl_pct": 0.002360677851783059,
+        "entry_time": "2025-09-28T23:00:00",
+        "exit_time": "2025-09-29T14:00:00",
+        "duration_hours": 15.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 1000.36,
+        "exit_price": 1018.71,
+        "size": 1.4167469138926467,
+        "pnl": -25.9973058699301,
+        "pnl_pct": -0.018343396377304193,
+        "entry_time": "2025-09-29T02:00:00",
+        "exit_time": "2025-09-29T14:00:00",
+        "duration_hours": 12.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 1011.15,
+        "exit_price": 1020.56,
+        "size": 1.4383437926582627,
+        "pnl": -13.534815088914206,
+        "pnl_pct": -0.009306235474459742,
+        "entry_time": "2025-09-29T15:00:00",
+        "exit_time": "2025-09-29T19:00:00",
+        "duration_hours": 4.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 3976.0,
+        "exit_price": 4167.33,
+        "size": 0.38105334891505815,
+        "pnl": 72.90693724791805,
+        "pnl_pct": 0.048121227364185094,
+        "entry_time": "2025-09-28T12:00:00",
+        "exit_time": "2025-09-30T08:00:00",
+        "duration_hours": 44.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XPL/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 1.1832,
+        "exit_price": 1.0114,
+        "size": 1270.3244079972073,
+        "pnl": -218.24173329392016,
+        "pnl_pct": -0.14519945909398238,
+        "entry_time": "2025-09-30T03:00:00",
+        "exit_time": "2025-09-30T14:00:00",
+        "duration_hours": 11.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 113956.7,
+        "exit_price": 114309.1,
+        "size": 0.013194432237249372,
+        "pnl": -4.649717920406794,
+        "pnl_pct": -0.003092402640652184,
+        "entry_time": "2025-09-29T14:00:00",
+        "exit_time": "2025-09-30T19:00:00",
+        "duration_hours": 29.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 2.8962,
+        "exit_price": 2.8711,
+        "size": 501.46782117362943,
+        "pnl": 12.586842311457938,
+        "pnl_pct": 0.008666528554657717,
+        "entry_time": "2025-09-29T19:00:00",
+        "exit_time": "2025-09-30T20:00:00",
+        "duration_hours": 25.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 1035.1,
+        "exit_price": 1014.77,
+        "size": 1.3820556826662347,
+        "pnl": 28.09719202860445,
+        "pnl_pct": 0.01964061443338801,
+        "entry_time": "2025-09-29T22:00:00",
+        "exit_time": "2025-10-01T01:00:00",
+        "duration_hours": 27.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XPL/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 1.0342,
+        "exit_price": 0.8996,
+        "size": 1342.9536401227006,
+        "pnl": -180.76155996051557,
+        "pnl_pct": -0.13014890736801396,
+        "entry_time": "2025-09-30T18:00:00",
+        "exit_time": "2025-10-01T04:00:00",
+        "duration_hours": 10.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 4118.09,
+        "exit_price": 4124.64,
+        "size": 0.3423997901680867,
+        "pnl": 2.24271862560103,
+        "pnl_pct": 0.0015905431887113157,
+        "entry_time": "2025-09-30T15:00:00",
+        "exit_time": "2025-10-01T06:00:00",
+        "duration_hours": 15.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 212.24,
+        "exit_price": 216.49,
+        "size": 8.373765812977368,
+        "pnl": -35.58850470515381,
+        "pnl_pct": -0.020024500565397663,
+        "entry_time": "2025-09-29T14:00:00",
+        "exit_time": "2025-10-01T08:00:00",
+        "duration_hours": 42.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 116060.5,
+        "exit_price": 117366.4,
+        "size": 0.012524863351617066,
+        "pnl": -16.356219050876653,
+        "pnl_pct": -0.011251890177967475,
+        "entry_time": "2025-10-01T08:00:00",
+        "exit_time": "2025-10-01T15:00:00",
+        "duration_hours": 7.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.24216,
+        "exit_price": 0.24894,
+        "size": 5912.773680521336,
+        "pnl": -40.088605553934705,
+        "pnl_pct": -0.02799801783944503,
+        "entry_time": "2025-10-01T08:00:00",
+        "exit_time": "2025-10-01T23:00:00",
+        "duration_hours": 15.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 4289.99,
+        "exit_price": 4390.86,
+        "size": 0.34400513328621996,
+        "pnl": -34.69979779458097,
+        "pnl_pct": -0.023512875321387672,
+        "entry_time": "2025-10-01T08:00:00",
+        "exit_time": "2025-10-02T01:00:00",
+        "duration_hours": 17.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 1032.96,
+        "exit_price": 1035.71,
+        "size": 1.3653575311318165,
+        "pnl": -3.7547332106124953,
+        "pnl_pct": -0.0026622521685254028,
+        "entry_time": "2025-10-01T09:00:00",
+        "exit_time": "2025-10-02T01:00:00",
+        "duration_hours": 16.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 219.69,
+        "exit_price": 227.14,
+        "size": 6.385777463104982,
+        "pnl": -47.57404210013204,
+        "pnl_pct": -0.033911420638171916,
+        "entry_time": "2025-10-02T00:00:00",
+        "exit_time": "2025-10-02T12:00:00",
+        "duration_hours": 12.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 118329.7,
+        "exit_price": 119360.1,
+        "size": 0.011815135120798872,
+        "pnl": -12.174315228471261,
+        "pnl_pct": -0.00870787300229789,
+        "entry_time": "2025-10-02T05:00:00",
+        "exit_time": "2025-10-02T12:00:00",
+        "duration_hours": 7.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 2.9679,
+        "exit_price": 3.0438,
+        "size": 457.0415178369233,
+        "pnl": -34.68945120382241,
+        "pnl_pct": -0.025573637925806074,
+        "entry_time": "2025-10-02T07:00:00",
+        "exit_time": "2025-10-02T16:00:00",
+        "duration_hours": 9.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 4373.65,
+        "exit_price": 4464.17,
+        "size": 0.31486519803574603,
+        "pnl": -28.501597726195868,
+        "pnl_pct": -0.020696672115967315,
+        "entry_time": "2025-10-02T07:00:00",
+        "exit_time": "2025-10-02T17:00:00",
+        "duration_hours": 10.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 1047.96,
+        "exit_price": 1068.59,
+        "size": 1.274959653017655,
+        "pnl": -26.302417641754072,
+        "pnl_pct": -0.01968586587274312,
+        "entry_time": "2025-10-02T11:00:00",
+        "exit_time": "2025-10-02T18:00:00",
+        "duration_hours": 7.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 119360.1,
+        "exit_price": 120461.6,
+        "size": 0.0120564461661592,
+        "pnl": -13.280175452024357,
+        "pnl_pct": -0.009228376986949574,
+        "entry_time": "2025-10-02T12:00:00",
+        "exit_time": "2025-10-02T18:00:00",
+        "duration_hours": 6.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 226.38,
+        "exit_price": 232.19,
+        "size": 5.864173411893639,
+        "pnl": -34.07084752310206,
+        "pnl_pct": -0.025664811379097104,
+        "entry_time": "2025-10-02T13:00:00",
+        "exit_time": "2025-10-02T18:00:00",
+        "duration_hours": 5.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.25482,
+        "exit_price": 0.26064,
+        "size": 5570.096436356167,
+        "pnl": -32.41796125959284,
+        "pnl_pct": -0.022839651518719063,
+        "entry_time": "2025-10-02T02:00:00",
+        "exit_time": "2025-10-02T20:00:00",
+        "duration_hours": 18.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XPL/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 0.9428,
+        "exit_price": 0.8955,
+        "size": 1494.0130624896335,
+        "pnl": -70.66681785575967,
+        "pnl_pct": -0.05016970725498516,
+        "entry_time": "2025-10-01T15:00:00",
+        "exit_time": "2025-10-02T22:00:00",
+        "duration_hours": 31.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 1074.62,
+        "exit_price": 1097.09,
+        "size": 1.2358187456488015,
+        "pnl": -27.768847214728602,
+        "pnl_pct": -0.02090971692319148,
+        "entry_time": "2025-10-02T19:00:00",
+        "exit_time": "2025-10-03T02:00:00",
+        "duration_hours": 7.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 1087.01,
+        "exit_price": 1138.29,
+        "size": 1.2054405617661732,
+        "pnl": -61.81499200736933,
+        "pnl_pct": -0.04717527897627434,
+        "entry_time": "2025-10-03T07:00:00",
+        "exit_time": "2025-10-03T13:00:00",
+        "duration_hours": 6.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 120787.9,
+        "exit_price": 120861.4,
+        "size": 0.011162206081304797,
+        "pnl": -0.8204221469759025,
+        "pnl_pct": -0.0006085046598210583,
+        "entry_time": "2025-10-02T19:00:00",
+        "exit_time": "2025-10-03T14:00:00",
+        "duration_hours": 19.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 3.0894,
+        "exit_price": 3.0676,
+        "size": 423.4204076333198,
+        "pnl": 9.230564886406295,
+        "pnl_pct": 0.0070563863533371594,
+        "entry_time": "2025-10-02T19:00:00",
+        "exit_time": "2025-10-03T15:00:00",
+        "duration_hours": 20.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 120861.4,
+        "exit_price": 122238.5,
+        "size": 0.012734279637075947,
+        "pnl": -17.53637648821736,
+        "pnl_pct": -0.011394043093990355,
+        "entry_time": "2025-10-03T14:00:00",
+        "exit_time": "2025-10-03T15:00:00",
+        "duration_hours": 1.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 122238.5,
+        "exit_price": 122230.9,
+        "size": 0.010642677286427267,
+        "pnl": 0.08088434737690918,
+        "pnl_pct": 6.21735377970592e-05,
+        "entry_time": "2025-10-03T15:00:00",
+        "exit_time": "2025-10-04T22:00:00",
+        "duration_hours": 31.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XPL/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 0.9108,
+        "exit_price": 0.8483,
+        "size": 1417.0740622197698,
+        "pnl": -88.56712888873561,
+        "pnl_pct": -0.068620992534036,
+        "entry_time": "2025-10-03T08:00:00",
+        "exit_time": "2025-10-05T00:00:00",
+        "duration_hours": 40.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.26064,
+        "exit_price": 0.2517,
+        "size": 5340.377195219922,
+        "pnl": 47.74297212526612,
+        "pnl_pct": 0.03430018416206263,
+        "entry_time": "2025-10-02T20:00:00",
+        "exit_time": "2025-10-05T01:00:00",
+        "duration_hours": 53.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 4485.01,
+        "exit_price": 4547.51,
+        "size": 0.30984007594973295,
+        "pnl": -19.36500474685831,
+        "pnl_pct": -0.013935308951373574,
+        "entry_time": "2025-10-02T18:00:00",
+        "exit_time": "2025-10-05T02:00:00",
+        "duration_hours": 56.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 232.19,
+        "exit_price": 231.04,
+        "size": 5.895134594296835,
+        "pnl": 6.779404783441394,
+        "pnl_pct": 0.004952840346268167,
+        "entry_time": "2025-10-02T18:00:00",
+        "exit_time": "2025-10-05T02:00:00",
+        "duration_hours": 56.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 1138.29,
+        "exit_price": 1163.68,
+        "size": 1.1259816306971828,
+        "pnl": -28.588673603401585,
+        "pnl_pct": -0.022305387906421125,
+        "entry_time": "2025-10-03T13:00:00",
+        "exit_time": "2025-10-05T02:00:00",
+        "duration_hours": 37.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 3.0676,
+        "exit_price": 3.0041,
+        "size": 510.55975980182274,
+        "pnl": 32.42054474741569,
+        "pnl_pct": 0.02070022167166511,
+        "entry_time": "2025-10-03T15:00:00",
+        "exit_time": "2025-10-05T02:00:00",
+        "duration_hours": 35.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 124012.2,
+        "exit_price": 125167.5,
+        "size": 0.011243740320512534,
+        "pnl": -12.989893192288163,
+        "pnl_pct": -0.009316018907817157,
+        "entry_time": "2025-10-05T02:00:00",
+        "exit_time": "2025-10-05T04:00:00",
+        "duration_hours": 2.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.25657,
+        "exit_price": 0.26245,
+        "size": 5256.74684770973,
+        "pnl": -30.909671464533194,
+        "pnl_pct": -0.022917722259032606,
+        "entry_time": "2025-10-05T02:00:00",
+        "exit_time": "2025-10-05T04:00:00",
+        "duration_hours": 2.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 1163.68,
+        "exit_price": 1179.69,
+        "size": 1.4163126207632672,
+        "pnl": -22.675165058419896,
+        "pnl_pct": -0.013758077822081664,
+        "entry_time": "2025-10-05T02:00:00",
+        "exit_time": "2025-10-06T01:00:00",
+        "duration_hours": 23.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 125167.5,
+        "exit_price": 123980.8,
+        "size": 0.01056967446748905,
+        "pnl": 12.543032690569225,
+        "pnl_pct": 0.009480895599896117,
+        "entry_time": "2025-10-05T04:00:00",
+        "exit_time": "2025-10-06T01:00:00",
+        "duration_hours": 21.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 233.72,
+        "exit_price": 232.21,
+        "size": 5.575624820194225,
+        "pnl": 8.419193478493229,
+        "pnl_pct": 0.006460722231730237,
+        "entry_time": "2025-10-05T04:00:00",
+        "exit_time": "2025-10-06T05:00:00",
+        "duration_hours": 25.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 4573.16,
+        "exit_price": 4558.41,
+        "size": 0.2936977119397643,
+        "pnl": 4.332041251111523,
+        "pnl_pct": 0.003225340902133317,
+        "entry_time": "2025-10-05T04:00:00",
+        "exit_time": "2025-10-06T06:00:00",
+        "duration_hours": 26.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.26245,
+        "exit_price": 0.25827,
+        "size": 4890.790655291131,
+        "pnl": 20.44350493911701,
+        "pnl_pct": 0.015926843208230203,
+        "entry_time": "2025-10-05T04:00:00",
+        "exit_time": "2025-10-06T09:00:00",
+        "duration_hours": 29.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XPL/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 0.8793,
+        "exit_price": 0.8725,
+        "size": 1510.8525936951353,
+        "pnl": -10.273797637126794,
+        "pnl_pct": -0.007733424314795767,
+        "entry_time": "2025-10-05T03:00:00",
+        "exit_time": "2025-10-06T10:00:00",
+        "duration_hours": 31.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 3.0335,
+        "exit_price": 2.9996,
+        "size": 416.7905677827394,
+        "pnl": 14.129200247834882,
+        "pnl_pct": 0.011175210153288295,
+        "entry_time": "2025-10-05T04:00:00",
+        "exit_time": "2025-10-06T12:00:00",
+        "duration_hours": 32.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 1190.66,
+        "exit_price": 1236.73,
+        "size": 1.099580044018635,
+        "pnl": -50.65765262793844,
+        "pnl_pct": -0.03869282582769215,
+        "entry_time": "2025-10-06T05:00:00",
+        "exit_time": "2025-10-06T12:00:00",
+        "duration_hours": 7.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 4571.17,
+        "exit_price": 4671.24,
+        "size": 0.2915456299041225,
+        "pnl": -29.174971184505456,
+        "pnl_pct": -0.021891550740838716,
+        "entry_time": "2025-10-06T09:00:00",
+        "exit_time": "2025-10-06T15:00:00",
+        "duration_hours": 6.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.2598,
+        "exit_price": 0.26935,
+        "size": 5123.558075950996,
+        "pnl": -48.929979625332024,
+        "pnl_pct": -0.036759045419553514,
+        "entry_time": "2025-10-06T11:00:00",
+        "exit_time": "2025-10-06T18:00:00",
+        "duration_hours": 7.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 1225.86,
+        "exit_price": 1245.87,
+        "size": 1.070140513096839,
+        "pnl": -21.41351166706774,
+        "pnl_pct": -0.01632323430081738,
+        "entry_time": "2025-10-06T19:00:00",
+        "exit_time": "2025-10-07T04:00:00",
+        "duration_hours": 9.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 4671.24,
+        "exit_price": 4746.0,
+        "size": 0.29111592227541955,
+        "pnl": -21.763826349310428,
+        "pnl_pct": -0.016004315770544914,
+        "entry_time": "2025-10-06T15:00:00",
+        "exit_time": "2025-10-07T12:00:00",
+        "duration_hours": 21.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 125986.0,
+        "exit_price": 124869.5,
+        "size": 0.010732154878609245,
+        "pnl": 11.982450921967223,
+        "pnl_pct": 0.008862095788420935,
+        "entry_time": "2025-10-06T18:00:00",
+        "exit_time": "2025-10-07T12:00:00",
+        "duration_hours": 18.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 3.044,
+        "exit_price": 2.9181,
+        "size": 437.52291247319886,
+        "pnl": 55.08413468037579,
+        "pnl_pct": 0.04136005256241791,
+        "entry_time": "2025-10-06T18:00:00",
+        "exit_time": "2025-10-08T17:00:00",
+        "duration_hours": 47.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 4746.0,
+        "exit_price": 4536.99,
+        "size": 0.3358938933528856,
+        "pnl": 70.20518264968669,
+        "pnl_pct": 0.04403919089759802,
+        "entry_time": "2025-10-07T12:00:00",
+        "exit_time": "2025-10-08T17:00:00",
+        "duration_hours": 29.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 1313.49,
+        "exit_price": 1309.8,
+        "size": 1.0099214594083974,
+        "pnl": 3.7266101852170417,
+        "pnl_pct": 0.002809309549368518,
+        "entry_time": "2025-10-08T17:00:00",
+        "exit_time": "2025-10-09T06:00:00",
+        "duration_hours": 13.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 123985.5,
+        "exit_price": 122672.9,
+        "size": 0.011027346278344629,
+        "pnl": 14.474494724955225,
+        "pnl_pct": 0.010586721834408102,
+        "entry_time": "2025-10-08T17:00:00",
+        "exit_time": "2025-10-09T11:00:00",
+        "duration_hours": 18.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 2.9181,
+        "exit_price": 2.8247,
+        "size": 441.0488170308667,
+        "pnl": 41.193959510682916,
+        "pnl_pct": 0.03200712792570506,
+        "entry_time": "2025-10-08T17:00:00",
+        "exit_time": "2025-10-09T11:00:00",
+        "duration_hours": 18.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 4326.26,
+        "exit_price": 4275.42,
+        "size": 0.2977574168627552,
+        "pnl": -15.137987073302517,
+        "pnl_pct": -0.011751489739405431,
+        "entry_time": "2025-10-09T08:00:00",
+        "exit_time": "2025-10-09T16:00:00",
+        "duration_hours": 8.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.26029,
+        "exit_price": 0.25119,
+        "size": 5019.877489156559,
+        "pnl": 45.680885151324674,
+        "pnl_pct": 0.034961005032847964,
+        "entry_time": "2025-10-08T17:00:00",
+        "exit_time": "2025-10-10T03:00:00",
+        "duration_hours": 34.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 226.75,
+        "exit_price": 221.57,
+        "size": 5.939239587050905,
+        "pnl": 30.76526106092373,
+        "pnl_pct": 0.022844542447629578,
+        "entry_time": "2025-10-08T17:00:00",
+        "exit_time": "2025-10-10T05:00:00",
+        "duration_hours": 36.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 1238.12,
+        "exit_price": 1216.5,
+        "size": 1.0637236005414914,
+        "pnl": -22.997704243706927,
+        "pnl_pct": -0.017461958453138544,
+        "entry_time": "2025-10-09T14:00:00",
+        "exit_time": "2025-10-10T15:00:00",
+        "duration_hours": 25.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 121007.2,
+        "exit_price": 118965.3,
+        "size": 0.01086145406480812,
+        "pnl": -22.178003054931636,
+        "pnl_pct": -0.016874202526791747,
+        "entry_time": "2025-10-10T02:00:00",
+        "exit_time": "2025-10-10T15:00:00",
+        "duration_hours": 13.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 4277.71,
+        "exit_price": 4100.48,
+        "size": 0.37754776777251364,
+        "pnl": -66.91279088232277,
+        "pnl_pct": -0.04143104605034013,
+        "entry_time": "2025-10-10T14:00:00",
+        "exit_time": "2025-10-10T15:00:00",
+        "duration_hours": 1.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 118965.3,
+        "exit_price": 117178.5,
+        "size": 0.011330996534607288,
+        "pnl": -20.246224608036336,
+        "pnl_pct": -0.01501950568779302,
+        "entry_time": "2025-10-10T15:00:00",
+        "exit_time": "2025-10-10T18:00:00",
+        "duration_hours": 3.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 4100.48,
+        "exit_price": 3864.76,
+        "size": 0.33374708590226615,
+        "pnl": -78.67086308888196,
+        "pnl_pct": -0.057485952864054786,
+        "entry_time": "2025-10-10T15:00:00",
+        "exit_time": "2025-10-10T20:00:00",
+        "duration_hours": 5.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 0.23638,
+        "exit_price": 0.21897,
+        "size": 5617.122730383021,
+        "pnl": -97.79410673596844,
+        "pnl_pct": -0.07365259328200359,
+        "entry_time": "2025-10-10T16:00:00",
+        "exit_time": "2025-10-10T20:00:00",
+        "duration_hours": 4.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 209.55,
+        "exit_price": 196.88,
+        "size": 6.24127339032603,
+        "pnl": -79.0769338554309,
+        "pnl_pct": -0.0604628966833692,
+        "entry_time": "2025-10-10T17:00:00",
+        "exit_time": "2025-10-10T20:00:00",
+        "duration_hours": 3.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 2.7221,
+        "exit_price": 2.4962,
+        "size": 473.25261980040307,
+        "pnl": -106.90776681291115,
+        "pnl_pct": -0.08298739943426038,
+        "entry_time": "2025-10-10T17:00:00",
+        "exit_time": "2025-10-10T20:00:00",
+        "duration_hours": 3.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 117178.5,
+        "exit_price": 114198.0,
+        "size": 0.010975565819264364,
+        "pnl": -32.712673924317436,
+        "pnl_pct": -0.025435553450504998,
+        "entry_time": "2025-10-10T18:00:00",
+        "exit_time": "2025-10-10T20:00:00",
+        "duration_hours": 2.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XPL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.9926,
+        "exit_price": 0.4299,
+        "size": 1301.7981187226655,
+        "pnl": 732.5218014052439,
+        "pnl_pct": 0.5668950231714688,
+        "entry_time": "2025-10-06T19:00:00",
+        "exit_time": "2025-10-12T06:00:00",
+        "duration_hours": 131.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 1217.57,
+        "exit_price": 1301.48,
+        "size": 1.1612807618694891,
+        "pnl": -97.44306872846893,
+        "pnl_pct": -0.06891595555081029,
+        "entry_time": "2025-10-12T09:00:00",
+        "exit_time": "2025-10-12T15:00:00",
+        "duration_hours": 6.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 0.19607,
+        "exit_price": 0.20749,
+        "size": 6891.737274040681,
+        "pnl": -78.70363966954467,
+        "pnl_pct": -0.05824450451369416,
+        "entry_time": "2025-10-12T14:00:00",
+        "exit_time": "2025-10-12T18:00:00",
+        "duration_hours": 4.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 186.16,
+        "exit_price": 195.66,
+        "size": 7.369147697418497,
+        "pnl": -70.00690312547572,
+        "pnl_pct": -0.0510313708637731,
+        "entry_time": "2025-10-12T14:00:00",
+        "exit_time": "2025-10-12T19:00:00",
+        "duration_hours": 5.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 113119.0,
+        "exit_price": 115160.7,
+        "size": 0.011824597391777774,
+        "pnl": -24.142280494792647,
+        "pnl_pct": -0.018049134097720073,
+        "entry_time": "2025-10-12T15:00:00",
+        "exit_time": "2025-10-12T22:00:00",
+        "duration_hours": 7.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 3973.44,
+        "exit_price": 4196.93,
+        "size": 0.3505102651533664,
+        "pnl": -78.33553915912594,
+        "pnl_pct": -0.05624597326246281,
+        "entry_time": "2025-10-12T14:00:00",
+        "exit_time": "2025-10-13T01:00:00",
+        "duration_hours": 11.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 1301.48,
+        "exit_price": 1367.26,
+        "size": 1.0123266073048394,
+        "pnl": -66.59084422851231,
+        "pnl_pct": -0.05054245935396623,
+        "entry_time": "2025-10-12T15:00:00",
+        "exit_time": "2025-10-13T08:00:00",
+        "duration_hours": 17.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 4129.99,
+        "exit_price": 4233.6,
+        "size": 0.32491193926854456,
+        "pnl": -33.66412602761409,
+        "pnl_pct": -0.025087227814111074,
+        "entry_time": "2025-10-13T05:00:00",
+        "exit_time": "2025-10-13T17:00:00",
+        "duration_hours": 12.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 198.07,
+        "exit_price": 204.93,
+        "size": 6.621679681765971,
+        "pnl": -45.42472261691465,
+        "pnl_pct": -0.03463422022517299,
+        "entry_time": "2025-10-13T08:00:00",
+        "exit_time": "2025-10-13T17:00:00",
+        "duration_hours": 9.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 115193.8,
+        "exit_price": 115726.6,
+        "size": 0.011559033819681706,
+        "pnl": -6.158653219126447,
+        "pnl_pct": -0.004625248928327765,
+        "entry_time": "2025-10-13T08:00:00",
+        "exit_time": "2025-10-13T19:00:00",
+        "duration_hours": 11.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 2.3882,
+        "exit_price": 2.559,
+        "size": 601.068883614078,
+        "pnl": 102.66256532128469,
+        "pnl_pct": 0.071518298299975,
+        "entry_time": "2025-10-12T06:00:00",
+        "exit_time": "2025-10-14T03:00:00",
+        "duration_hours": 45.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "SOL/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 205.62,
+        "exit_price": 203.88,
+        "size": 7.036531516429215,
+        "pnl": 12.243564838586899,
+        "pnl_pct": 0.00846221184709663,
+        "entry_time": "2025-10-14T03:00:00",
+        "exit_time": "2025-10-15T00:00:00",
+        "duration_hours": 21.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BNB/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "entry_price": 1367.26,
+        "exit_price": 1216.96,
+        "size": 0.944869851490481,
+        "pnl": 142.01393867901925,
+        "pnl_pct": 0.10992788496701429,
+        "entry_time": "2025-10-13T08:00:00",
+        "exit_time": "2025-10-15T02:00:00",
+        "duration_hours": 42.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 111933.5,
+        "exit_price": 111656.8,
+        "size": 0.011924228319507043,
+        "pnl": -3.299433976007564,
+        "pnl_pct": -0.00247200346634383,
+        "entry_time": "2025-10-14T06:00:00",
+        "exit_time": "2025-10-15T12:00:00",
+        "duration_hours": 30.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "ETH/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 3979.28,
+        "exit_price": 4053.11,
+        "size": 0.3205490980414968,
+        "pnl": 23.666139908403686,
+        "pnl_pct": 0.018553607687822903,
+        "entry_time": "2025-10-14T07:00:00",
+        "exit_time": "2025-10-15T13:00:00",
+        "duration_hours": 30.0,
+        "exit_reason": "trailing_stop"
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "entry_price": 2.465,
+        "exit_price": 2.4326,
+        "size": 525.3465738015743,
+        "pnl": -17.021228991171,
+        "pnl_pct": -0.013144016227180522,
+        "entry_time": "2025-10-14T06:00:00",
+        "exit_time": "2025-10-15T15:00:00",
+        "duration_hours": 33.0,
+        "exit_reason": "trailing_stop"
+      }
+    ],
+    "equity_curve": [
+      {
+        "timestamp": "2025-09-08T05:00:00",
+        "equity": 10000.0
+      },
+      {
+        "timestamp": "2025-09-08T06:00:00",
+        "equity": 10000.0
+      },
+      {
+        "timestamp": "2025-09-08T07:00:00",
+        "equity": 10000.0
+      },
+      {
+        "timestamp": "2025-09-08T08:00:00",
+        "equity": 10000.0
+      },
+      {
+        "timestamp": "2025-09-08T09:00:00",
+        "equity": 9702.25
+      },
+      {
+        "timestamp": "2025-09-08T10:00:00",
+        "equity": 9699.277705083676
+      },
+      {
+        "timestamp": "2025-09-08T11:00:00",
+        "equity": 9561.830625966035
+      },
+      {
+        "timestamp": "2025-09-08T12:00:00",
+        "equity": 9452.656543920582
+      },
+      {
+        "timestamp": "2025-09-08T13:00:00",
+        "equity": 9456.088844230684
+      },
+      {
+        "timestamp": "2025-09-08T14:00:00",
+        "equity": 9427.932681277849
+      },
+      {
+        "timestamp": "2025-09-08T15:00:00",
+        "equity": 9272.213218871435
+      },
+      {
+        "timestamp": "2025-09-08T16:00:00",
+        "equity": 9338.39820361296
+      },
+      {
+        "timestamp": "2025-09-08T17:00:00",
+        "equity": 9339.374490923807
+      },
+      {
+        "timestamp": "2025-09-08T18:00:00",
+        "equity": 9329.542880870156
+      },
+      {
+        "timestamp": "2025-09-08T19:00:00",
+        "equity": 9207.98350552167
+      },
+      {
+        "timestamp": "2025-09-08T20:00:00",
+        "equity": 9063.79627020747
+      },
+      {
+        "timestamp": "2025-09-08T21:00:00",
+        "equity": 9017.975830963918
+      },
+      {
+        "timestamp": "2025-09-08T22:00:00",
+        "equity": 9005.184221267433
+      },
+      {
+        "timestamp": "2025-09-08T23:00:00",
+        "equity": 8983.118514600645
+      },
+      {
+        "timestamp": "2025-09-09T00:00:00",
+        "equity": 9040.532875646393
+      },
+      {
+        "timestamp": "2025-09-09T01:00:00",
+        "equity": 9042.18336695867
+      },
+      {
+        "timestamp": "2025-09-09T02:00:00",
+        "equity": 9096.577080287749
+      },
+      {
+        "timestamp": "2025-09-09T03:00:00",
+        "equity": 9055.985063397777
+      },
+      {
+        "timestamp": "2025-09-09T04:00:00",
+        "equity": 9041.115830277755
+      },
+      {
+        "timestamp": "2025-09-09T05:00:00",
+        "equity": 9205.679786255687
+      },
+      {
+        "timestamp": "2025-09-09T06:00:00",
+        "equity": 9473.98665259581
+      },
+      {
+        "timestamp": "2025-09-09T07:00:00",
+        "equity": 9469.314749879944
+      },
+      {
+        "timestamp": "2025-09-09T08:00:00",
+        "equity": 9456.054353186184
+      },
+      {
+        "timestamp": "2025-09-09T09:00:00",
+        "equity": 9471.919255283648
+      },
+      {
+        "timestamp": "2025-09-09T10:00:00",
+        "equity": 9475.782281831041
+      },
+      {
+        "timestamp": "2025-09-09T11:00:00",
+        "equity": 9481.013077223253
+      },
+      {
+        "timestamp": "2025-09-09T12:00:00",
+        "equity": 9622.750097204636
+      },
+      {
+        "timestamp": "2025-09-09T13:00:00",
+        "equity": 9599.794601654075
+      },
+      {
+        "timestamp": "2025-09-09T14:00:00",
+        "equity": 9662.52120770126
+      },
+      {
+        "timestamp": "2025-09-09T15:00:00",
+        "equity": 9704.062058800315
+      },
+      {
+        "timestamp": "2025-09-09T16:00:00",
+        "equity": 9608.41298846091
+      },
+      {
+        "timestamp": "2025-09-09T17:00:00",
+        "equity": 9614.844458789254
+      },
+      {
+        "timestamp": "2025-09-09T18:00:00",
+        "equity": 9459.206463375442
+      },
+      {
+        "timestamp": "2025-09-09T19:00:00",
+        "equity": 9467.12556589538
+      },
+      {
+        "timestamp": "2025-09-09T20:00:00",
+        "equity": 9402.693328684607
+      },
+      {
+        "timestamp": "2025-09-09T21:00:00",
+        "equity": 9367.378264087349
+      },
+      {
+        "timestamp": "2025-09-09T22:00:00",
+        "equity": 9245.831373405093
+      },
+      {
+        "timestamp": "2025-09-09T23:00:00",
+        "equity": 9299.974755282654
+      },
+      {
+        "timestamp": "2025-09-10T00:00:00",
+        "equity": 9369.250743464394
+      },
+      {
+        "timestamp": "2025-09-10T01:00:00",
+        "equity": 9316.641936839387
+      },
+      {
+        "timestamp": "2025-09-10T02:00:00",
+        "equity": 9507.019576991332
+      },
+      {
+        "timestamp": "2025-09-10T03:00:00",
+        "equity": 9441.872107956946
+      },
+      {
+        "timestamp": "2025-09-10T04:00:00",
+        "equity": 9462.61018277745
+      },
+      {
+        "timestamp": "2025-09-10T05:00:00",
+        "equity": 9443.05177808344
+      },
+      {
+        "timestamp": "2025-09-10T06:00:00",
+        "equity": 9421.470526142099
+      },
+      {
+        "timestamp": "2025-09-10T07:00:00",
+        "equity": 9393.819648075252
+      },
+      {
+        "timestamp": "2025-09-10T08:00:00",
+        "equity": 9449.113194068805
+      },
+      {
+        "timestamp": "2025-09-10T09:00:00",
+        "equity": 9468.581779387681
+      },
+      {
+        "timestamp": "2025-09-10T10:00:00",
+        "equity": 9618.099657663199
+      },
+      {
+        "timestamp": "2025-09-10T11:00:00",
+        "equity": 9587.04430407868
+      },
+      {
+        "timestamp": "2025-09-10T12:00:00",
+        "equity": 9447.758937771508
+      },
+      {
+        "timestamp": "2025-09-10T13:00:00",
+        "equity": 9208.068053286945
+      },
+      {
+        "timestamp": "2025-09-10T14:00:00",
+        "equity": 9300.67333303751
+      },
+      {
+        "timestamp": "2025-09-10T15:00:00",
+        "equity": 9308.470625746711
+      },
+      {
+        "timestamp": "2025-09-10T16:00:00",
+        "equity": 9230.160552069938
+      },
+      {
+        "timestamp": "2025-09-10T17:00:00",
+        "equity": 9137.23296600783
+      },
+      {
+        "timestamp": "2025-09-10T18:00:00",
+        "equity": 9115.760438273453
+      },
+      {
+        "timestamp": "2025-09-10T19:00:00",
+        "equity": 9299.3172179517
+      },
+      {
+        "timestamp": "2025-09-10T20:00:00",
+        "equity": 9375.61597125701
+      },
+      {
+        "timestamp": "2025-09-10T21:00:00",
+        "equity": 9539.96057551734
+      },
+      {
+        "timestamp": "2025-09-10T22:00:00",
+        "equity": 9603.815782931631
+      },
+      {
+        "timestamp": "2025-09-10T23:00:00",
+        "equity": 9567.641165443967
+      },
+      {
+        "timestamp": "2025-09-11T00:00:00",
+        "equity": 10059.64430656463
+      },
+      {
+        "timestamp": "2025-09-11T01:00:00",
+        "equity": 10233.62292101792
+      },
+      {
+        "timestamp": "2025-09-11T02:00:00",
+        "equity": 10747.438669445524
+      },
+      {
+        "timestamp": "2025-09-11T03:00:00",
+        "equity": 10868.230983152323
+      },
+      {
+        "timestamp": "2025-09-11T04:00:00",
+        "equity": 10461.281738279124
+      },
+      {
+        "timestamp": "2025-09-11T05:00:00",
+        "equity": 10459.338632944171
+      },
+      {
+        "timestamp": "2025-09-11T06:00:00",
+        "equity": 10301.54920657678
+      },
+      {
+        "timestamp": "2025-09-11T07:00:00",
+        "equity": 10305.13030276255
+      },
+      {
+        "timestamp": "2025-09-11T08:00:00",
+        "equity": 10303.394678005281
+      },
+      {
+        "timestamp": "2025-09-11T09:00:00",
+        "equity": 10132.56894408986
+      },
+      {
+        "timestamp": "2025-09-11T10:00:00",
+        "equity": 10127.62088854104
+      },
+      {
+        "timestamp": "2025-09-11T11:00:00",
+        "equity": 10137.466108412222
+      },
+      {
+        "timestamp": "2025-09-11T12:00:00",
+        "equity": 9978.897844129679
+      },
+      {
+        "timestamp": "2025-09-11T13:00:00",
+        "equity": 9934.108295089693
+      },
+      {
+        "timestamp": "2025-09-11T14:00:00",
+        "equity": 9960.553681913198
+      },
+      {
+        "timestamp": "2025-09-11T15:00:00",
+        "equity": 9834.860888735937
+      },
+      {
+        "timestamp": "2025-09-11T16:00:00",
+        "equity": 9817.494479925543
+      },
+      {
+        "timestamp": "2025-09-11T17:00:00",
+        "equity": 9642.064790963868
+      },
+      {
+        "timestamp": "2025-09-11T18:00:00",
+        "equity": 9637.098183269423
+      },
+      {
+        "timestamp": "2025-09-11T19:00:00",
+        "equity": 9701.878281151443
+      },
+      {
+        "timestamp": "2025-09-11T20:00:00",
+        "equity": 9712.18178003822
+      },
+      {
+        "timestamp": "2025-09-11T21:00:00",
+        "equity": 9690.010619885963
+      },
+      {
+        "timestamp": "2025-09-11T22:00:00",
+        "equity": 9848.290598629637
+      },
+      {
+        "timestamp": "2025-09-11T23:00:00",
+        "equity": 9863.680879628551
+      },
+      {
+        "timestamp": "2025-09-12T00:00:00",
+        "equity": 9864.443693649257
+      },
+      {
+        "timestamp": "2025-09-12T01:00:00",
+        "equity": 9847.263948017027
+      },
+      {
+        "timestamp": "2025-09-12T02:00:00",
+        "equity": 9680.475163389097
+      },
+      {
+        "timestamp": "2025-09-12T03:00:00",
+        "equity": 9676.541505323694
+      },
+      {
+        "timestamp": "2025-09-12T04:00:00",
+        "equity": 9565.174311365525
+      },
+      {
+        "timestamp": "2025-09-12T05:00:00",
+        "equity": 9239.081941459308
+      },
+      {
+        "timestamp": "2025-09-12T06:00:00",
+        "equity": 9269.975253773095
+      },
+      {
+        "timestamp": "2025-09-12T07:00:00",
+        "equity": 9220.042940670317
+      },
+      {
+        "timestamp": "2025-09-12T08:00:00",
+        "equity": 9374.368530288955
+      },
+      {
+        "timestamp": "2025-09-12T09:00:00",
+        "equity": 9726.90129775487
+      },
+      {
+        "timestamp": "2025-09-12T10:00:00",
+        "equity": 9722.85549148786
+      },
+      {
+        "timestamp": "2025-09-12T11:00:00",
+        "equity": 9568.217750541582
+      },
+      {
+        "timestamp": "2025-09-12T12:00:00",
+        "equity": 9532.30513851261
+      },
+      {
+        "timestamp": "2025-09-12T13:00:00",
+        "equity": 9529.745262114477
+      },
+      {
+        "timestamp": "2025-09-12T14:00:00",
+        "equity": 9473.339768216705
+      },
+      {
+        "timestamp": "2025-09-12T15:00:00",
+        "equity": 9437.65905305261
+      },
+      {
+        "timestamp": "2025-09-12T16:00:00",
+        "equity": 9422.546375004307
+      },
+      {
+        "timestamp": "2025-09-12T17:00:00",
+        "equity": 9306.197275804285
+      },
+      {
+        "timestamp": "2025-09-12T18:00:00",
+        "equity": 9405.764061201417
+      },
+      {
+        "timestamp": "2025-09-12T19:00:00",
+        "equity": 9334.873142067772
+      },
+      {
+        "timestamp": "2025-09-12T20:00:00",
+        "equity": 9129.087281414932
+      },
+      {
+        "timestamp": "2025-09-12T21:00:00",
+        "equity": 9239.058566131773
+      },
+      {
+        "timestamp": "2025-09-12T22:00:00",
+        "equity": 9153.291662439558
+      },
+      {
+        "timestamp": "2025-09-12T23:00:00",
+        "equity": 9211.184402644134
+      },
+      {
+        "timestamp": "2025-09-13T00:00:00",
+        "equity": 9090.158100931503
+      },
+      {
+        "timestamp": "2025-09-13T01:00:00",
+        "equity": 9212.879399775622
+      },
+      {
+        "timestamp": "2025-09-13T02:00:00",
+        "equity": 9371.417931756696
+      },
+      {
+        "timestamp": "2025-09-13T03:00:00",
+        "equity": 9290.457399791847
+      },
+      {
+        "timestamp": "2025-09-13T04:00:00",
+        "equity": 9418.936135734355
+      },
+      {
+        "timestamp": "2025-09-13T05:00:00",
+        "equity": 9295.045178208737
+      },
+      {
+        "timestamp": "2025-09-13T06:00:00",
+        "equity": 9269.142292459523
+      },
+      {
+        "timestamp": "2025-09-13T07:00:00",
+        "equity": 9272.663574988172
+      },
+      {
+        "timestamp": "2025-09-13T08:00:00",
+        "equity": 9366.29686258322
+      },
+      {
+        "timestamp": "2025-09-13T09:00:00",
+        "equity": 9085.77500547587
+      },
+      {
+        "timestamp": "2025-09-13T10:00:00",
+        "equity": 9107.03264553089
+      },
+      {
+        "timestamp": "2025-09-13T11:00:00",
+        "equity": 9122.99977782182
+      },
+      {
+        "timestamp": "2025-09-13T12:00:00",
+        "equity": 9109.482211792734
+      },
+      {
+        "timestamp": "2025-09-13T13:00:00",
+        "equity": 9152.7936171651
+      },
+      {
+        "timestamp": "2025-09-13T14:00:00",
+        "equity": 9131.029171795255
+      },
+      {
+        "timestamp": "2025-09-13T15:00:00",
+        "equity": 9157.941469003013
+      },
+      {
+        "timestamp": "2025-09-13T16:00:00",
+        "equity": 9237.248532134188
+      },
+      {
+        "timestamp": "2025-09-13T17:00:00",
+        "equity": 9244.77770250332
+      },
+      {
+        "timestamp": "2025-09-13T18:00:00",
+        "equity": 9251.254991903757
+      },
+      {
+        "timestamp": "2025-09-13T19:00:00",
+        "equity": 9244.615577201579
+      },
+      {
+        "timestamp": "2025-09-13T20:00:00",
+        "equity": 9343.33689742301
+      },
+      {
+        "timestamp": "2025-09-13T21:00:00",
+        "equity": 9332.75271925406
+      },
+      {
+        "timestamp": "2025-09-13T22:00:00",
+        "equity": 9495.389675016786
+      },
+      {
+        "timestamp": "2025-09-13T23:00:00",
+        "equity": 9625.997259101785
+      },
+      {
+        "timestamp": "2025-09-14T00:00:00",
+        "equity": 9644.307966546347
+      },
+      {
+        "timestamp": "2025-09-14T01:00:00",
+        "equity": 9625.056183752646
+      },
+      {
+        "timestamp": "2025-09-14T02:00:00",
+        "equity": 9601.057042797322
+      },
+      {
+        "timestamp": "2025-09-14T03:00:00",
+        "equity": 9654.889897434883
+      },
+      {
+        "timestamp": "2025-09-14T04:00:00",
+        "equity": 9649.4378229445
+      },
+      {
+        "timestamp": "2025-09-14T05:00:00",
+        "equity": 9893.46900849675
+      },
+      {
+        "timestamp": "2025-09-14T06:00:00",
+        "equity": 9600.867627734197
+      },
+      {
+        "timestamp": "2025-09-14T07:00:00",
+        "equity": 9604.097212140308
+      },
+      {
+        "timestamp": "2025-09-14T08:00:00",
+        "equity": 9604.016462988531
+      },
+      {
+        "timestamp": "2025-09-14T09:00:00",
+        "equity": 9596.727330377578
+      },
+      {
+        "timestamp": "2025-09-14T10:00:00",
+        "equity": 9606.508711546441
+      },
+      {
+        "timestamp": "2025-09-14T11:00:00",
+        "equity": 9648.29737439221
+      },
+      {
+        "timestamp": "2025-09-14T12:00:00",
+        "equity": 9512.480077331027
+      },
+      {
+        "timestamp": "2025-09-14T13:00:00",
+        "equity": 9551.335420943791
+      },
+      {
+        "timestamp": "2025-09-14T14:00:00",
+        "equity": 9587.210535885662
+      },
+      {
+        "timestamp": "2025-09-14T15:00:00",
+        "equity": 9603.41638449581
+      },
+      {
+        "timestamp": "2025-09-14T16:00:00",
+        "equity": 9571.923601133161
+      },
+      {
+        "timestamp": "2025-09-14T17:00:00",
+        "equity": 9517.645980064684
+      },
+      {
+        "timestamp": "2025-09-14T18:00:00",
+        "equity": 9568.035526989794
+      },
+      {
+        "timestamp": "2025-09-14T19:00:00",
+        "equity": 9432.557941755516
+      },
+      {
+        "timestamp": "2025-09-14T20:00:00",
+        "equity": 9355.297473001361
+      },
+      {
+        "timestamp": "2025-09-14T21:00:00",
+        "equity": 9407.733513087316
+      },
+      {
+        "timestamp": "2025-09-14T22:00:00",
+        "equity": 9218.225430858307
+      },
+      {
+        "timestamp": "2025-09-14T23:00:00",
+        "equity": 8869.541665263452
+      },
+      {
+        "timestamp": "2025-09-15T00:00:00",
+        "equity": 8595.120258798943
+      },
+      {
+        "timestamp": "2025-09-15T01:00:00",
+        "equity": 8583.318158979944
+      },
+      {
+        "timestamp": "2025-09-15T02:00:00",
+        "equity": 8584.809952832646
+      },
+      {
+        "timestamp": "2025-09-15T03:00:00",
+        "equity": 8562.147497683176
+      },
+      {
+        "timestamp": "2025-09-15T04:00:00",
+        "equity": 8712.583482786174
+      },
+      {
+        "timestamp": "2025-09-15T05:00:00",
+        "equity": 8573.689858216205
+      },
+      {
+        "timestamp": "2025-09-15T06:00:00",
+        "equity": 8523.908060067122
+      },
+      {
+        "timestamp": "2025-09-15T07:00:00",
+        "equity": 8664.998064072508
+      },
+      {
+        "timestamp": "2025-09-15T08:00:00",
+        "equity": 8752.898174243983
+      },
+      {
+        "timestamp": "2025-09-15T09:00:00",
+        "equity": 8749.287029719191
+      },
+      {
+        "timestamp": "2025-09-15T10:00:00",
+        "equity": 8787.511373321759
+      },
+      {
+        "timestamp": "2025-09-15T11:00:00",
+        "equity": 8787.608685897441
+      },
+      {
+        "timestamp": "2025-09-15T12:00:00",
+        "equity": 8918.495353413606
+      },
+      {
+        "timestamp": "2025-09-15T13:00:00",
+        "equity": 8911.868538154882
+      },
+      {
+        "timestamp": "2025-09-15T14:00:00",
+        "equity": 8976.236910538224
+      },
+      {
+        "timestamp": "2025-09-15T15:00:00",
+        "equity": 8814.240759008188
+      },
+      {
+        "timestamp": "2025-09-15T16:00:00",
+        "equity": 8886.888213976625
+      },
+      {
+        "timestamp": "2025-09-15T17:00:00",
+        "equity": 8850.682370937604
+      },
+      {
+        "timestamp": "2025-09-15T18:00:00",
+        "equity": 8898.430738781293
+      },
+      {
+        "timestamp": "2025-09-15T19:00:00",
+        "equity": 8920.316446155983
+      },
+      {
+        "timestamp": "2025-09-15T20:00:00",
+        "equity": 8875.294914357924
+      },
+      {
+        "timestamp": "2025-09-15T21:00:00",
+        "equity": 8924.631201925364
+      },
+      {
+        "timestamp": "2025-09-15T22:00:00",
+        "equity": 9089.871572133172
+      },
+      {
+        "timestamp": "2025-09-15T23:00:00",
+        "equity": 9187.292543591588
+      },
+      {
+        "timestamp": "2025-09-16T00:00:00",
+        "equity": 9233.596142407494
+      },
+      {
+        "timestamp": "2025-09-16T01:00:00",
+        "equity": 9269.884280832053
+      },
+      {
+        "timestamp": "2025-09-16T02:00:00",
+        "equity": 9254.153321108712
+      },
+      {
+        "timestamp": "2025-09-16T03:00:00",
+        "equity": 9363.648890732842
+      },
+      {
+        "timestamp": "2025-09-16T04:00:00",
+        "equity": 9128.5337646989
+      },
+      {
+        "timestamp": "2025-09-16T05:00:00",
+        "equity": 8847.4126597133
+      },
+      {
+        "timestamp": "2025-09-16T06:00:00",
+        "equity": 8788.78827736202
+      },
+      {
+        "timestamp": "2025-09-16T07:00:00",
+        "equity": 8716.37601345888
+      },
+      {
+        "timestamp": "2025-09-16T08:00:00",
+        "equity": 8729.937188007994
+      },
+      {
+        "timestamp": "2025-09-16T09:00:00",
+        "equity": 8604.177707607927
+      },
+      {
+        "timestamp": "2025-09-16T10:00:00",
+        "equity": 8629.765283565499
+      },
+      {
+        "timestamp": "2025-09-16T11:00:00",
+        "equity": 8744.682975361815
+      },
+      {
+        "timestamp": "2025-09-16T12:00:00",
+        "equity": 8763.322504993617
+      },
+      {
+        "timestamp": "2025-09-16T13:00:00",
+        "equity": 8529.857060413871
+      },
+      {
+        "timestamp": "2025-09-16T14:00:00",
+        "equity": 8529.718785584211
+      },
+      {
+        "timestamp": "2025-09-16T15:00:00",
+        "equity": 8520.931835856094
+      },
+      {
+        "timestamp": "2025-09-16T16:00:00",
+        "equity": 8517.444578865745
+      },
+      {
+        "timestamp": "2025-09-16T17:00:00",
+        "equity": 8491.695347298553
+      },
+      {
+        "timestamp": "2025-09-16T18:00:00",
+        "equity": 8456.485431882153
+      },
+      {
+        "timestamp": "2025-09-16T19:00:00",
+        "equity": 8446.109293203343
+      },
+      {
+        "timestamp": "2025-09-16T20:00:00",
+        "equity": 8510.305224476278
+      },
+      {
+        "timestamp": "2025-09-16T21:00:00",
+        "equity": 8426.531284226458
+      },
+      {
+        "timestamp": "2025-09-16T22:00:00",
+        "equity": 8482.482726528988
+      },
+      {
+        "timestamp": "2025-09-16T23:00:00",
+        "equity": 8541.681123779632
+      },
+      {
+        "timestamp": "2025-09-17T00:00:00",
+        "equity": 8523.285562744622
+      },
+      {
+        "timestamp": "2025-09-17T01:00:00",
+        "equity": 8504.90800174739
+      },
+      {
+        "timestamp": "2025-09-17T02:00:00",
+        "equity": 8455.511808393805
+      },
+      {
+        "timestamp": "2025-09-17T03:00:00",
+        "equity": 8579.595711227172
+      },
+      {
+        "timestamp": "2025-09-17T04:00:00",
+        "equity": 8586.248268640087
+      },
+      {
+        "timestamp": "2025-09-17T05:00:00",
+        "equity": 8547.919599327204
+      },
+      {
+        "timestamp": "2025-09-17T06:00:00",
+        "equity": 8565.452743580927
+      },
+      {
+        "timestamp": "2025-09-17T07:00:00",
+        "equity": 8579.127814200136
+      },
+      {
+        "timestamp": "2025-09-17T08:00:00",
+        "equity": 8587.315338609747
+      },
+      {
+        "timestamp": "2025-09-17T09:00:00",
+        "equity": 8597.203929780042
+      },
+      {
+        "timestamp": "2025-09-17T10:00:00",
+        "equity": 8600.038698993598
+      },
+      {
+        "timestamp": "2025-09-17T11:00:00",
+        "equity": 8589.48627261215
+      },
+      {
+        "timestamp": "2025-09-17T12:00:00",
+        "equity": 8622.233556762492
+      },
+      {
+        "timestamp": "2025-09-17T13:00:00",
+        "equity": 8607.292103158283
+      },
+      {
+        "timestamp": "2025-09-17T14:00:00",
+        "equity": 8596.42141736777
+      },
+      {
+        "timestamp": "2025-09-17T15:00:00",
+        "equity": 8607.90224381505
+      },
+      {
+        "timestamp": "2025-09-17T16:00:00",
+        "equity": 8622.918476549004
+      },
+      {
+        "timestamp": "2025-09-17T17:00:00",
+        "equity": 8601.274791507803
+      },
+      {
+        "timestamp": "2025-09-17T18:00:00",
+        "equity": 8607.759300691212
+      },
+      {
+        "timestamp": "2025-09-17T19:00:00",
+        "equity": 8660.211167899197
+      },
+      {
+        "timestamp": "2025-09-17T20:00:00",
+        "equity": 8623.157609549036
+      },
+      {
+        "timestamp": "2025-09-17T21:00:00",
+        "equity": 8611.457313007157
+      },
+      {
+        "timestamp": "2025-09-17T22:00:00",
+        "equity": 8735.0047389755
+      },
+      {
+        "timestamp": "2025-09-17T23:00:00",
+        "equity": 8745.809213412122
+      },
+      {
+        "timestamp": "2025-09-18T00:00:00",
+        "equity": 8753.285014983181
+      },
+      {
+        "timestamp": "2025-09-18T01:00:00",
+        "equity": 8769.083549701898
+      },
+      {
+        "timestamp": "2025-09-18T02:00:00",
+        "equity": 8777.870425572939
+      },
+      {
+        "timestamp": "2025-09-18T03:00:00",
+        "equity": 8775.944421996259
+      },
+      {
+        "timestamp": "2025-09-18T04:00:00",
+        "equity": 8771.547056372921
+      },
+      {
+        "timestamp": "2025-09-18T05:00:00",
+        "equity": 8748.74576916591
+      },
+      {
+        "timestamp": "2025-09-18T06:00:00",
+        "equity": 8781.471144824713
+      },
+      {
+        "timestamp": "2025-09-18T07:00:00",
+        "equity": 8786.534637789944
+      },
+      {
+        "timestamp": "2025-09-18T08:00:00",
+        "equity": 8805.89686250178
+      },
+      {
+        "timestamp": "2025-09-18T09:00:00",
+        "equity": 8802.437601544754
+      },
+      {
+        "timestamp": "2025-09-18T10:00:00",
+        "equity": 8778.542513508348
+      },
+      {
+        "timestamp": "2025-09-18T11:00:00",
+        "equity": 8826.548068269632
+      },
+      {
+        "timestamp": "2025-09-18T12:00:00",
+        "equity": 8818.040534137663
+      },
+      {
+        "timestamp": "2025-09-18T13:00:00",
+        "equity": 8839.034131835027
+      },
+      {
+        "timestamp": "2025-09-18T14:00:00",
+        "equity": 8788.104855367152
+      },
+      {
+        "timestamp": "2025-09-18T15:00:00",
+        "equity": 8853.763904734178
+      },
+      {
+        "timestamp": "2025-09-18T16:00:00",
+        "equity": 8863.832819145768
+      },
+      {
+        "timestamp": "2025-09-18T17:00:00",
+        "equity": 8857.911033439672
+      },
+      {
+        "timestamp": "2025-09-18T18:00:00",
+        "equity": 8807.960258561812
+      },
+      {
+        "timestamp": "2025-09-18T19:00:00",
+        "equity": 8786.876047797503
+      },
+      {
+        "timestamp": "2025-09-18T20:00:00",
+        "equity": 8801.44037437582
+      },
+      {
+        "timestamp": "2025-09-18T21:00:00",
+        "equity": 8816.125891725245
+      },
+      {
+        "timestamp": "2025-09-18T22:00:00",
+        "equity": 8965.398976803208
+      },
+      {
+        "timestamp": "2025-09-18T23:00:00",
+        "equity": 8969.910168782995
+      },
+      {
+        "timestamp": "2025-09-19T00:00:00",
+        "equity": 8980.651102068205
+      },
+      {
+        "timestamp": "2025-09-19T01:00:00",
+        "equity": 8969.265712785884
+      },
+      {
+        "timestamp": "2025-09-19T02:00:00",
+        "equity": 8949.072758209692
+      },
+      {
+        "timestamp": "2025-09-19T03:00:00",
+        "equity": 8966.902707463138
+      },
+      {
+        "timestamp": "2025-09-19T04:00:00",
+        "equity": 8947.354208884059
+      },
+      {
+        "timestamp": "2025-09-19T05:00:00",
+        "equity": 8941.768923575752
+      },
+      {
+        "timestamp": "2025-09-19T06:00:00",
+        "equity": 8952.724675526662
+      },
+      {
+        "timestamp": "2025-09-19T07:00:00",
+        "equity": 8980.651102068205
+      },
+      {
+        "timestamp": "2025-09-19T08:00:00",
+        "equity": 8984.947475382287
+      },
+      {
+        "timestamp": "2025-09-19T09:00:00",
+        "equity": 8996.97732066172
+      },
+      {
+        "timestamp": "2025-09-19T10:00:00",
+        "equity": 8997.192139327424
+      },
+      {
+        "timestamp": "2025-09-19T11:00:00",
+        "equity": 9001.058875310098
+      },
+      {
+        "timestamp": "2025-09-19T12:00:00",
+        "equity": 8988.16975536785
+      },
+      {
+        "timestamp": "2025-09-19T13:00:00",
+        "equity": 9004.066336629958
+      },
+      {
+        "timestamp": "2025-09-19T14:00:00",
+        "equity": 8997.836595324536
+      },
+      {
+        "timestamp": "2025-09-19T15:00:00",
+        "equity": 8986.66602470792
+      },
+      {
+        "timestamp": "2025-09-19T16:00:00",
+        "equity": 8986.880843373625
+      },
+      {
+        "timestamp": "2025-09-19T17:00:00",
+        "equity": 8991.177216687707
+      },
+      {
+        "timestamp": "2025-09-19T18:00:00",
+        "equity": 8988.384574033553
+      },
+      {
+        "timestamp": "2025-09-19T19:00:00",
+        "equity": 8977.428822082642
+      },
+      {
+        "timestamp": "2025-09-19T20:00:00",
+        "equity": 8981.295558065316
+      },
+      {
+        "timestamp": "2025-09-19T21:00:00",
+        "equity": 8986.451206042217
+      },
+      {
+        "timestamp": "2025-09-19T22:00:00",
+        "equity": 8979.791827405386
+      },
+      {
+        "timestamp": "2025-09-19T23:00:00",
+        "equity": 8980.4362834025
+      },
+      {
+        "timestamp": "2025-09-20T00:00:00",
+        "equity": 8969.265712785884
+      },
+      {
+        "timestamp": "2025-09-20T01:00:00",
+        "equity": 8839.86884776331
+      },
+      {
+        "timestamp": "2025-09-20T02:00:00",
+        "equity": 8839.525192377285
+      },
+      {
+        "timestamp": "2025-09-20T03:00:00",
+        "equity": 8837.781656194613
+      },
+      {
+        "timestamp": "2025-09-20T04:00:00",
+        "equity": 8841.807079659986
+      },
+      {
+        "timestamp": "2025-09-20T05:00:00",
+        "equity": 8844.720510520576
+      },
+      {
+        "timestamp": "2025-09-20T06:00:00",
+        "equity": 8842.928659264342
+      },
+      {
+        "timestamp": "2025-09-20T07:00:00",
+        "equity": 8849.02916079415
+      },
+      {
+        "timestamp": "2025-09-20T08:00:00",
+        "equity": 8840.519498892481
+      },
+      {
+        "timestamp": "2025-09-20T09:00:00",
+        "equity": 8840.276006132435
+      },
+      {
+        "timestamp": "2025-09-20T10:00:00",
+        "equity": 8840.636244403437
+      },
+      {
+        "timestamp": "2025-09-20T11:00:00",
+        "equity": 8844.26238633676
+      },
+      {
+        "timestamp": "2025-09-20T12:00:00",
+        "equity": 8842.84816417284
+      },
+      {
+        "timestamp": "2025-09-20T13:00:00",
+        "equity": 8843.97061658932
+      },
+      {
+        "timestamp": "2025-09-20T14:00:00",
+        "equity": 8850.352624786901
+      },
+      {
+        "timestamp": "2025-09-20T15:00:00",
+        "equity": 8854.03829937306
+      },
+      {
+        "timestamp": "2025-09-20T16:00:00",
+        "equity": 8855.611693600145
+      },
+      {
+        "timestamp": "2025-09-20T17:00:00",
+        "equity": 8848.248545124101
+      },
+      {
+        "timestamp": "2025-09-20T18:00:00",
+        "equity": 8843.623912801591
+      },
+      {
+        "timestamp": "2025-09-20T19:00:00",
+        "equity": 8844.971091883763
+      },
+      {
+        "timestamp": "2025-09-20T20:00:00",
+        "equity": 8846.366183383541
+      },
+      {
+        "timestamp": "2025-09-20T21:00:00",
+        "equity": 8849.092868915131
+      },
+      {
+        "timestamp": "2025-09-20T22:00:00",
+        "equity": 8849.886103707357
+      },
+      {
+        "timestamp": "2025-09-20T23:00:00",
+        "equity": 8979.577615284094
+      },
+      {
+        "timestamp": "2025-09-21T00:00:00",
+        "equity": 8846.991482260268
+      },
+      {
+        "timestamp": "2025-09-21T01:00:00",
+        "equity": 8831.792192183495
+      },
+      {
+        "timestamp": "2025-09-21T02:00:00",
+        "equity": 8828.482826054696
+      },
+      {
+        "timestamp": "2025-09-21T03:00:00",
+        "equity": 8834.235968967669
+      },
+      {
+        "timestamp": "2025-09-21T04:00:00",
+        "equity": 8834.203839901422
+      },
+      {
+        "timestamp": "2025-09-21T05:00:00",
+        "equity": 8836.287679949815
+      },
+      {
+        "timestamp": "2025-09-21T06:00:00",
+        "equity": 8827.83441685874
+      },
+      {
+        "timestamp": "2025-09-21T07:00:00",
+        "equity": 8828.350698383889
+      },
+      {
+        "timestamp": "2025-09-21T08:00:00",
+        "equity": 8964.872662837975
+      },
+      {
+        "timestamp": "2025-09-21T09:00:00",
+        "equity": 8981.846009945411
+      },
+      {
+        "timestamp": "2025-09-21T10:00:00",
+        "equity": 8979.196697364789
+      },
+      {
+        "timestamp": "2025-09-21T11:00:00",
+        "equity": 8991.454521601452
+      },
+      {
+        "timestamp": "2025-09-21T12:00:00",
+        "equity": 8862.358331964557
+      },
+      {
+        "timestamp": "2025-09-21T13:00:00",
+        "equity": 8714.068415805856
+      },
+      {
+        "timestamp": "2025-09-21T14:00:00",
+        "equity": 9002.161277717687
+      },
+      {
+        "timestamp": "2025-09-21T15:00:00",
+        "equity": 9146.676330406208
+      },
+      {
+        "timestamp": "2025-09-21T16:00:00",
+        "equity": 8995.851580798704
+      },
+      {
+        "timestamp": "2025-09-21T17:00:00",
+        "equity": 8815.166754630327
+      },
+      {
+        "timestamp": "2025-09-21T18:00:00",
+        "equity": 9003.595909698337
+      },
+      {
+        "timestamp": "2025-09-21T19:00:00",
+        "equity": 9058.793903837486
+      },
+      {
+        "timestamp": "2025-09-21T20:00:00",
+        "equity": 9184.419430528302
+      },
+      {
+        "timestamp": "2025-09-21T21:00:00",
+        "equity": 8928.575653815891
+      },
+      {
+        "timestamp": "2025-09-21T22:00:00",
+        "equity": 8748.341127353971
+      },
+      {
+        "timestamp": "2025-09-21T23:00:00",
+        "equity": 8977.07435892062
+      },
+      {
+        "timestamp": "2025-09-22T00:00:00",
+        "equity": 9069.032606592984
+      },
+      {
+        "timestamp": "2025-09-22T01:00:00",
+        "equity": 9024.220974646476
+      },
+      {
+        "timestamp": "2025-09-22T02:00:00",
+        "equity": 9053.02259521482
+      },
+      {
+        "timestamp": "2025-09-22T03:00:00",
+        "equity": 8974.04565136703
+      },
+      {
+        "timestamp": "2025-09-22T04:00:00",
+        "equity": 9040.428258224545
+      },
+      {
+        "timestamp": "2025-09-22T05:00:00",
+        "equity": 9101.867813265091
+      },
+      {
+        "timestamp": "2025-09-22T06:00:00",
+        "equity": 9185.121815096021
+      },
+      {
+        "timestamp": "2025-09-22T07:00:00",
+        "equity": 9186.047420692945
+      },
+      {
+        "timestamp": "2025-09-22T08:00:00",
+        "equity": 9226.280789408633
+      },
+      {
+        "timestamp": "2025-09-22T09:00:00",
+        "equity": 9279.913428372138
+      },
+      {
+        "timestamp": "2025-09-22T10:00:00",
+        "equity": 9347.392967049278
+      },
+      {
+        "timestamp": "2025-09-22T11:00:00",
+        "equity": 9222.619909841836
+      },
+      {
+        "timestamp": "2025-09-22T12:00:00",
+        "equity": 9322.002316198663
+      },
+      {
+        "timestamp": "2025-09-22T13:00:00",
+        "equity": 9350.50441415518
+      },
+      {
+        "timestamp": "2025-09-22T14:00:00",
+        "equity": 9414.019884252002
+      },
+      {
+        "timestamp": "2025-09-22T15:00:00",
+        "equity": 9487.693101515219
+      },
+      {
+        "timestamp": "2025-09-22T16:00:00",
+        "equity": 9517.877411446121
+      },
+      {
+        "timestamp": "2025-09-22T17:00:00",
+        "equity": 9524.021674219975
+      },
+      {
+        "timestamp": "2025-09-22T18:00:00",
+        "equity": 9460.536356689989
+      },
+      {
+        "timestamp": "2025-09-22T19:00:00",
+        "equity": 9384.659272743496
+      },
+      {
+        "timestamp": "2025-09-22T20:00:00",
+        "equity": 9313.819618034573
+      },
+      {
+        "timestamp": "2025-09-22T21:00:00",
+        "equity": 9516.249072339897
+      },
+      {
+        "timestamp": "2025-09-22T22:00:00",
+        "equity": 9493.709215711533
+      },
+      {
+        "timestamp": "2025-09-22T23:00:00",
+        "equity": 9486.200980928392
+      },
+      {
+        "timestamp": "2025-09-23T00:00:00",
+        "equity": 9414.57659314842
+      },
+      {
+        "timestamp": "2025-09-23T01:00:00",
+        "equity": 9358.531821800838
+      },
+      {
+        "timestamp": "2025-09-23T02:00:00",
+        "equity": 9349.697691230243
+      },
+      {
+        "timestamp": "2025-09-23T03:00:00",
+        "equity": 9333.974726129789
+      },
+      {
+        "timestamp": "2025-09-23T04:00:00",
+        "equity": 9270.781851726642
+      },
+      {
+        "timestamp": "2025-09-23T05:00:00",
+        "equity": 9209.39186163727
+      },
+      {
+        "timestamp": "2025-09-23T06:00:00",
+        "equity": 9243.115588598852
+      },
+      {
+        "timestamp": "2025-09-23T07:00:00",
+        "equity": 9273.7082490457
+      },
+      {
+        "timestamp": "2025-09-23T08:00:00",
+        "equity": 9291.394630866534
+      },
+      {
+        "timestamp": "2025-09-23T09:00:00",
+        "equity": 9226.385227416982
+      },
+      {
+        "timestamp": "2025-09-23T10:00:00",
+        "equity": 9228.775279014391
+      },
+      {
+        "timestamp": "2025-09-23T11:00:00",
+        "equity": 9207.424151410862
+      },
+      {
+        "timestamp": "2025-09-23T12:00:00",
+        "equity": 9235.78609703346
+      },
+      {
+        "timestamp": "2025-09-23T13:00:00",
+        "equity": 9271.796207767773
+      },
+      {
+        "timestamp": "2025-09-23T14:00:00",
+        "equity": 9223.995175819571
+      },
+      {
+        "timestamp": "2025-09-23T15:00:00",
+        "equity": 9190.534453455832
+      },
+      {
+        "timestamp": "2025-09-23T16:00:00",
+        "equity": 9176.831490964014
+      },
+      {
+        "timestamp": "2025-09-23T17:00:00",
+        "equity": 9029.735159921676
+      },
+      {
+        "timestamp": "2025-09-23T18:00:00",
+        "equity": 8683.741372634893
+      },
+      {
+        "timestamp": "2025-09-23T19:00:00",
+        "equity": 8636.427159750745
+      },
+      {
+        "timestamp": "2025-09-23T20:00:00",
+        "equity": 8658.253175302381
+      },
+      {
+        "timestamp": "2025-09-23T21:00:00",
+        "equity": 8676.969462857987
+      },
+      {
+        "timestamp": "2025-09-23T22:00:00",
+        "equity": 8634.8242400002
+      },
+      {
+        "timestamp": "2025-09-23T23:00:00",
+        "equity": 8603.183317642224
+      },
+      {
+        "timestamp": "2025-09-24T00:00:00",
+        "equity": 8654.3895618216
+      },
+      {
+        "timestamp": "2025-09-24T01:00:00",
+        "equity": 8623.607150263058
+      },
+      {
+        "timestamp": "2025-09-24T02:00:00",
+        "equity": 8617.496963783742
+      },
+      {
+        "timestamp": "2025-09-24T03:00:00",
+        "equity": 8557.888248131854
+      },
+      {
+        "timestamp": "2025-09-24T04:00:00",
+        "equity": 8569.356647469802
+      },
+      {
+        "timestamp": "2025-09-24T05:00:00",
+        "equity": 8587.998722944207
+      },
+      {
+        "timestamp": "2025-09-24T06:00:00",
+        "equity": 8637.350464282255
+      },
+      {
+        "timestamp": "2025-09-24T07:00:00",
+        "equity": 8646.759453689658
+      },
+      {
+        "timestamp": "2025-09-24T08:00:00",
+        "equity": 8609.010286450131
+      },
+      {
+        "timestamp": "2025-09-24T09:00:00",
+        "equity": 8653.549874136446
+      },
+      {
+        "timestamp": "2025-09-24T10:00:00",
+        "equity": 8679.971129104448
+      },
+      {
+        "timestamp": "2025-09-24T11:00:00",
+        "equity": 8687.729013055774
+      },
+      {
+        "timestamp": "2025-09-24T12:00:00",
+        "equity": 8649.107833033546
+      },
+      {
+        "timestamp": "2025-09-24T13:00:00",
+        "equity": 8617.860864246024
+      },
+      {
+        "timestamp": "2025-09-24T14:00:00",
+        "equity": 8642.630798452494
+      },
+      {
+        "timestamp": "2025-09-24T15:00:00",
+        "equity": 8624.192307217976
+      },
+      {
+        "timestamp": "2025-09-24T16:00:00",
+        "equity": 8662.820907089928
+      },
+      {
+        "timestamp": "2025-09-24T17:00:00",
+        "equity": 8744.973675610434
+      },
+      {
+        "timestamp": "2025-09-24T18:00:00",
+        "equity": 8692.843264394836
+      },
+      {
+        "timestamp": "2025-09-24T19:00:00",
+        "equity": 8755.073381560638
+      },
+      {
+        "timestamp": "2025-09-24T20:00:00",
+        "equity": 8779.324562467535
+      },
+      {
+        "timestamp": "2025-09-24T21:00:00",
+        "equity": 8805.506615200184
+      },
+      {
+        "timestamp": "2025-09-24T22:00:00",
+        "equity": 8780.437358958048
+      },
+      {
+        "timestamp": "2025-09-24T23:00:00",
+        "equity": 8791.704561131639
+      },
+      {
+        "timestamp": "2025-09-25T00:00:00",
+        "equity": 8895.184166285691
+      },
+      {
+        "timestamp": "2025-09-25T01:00:00",
+        "equity": 8959.84157725916
+      },
+      {
+        "timestamp": "2025-09-25T02:00:00",
+        "equity": 8883.141955072868
+      },
+      {
+        "timestamp": "2025-09-25T03:00:00",
+        "equity": 8875.360833981505
+      },
+      {
+        "timestamp": "2025-09-25T04:00:00",
+        "equity": 8930.755005560493
+      },
+      {
+        "timestamp": "2025-09-25T05:00:00",
+        "equity": 8962.064754713834
+      },
+      {
+        "timestamp": "2025-09-25T06:00:00",
+        "equity": 8930.013946408935
+      },
+      {
+        "timestamp": "2025-09-25T07:00:00",
+        "equity": 8933.348712590947
+      },
+      {
+        "timestamp": "2025-09-25T08:00:00",
+        "equity": 8897.407343740366
+      },
+      {
+        "timestamp": "2025-09-25T09:00:00",
+        "equity": 8963.54687301695
+      },
+      {
+        "timestamp": "2025-09-25T10:00:00",
+        "equity": 8983.555470109026
+      },
+      {
+        "timestamp": "2025-09-25T11:00:00",
+        "equity": 8948.540425197894
+      },
+      {
+        "timestamp": "2025-09-25T12:00:00",
+        "equity": 8881.474571981862
+      },
+      {
+        "timestamp": "2025-09-25T13:00:00",
+        "equity": 8867.764977678033
+      },
+      {
+        "timestamp": "2025-09-25T14:00:00",
+        "equity": 9211.245894425336
+      },
+      {
+        "timestamp": "2025-09-25T15:00:00",
+        "equity": 9131.211506057032
+      },
+      {
+        "timestamp": "2025-09-25T16:00:00",
+        "equity": 9436.71314128697
+      },
+      {
+        "timestamp": "2025-09-25T17:00:00",
+        "equity": 9415.037161103886
+      },
+      {
+        "timestamp": "2025-09-25T18:00:00",
+        "equity": 9501.555817048325
+      },
+      {
+        "timestamp": "2025-09-25T19:00:00",
+        "equity": 9768.707641185118
+      },
+      {
+        "timestamp": "2025-09-25T20:00:00",
+        "equity": 9857.82000416001
+      },
+      {
+        "timestamp": "2025-09-25T21:00:00",
+        "equity": 10012.145572472042
+      },
+      {
+        "timestamp": "2025-09-25T22:00:00",
+        "equity": 10025.114107624313
+      },
+      {
+        "timestamp": "2025-09-25T23:00:00",
+        "equity": 9858.19053373579
+      },
+      {
+        "timestamp": "2025-09-26T00:00:00",
+        "equity": 9838.552466219493
+      },
+      {
+        "timestamp": "2025-09-26T01:00:00",
+        "equity": 9773.524525670247
+      },
+      {
+        "timestamp": "2025-09-26T02:00:00",
+        "equity": 9672.36995148253
+      },
+      {
+        "timestamp": "2025-09-26T03:00:00",
+        "equity": 9844.110409856181
+      },
+      {
+        "timestamp": "2025-09-26T04:00:00",
+        "equity": 10066.798684899471
+      },
+      {
+        "timestamp": "2025-09-26T05:00:00",
+        "equity": 9738.324215971224
+      },
+      {
+        "timestamp": "2025-09-26T06:00:00",
+        "equity": 9780.749852397941
+      },
+      {
+        "timestamp": "2025-09-26T07:00:00",
+        "equity": 9712.94294003035
+      },
+      {
+        "timestamp": "2025-09-26T08:00:00",
+        "equity": 9874.308570282185
+      },
+      {
+        "timestamp": "2025-09-26T09:00:00",
+        "equity": 9753.33066379028
+      },
+      {
+        "timestamp": "2025-09-26T10:00:00",
+        "equity": 9732.395742758757
+      },
+      {
+        "timestamp": "2025-09-26T11:00:00",
+        "equity": 9678.113159907107
+      },
+      {
+        "timestamp": "2025-09-26T12:00:00",
+        "equity": 9643.839174147532
+      },
+      {
+        "timestamp": "2025-09-26T13:00:00",
+        "equity": 9736.842097668108
+      },
+      {
+        "timestamp": "2025-09-26T14:00:00",
+        "equity": 9742.770570880575
+      },
+      {
+        "timestamp": "2025-09-26T15:00:00",
+        "equity": 9765.187610215215
+      },
+      {
+        "timestamp": "2025-09-26T16:00:00",
+        "equity": 9941.189158710327
+      },
+      {
+        "timestamp": "2025-09-26T17:00:00",
+        "equity": 10000.288626047108
+      },
+      {
+        "timestamp": "2025-09-26T18:00:00",
+        "equity": 9936.557539013087
+      },
+      {
+        "timestamp": "2025-09-26T19:00:00",
+        "equity": 9807.057452278263
+      },
+      {
+        "timestamp": "2025-09-26T20:00:00",
+        "equity": 9762.96443276054
+      },
+      {
+        "timestamp": "2025-09-26T21:00:00",
+        "equity": 9801.499508641575
+      },
+      {
+        "timestamp": "2025-09-26T22:00:00",
+        "equity": 9734.804185001321
+      },
+      {
+        "timestamp": "2025-09-26T23:00:00",
+        "equity": 9753.33066379028
+      },
+      {
+        "timestamp": "2025-09-27T00:00:00",
+        "equity": 9796.126829792776
+      },
+      {
+        "timestamp": "2025-09-27T01:00:00",
+        "equity": 9943.968130528672
+      },
+      {
+        "timestamp": "2025-09-27T02:00:00",
+        "equity": 9942.115482649775
+      },
+      {
+        "timestamp": "2025-09-27T03:00:00",
+        "equity": 10026.04043156376
+      },
+      {
+        "timestamp": "2025-09-27T04:00:00",
+        "equity": 10070.318715869373
+      },
+      {
+        "timestamp": "2025-09-27T05:00:00",
+        "equity": 10320.611444308212
+      },
+      {
+        "timestamp": "2025-09-27T06:00:00",
+        "equity": 10342.657954067074
+      },
+      {
+        "timestamp": "2025-09-27T07:00:00",
+        "equity": 10302.455495095031
+      },
+      {
+        "timestamp": "2025-09-27T08:00:00",
+        "equity": 10237.242289757894
+      },
+      {
+        "timestamp": "2025-09-27T09:00:00",
+        "equity": 10253.916120667958
+      },
+      {
+        "timestamp": "2025-09-27T10:00:00",
+        "equity": 10196.484036422185
+      },
+      {
+        "timestamp": "2025-09-27T11:00:00",
+        "equity": 10225.94113769663
+      },
+      {
+        "timestamp": "2025-09-27T12:00:00",
+        "equity": 10186.294473088257
+      },
+      {
+        "timestamp": "2025-09-27T13:00:00",
+        "equity": 10148.50045635878
+      },
+      {
+        "timestamp": "2025-09-27T14:00:00",
+        "equity": 10242.244439030914
+      },
+      {
+        "timestamp": "2025-09-27T15:00:00",
+        "equity": 10237.798084121563
+      },
+      {
+        "timestamp": "2025-09-27T16:00:00",
+        "equity": 10253.916120667958
+      },
+      {
+        "timestamp": "2025-09-27T17:00:00",
+        "equity": 10400.460567888626
+      },
+      {
+        "timestamp": "2025-09-27T18:00:00",
+        "equity": 10360.813903280254
+      },
+      {
+        "timestamp": "2025-09-27T19:00:00",
+        "equity": 10422.692342435377
+      },
+      {
+        "timestamp": "2025-09-27T20:00:00",
+        "equity": 10492.166637893974
+      },
+      {
+        "timestamp": "2025-09-27T21:00:00",
+        "equity": 10513.472088501276
+      },
+      {
+        "timestamp": "2025-09-27T22:00:00",
+        "equity": 10422.692342435377
+      },
+      {
+        "timestamp": "2025-09-27T23:00:00",
+        "equity": 10508.09940965248
+      },
+      {
+        "timestamp": "2025-09-28T00:00:00",
+        "equity": 10509.210998379816
+      },
+      {
+        "timestamp": "2025-09-28T01:00:00",
+        "equity": 10592.765417718023
+      },
+      {
+        "timestamp": "2025-09-28T02:00:00",
+        "equity": 10432.696640981416
+      },
+      {
+        "timestamp": "2025-09-28T03:00:00",
+        "equity": 10425.8418438295
+      },
+      {
+        "timestamp": "2025-09-28T04:00:00",
+        "equity": 10359.331784977136
+      },
+      {
+        "timestamp": "2025-09-28T05:00:00",
+        "equity": 10305.975526064934
+      },
+      {
+        "timestamp": "2025-09-28T06:00:00",
+        "equity": 10284.114281093962
+      },
+      {
+        "timestamp": "2025-09-28T07:00:00",
+        "equity": 10391.012063706257
+      },
+      {
+        "timestamp": "2025-09-28T08:00:00",
+        "equity": 10242.244439030914
+      },
+      {
+        "timestamp": "2025-09-28T09:00:00",
+        "equity": 10233.536994000104
+      },
+      {
+        "timestamp": "2025-09-28T10:00:00",
+        "equity": 10254.286650243737
+      },
+      {
+        "timestamp": "2025-09-28T11:00:00",
+        "equity": 10100.454101908474
+      },
+      {
+        "timestamp": "2025-09-28T12:00:00",
+        "equity": 9938.166833278518
+      },
+      {
+        "timestamp": "2025-09-28T13:00:00",
+        "equity": 9972.730568051325
+      },
+      {
+        "timestamp": "2025-09-28T14:00:00",
+        "equity": 9982.261261314243
+      },
+      {
+        "timestamp": "2025-09-28T15:00:00",
+        "equity": 9844.01230244841
+      },
+      {
+        "timestamp": "2025-09-28T16:00:00",
+        "equity": 9850.860125559251
+      },
+      {
+        "timestamp": "2025-09-28T17:00:00",
+        "equity": 9860.934522509888
+      },
+      {
+        "timestamp": "2025-09-28T18:00:00",
+        "equity": 9869.378639735338
+      },
+      {
+        "timestamp": "2025-09-28T19:00:00",
+        "equity": 9867.984835366658
+      },
+      {
+        "timestamp": "2025-09-28T20:00:00",
+        "equity": 9579.737790750003
+      },
+      {
+        "timestamp": "2025-09-28T21:00:00",
+        "equity": 9581.332105557713
+      },
+      {
+        "timestamp": "2025-09-28T22:00:00",
+        "equity": 9450.714662964947
+      },
+      {
+        "timestamp": "2025-09-28T23:00:00",
+        "equity": 9447.676389469983
+      },
+      {
+        "timestamp": "2025-09-29T00:00:00",
+        "equity": 9438.50286998816
+      },
+      {
+        "timestamp": "2025-09-29T01:00:00",
+        "equity": 9451.187997201929
+      },
+      {
+        "timestamp": "2025-09-29T02:00:00",
+        "equity": 9428.606596340762
+      },
+      {
+        "timestamp": "2025-09-29T03:00:00",
+        "equity": 9426.243621932666
+      },
+      {
+        "timestamp": "2025-09-29T04:00:00",
+        "equity": 9436.314378629157
+      },
+      {
+        "timestamp": "2025-09-29T05:00:00",
+        "equity": 9429.204141941002
+      },
+      {
+        "timestamp": "2025-09-29T06:00:00",
+        "equity": 9424.898896094379
+      },
+      {
+        "timestamp": "2025-09-29T07:00:00",
+        "equity": 9564.179505878052
+      },
+      {
+        "timestamp": "2025-09-29T08:00:00",
+        "equity": 9568.822961062973
+      },
+      {
+        "timestamp": "2025-09-29T09:00:00",
+        "equity": 9574.477874182943
+      },
+      {
+        "timestamp": "2025-09-29T10:00:00",
+        "equity": 9715.958573713564
+      },
+      {
+        "timestamp": "2025-09-29T11:00:00",
+        "equity": 9711.493822521838
+      },
+      {
+        "timestamp": "2025-09-29T12:00:00",
+        "equity": 9724.200520066219
+      },
+      {
+        "timestamp": "2025-09-29T13:00:00",
+        "equity": 9838.658149396093
+      },
+      {
+        "timestamp": "2025-09-29T14:00:00",
+        "equity": 9775.915762248957
+      },
+      {
+        "timestamp": "2025-09-29T15:00:00",
+        "equity": 9643.380741356683
+      },
+      {
+        "timestamp": "2025-09-29T16:00:00",
+        "equity": 9656.346758844667
+      },
+      {
+        "timestamp": "2025-09-29T17:00:00",
+        "equity": 9633.886953038462
+      },
+      {
+        "timestamp": "2025-09-29T18:00:00",
+        "equity": 9624.8665051065
+      },
+      {
+        "timestamp": "2025-09-29T19:00:00",
+        "equity": 9608.973598113767
+      },
+      {
+        "timestamp": "2025-09-29T20:00:00",
+        "equity": 9607.473748278046
+      },
+      {
+        "timestamp": "2025-09-29T21:00:00",
+        "equity": 9615.157548011446
+      },
+      {
+        "timestamp": "2025-09-29T22:00:00",
+        "equity": 9480.987043674273
+      },
+      {
+        "timestamp": "2025-09-29T23:00:00",
+        "equity": 9492.636334413099
+      },
+      {
+        "timestamp": "2025-09-30T00:00:00",
+        "equity": 9503.55776199034
+      },
+      {
+        "timestamp": "2025-09-30T01:00:00",
+        "equity": 9508.415159744305
+      },
+      {
+        "timestamp": "2025-09-30T02:00:00",
+        "equity": 9512.94974674196
+      },
+      {
+        "timestamp": "2025-09-30T03:00:00",
+        "equity": 9363.18650316219
+      },
+      {
+        "timestamp": "2025-09-30T04:00:00",
+        "equity": 9312.968730807546
+      },
+      {
+        "timestamp": "2025-09-30T05:00:00",
+        "equity": 9295.003636892163
+      },
+      {
+        "timestamp": "2025-09-30T06:00:00",
+        "equity": 9314.712553804557
+      },
+      {
+        "timestamp": "2025-09-30T07:00:00",
+        "equity": 9316.970045554575
+      },
+      {
+        "timestamp": "2025-09-30T08:00:00",
+        "equity": 9423.41278230403
+      },
+      {
+        "timestamp": "2025-09-30T09:00:00",
+        "equity": 9450.683466860368
+      },
+      {
+        "timestamp": "2025-09-30T10:00:00",
+        "equity": 9448.888113770501
+      },
+      {
+        "timestamp": "2025-09-30T11:00:00",
+        "equity": 9459.451728401558
+      },
+      {
+        "timestamp": "2025-09-30T12:00:00",
+        "equity": 9454.11232256943
+      },
+      {
+        "timestamp": "2025-09-30T13:00:00",
+        "equity": 9413.284957526215
+      },
+      {
+        "timestamp": "2025-09-30T14:00:00",
+        "equity": 9500.279046324777
+      },
+      {
+        "timestamp": "2025-09-30T15:00:00",
+        "equity": 9409.026618663534
+      },
+      {
+        "timestamp": "2025-09-30T16:00:00",
+        "equity": 9414.608702730036
+      },
+      {
+        "timestamp": "2025-09-30T17:00:00",
+        "equity": 9399.483850385233
+      },
+      {
+        "timestamp": "2025-09-30T18:00:00",
+        "equity": 9235.480661185527
+      },
+      {
+        "timestamp": "2025-09-30T19:00:00",
+        "equity": 9369.206158846728
+      },
+      {
+        "timestamp": "2025-09-30T20:00:00",
+        "equity": 9560.297616086465
+      },
+      {
+        "timestamp": "2025-09-30T21:00:00",
+        "equity": 9474.623174005608
+      },
+      {
+        "timestamp": "2025-09-30T22:00:00",
+        "equity": 9454.76952547169
+      },
+      {
+        "timestamp": "2025-09-30T23:00:00",
+        "equity": 9476.881644426914
+      },
+      {
+        "timestamp": "2025-10-01T00:00:00",
+        "equity": 9513.89184266254
+      },
+      {
+        "timestamp": "2025-10-01T01:00:00",
+        "equity": 9668.505578875694
+      },
+      {
+        "timestamp": "2025-10-01T02:00:00",
+        "equity": 9627.890455847439
+      },
+      {
+        "timestamp": "2025-10-01T03:00:00",
+        "equity": 9536.12467995166
+      },
+      {
+        "timestamp": "2025-10-01T04:00:00",
+        "equity": 9592.023699056997
+      },
+      {
+        "timestamp": "2025-10-01T05:00:00",
+        "equity": 9589.507125964683
+      },
+      {
+        "timestamp": "2025-10-01T06:00:00",
+        "equity": 9732.897196345439
+      },
+      {
+        "timestamp": "2025-10-01T07:00:00",
+        "equity": 9714.642386873149
+      },
+      {
+        "timestamp": "2025-10-01T08:00:00",
+        "equity": 9402.398102386142
+      },
+      {
+        "timestamp": "2025-10-01T09:00:00",
+        "equity": 9241.296967003518
+      },
+      {
+        "timestamp": "2025-10-01T10:00:00",
+        "equity": 9273.326566609607
+      },
+      {
+        "timestamp": "2025-10-01T11:00:00",
+        "equity": 9260.861718225215
+      },
+      {
+        "timestamp": "2025-10-01T12:00:00",
+        "equity": 9279.853720261483
+      },
+      {
+        "timestamp": "2025-10-01T13:00:00",
+        "equity": 9257.683401641218
+      },
+      {
+        "timestamp": "2025-10-01T14:00:00",
+        "equity": 9240.131352733832
+      },
+      {
+        "timestamp": "2025-10-01T15:00:00",
+        "equity": 9238.193430285832
+      },
+      {
+        "timestamp": "2025-10-01T16:00:00",
+        "equity": 9214.761899576373
+      },
+      {
+        "timestamp": "2025-10-01T17:00:00",
+        "equity": 9247.992120663514
+      },
+      {
+        "timestamp": "2025-10-01T18:00:00",
+        "equity": 9259.475928523956
+      },
+      {
+        "timestamp": "2025-10-01T19:00:00",
+        "equity": 9112.140467763436
+      },
+      {
+        "timestamp": "2025-10-01T20:00:00",
+        "equity": 9123.75131141748
+      },
+      {
+        "timestamp": "2025-10-01T21:00:00",
+        "equity": 9250.416120551094
+      },
+      {
+        "timestamp": "2025-10-01T22:00:00",
+        "equity": 9233.598369856956
+      },
+      {
+        "timestamp": "2025-10-01T23:00:00",
+        "equity": 9340.839472395908
+      },
+      {
+        "timestamp": "2025-10-02T00:00:00",
+        "equity": 9222.95051653787
+      },
+      {
+        "timestamp": "2025-10-02T01:00:00",
+        "equity": 9514.650774547928
+      },
+      {
+        "timestamp": "2025-10-02T02:00:00",
+        "equity": 9327.260605017347
+      },
+      {
+        "timestamp": "2025-10-02T03:00:00",
+        "equity": 9278.31855389002
+      },
+      {
+        "timestamp": "2025-10-02T04:00:00",
+        "equity": 9300.676561193119
+      },
+      {
+        "timestamp": "2025-10-02T05:00:00",
+        "equity": 9152.045476831494
+      },
+      {
+        "timestamp": "2025-10-02T06:00:00",
+        "equity": 9124.267344062515
+      },
+      {
+        "timestamp": "2025-10-02T07:00:00",
+        "equity": 8898.384904258313
+      },
+      {
+        "timestamp": "2025-10-02T08:00:00",
+        "equity": 8892.53907838627
+      },
+      {
+        "timestamp": "2025-10-02T09:00:00",
+        "equity": 8875.263858246077
+      },
+      {
+        "timestamp": "2025-10-02T10:00:00",
+        "equity": 8904.272638816967
+      },
+      {
+        "timestamp": "2025-10-02T11:00:00",
+        "equity": 8799.406920563953
+      },
+      {
+        "timestamp": "2025-10-02T12:00:00",
+        "equity": 8906.31246867843
+      },
+      {
+        "timestamp": "2025-10-02T13:00:00",
+        "equity": 8724.0242885785
+      },
+      {
+        "timestamp": "2025-10-02T14:00:00",
+        "equity": 8752.992654073449
+      },
+      {
+        "timestamp": "2025-10-02T15:00:00",
+        "equity": 8669.075316425658
+      },
+      {
+        "timestamp": "2025-10-02T16:00:00",
+        "equity": 8748.547391132337
+      },
+      {
+        "timestamp": "2025-10-02T17:00:00",
+        "equity": 8885.736756836024
+      },
+      {
+        "timestamp": "2025-10-02T18:00:00",
+        "equity": 8995.319888174059
+      },
+      {
+        "timestamp": "2025-10-02T19:00:00",
+        "equity": 8569.986807199659
+      },
+      {
+        "timestamp": "2025-10-02T20:00:00",
+        "equity": 8537.873876695121
+      },
+      {
+        "timestamp": "2025-10-02T21:00:00",
+        "equity": 8555.244059242168
+      },
+      {
+        "timestamp": "2025-10-02T22:00:00",
+        "equity": 8643.401053371259
+      },
+      {
+        "timestamp": "2025-10-02T23:00:00",
+        "equity": 8615.77397488809
+      },
+      {
+        "timestamp": "2025-10-03T00:00:00",
+        "equity": 8663.992095363445
+      },
+      {
+        "timestamp": "2025-10-03T01:00:00",
+        "equity": 8692.314573476195
+      },
+      {
+        "timestamp": "2025-10-03T02:00:00",
+        "equity": 8767.7512604225
+      },
+      {
+        "timestamp": "2025-10-03T03:00:00",
+        "equity": 8775.64039637654
+      },
+      {
+        "timestamp": "2025-10-03T04:00:00",
+        "equity": 8770.87098238652
+      },
+      {
+        "timestamp": "2025-10-03T05:00:00",
+        "equity": 8802.630393545953
+      },
+      {
+        "timestamp": "2025-10-03T06:00:00",
+        "equity": 8822.387109714191
+      },
+      {
+        "timestamp": "2025-10-03T07:00:00",
+        "equity": 8694.29871688934
+      },
+      {
+        "timestamp": "2025-10-03T08:00:00",
+        "equity": 8525.726144841168
+      },
+      {
+        "timestamp": "2025-10-03T09:00:00",
+        "equity": 8480.303508874225
+      },
+      {
+        "timestamp": "2025-10-03T10:00:00",
+        "equity": 8486.559878160602
+      },
+      {
+        "timestamp": "2025-10-03T11:00:00",
+        "equity": 8487.677161991016
+      },
+      {
+        "timestamp": "2025-10-03T12:00:00",
+        "equity": 8486.0247414349
+      },
+      {
+        "timestamp": "2025-10-03T13:00:00",
+        "equity": 8485.415980237834
+      },
+      {
+        "timestamp": "2025-10-03T14:00:00",
+        "equity": 8396.599746599944
+      },
+      {
+        "timestamp": "2025-10-03T15:00:00",
+        "equity": 8280.744790434082
+      },
+      {
+        "timestamp": "2025-10-03T16:00:00",
+        "equity": 8301.46327619838
+      },
+      {
+        "timestamp": "2025-10-03T17:00:00",
+        "equity": 8369.177977920663
+      },
+      {
+        "timestamp": "2025-10-03T18:00:00",
+        "equity": 8245.630357062706
+      },
+      {
+        "timestamp": "2025-10-03T19:00:00",
+        "equity": 8299.650994099484
+      },
+      {
+        "timestamp": "2025-10-03T20:00:00",
+        "equity": 8271.803974582428
+      },
+      {
+        "timestamp": "2025-10-03T21:00:00",
+        "equity": 8272.964648422143
+      },
+      {
+        "timestamp": "2025-10-03T22:00:00",
+        "equity": 8292.835799490957
+      },
+      {
+        "timestamp": "2025-10-03T23:00:00",
+        "equity": 8286.469455202976
+      },
+      {
+        "timestamp": "2025-10-04T00:00:00",
+        "equity": 8304.070272243289
+      },
+      {
+        "timestamp": "2025-10-04T01:00:00",
+        "equity": 8361.182068283473
+      },
+      {
+        "timestamp": "2025-10-04T02:00:00",
+        "equity": 8341.813071902367
+      },
+      {
+        "timestamp": "2025-10-04T03:00:00",
+        "equity": 8379.4000997422
+      },
+      {
+        "timestamp": "2025-10-04T04:00:00",
+        "equity": 8378.906577148211
+      },
+      {
+        "timestamp": "2025-10-04T05:00:00",
+        "equity": 8406.480337310726
+      },
+      {
+        "timestamp": "2025-10-04T06:00:00",
+        "equity": 8450.39645865029
+      },
+      {
+        "timestamp": "2025-10-04T07:00:00",
+        "equity": 8445.360319275445
+      },
+      {
+        "timestamp": "2025-10-04T08:00:00",
+        "equity": 8479.609827477701
+      },
+      {
+        "timestamp": "2025-10-04T09:00:00",
+        "equity": 8492.237403561545
+      },
+      {
+        "timestamp": "2025-10-04T10:00:00",
+        "equity": 8477.657267460958
+      },
+      {
+        "timestamp": "2025-10-04T11:00:00",
+        "equity": 8529.9370156956
+      },
+      {
+        "timestamp": "2025-10-04T12:00:00",
+        "equity": 8518.102214669803
+      },
+      {
+        "timestamp": "2025-10-04T13:00:00",
+        "equity": 8486.015598012456
+      },
+      {
+        "timestamp": "2025-10-04T14:00:00",
+        "equity": 8508.315903407105
+      },
+      {
+        "timestamp": "2025-10-04T15:00:00",
+        "equity": 8498.594617887584
+      },
+      {
+        "timestamp": "2025-10-04T16:00:00",
+        "equity": 8459.552833225795
+      },
+      {
+        "timestamp": "2025-10-04T17:00:00",
+        "equity": 8442.235240216074
+      },
+      {
+        "timestamp": "2025-10-04T18:00:00",
+        "equity": 8485.770774129693
+      },
+      {
+        "timestamp": "2025-10-04T19:00:00",
+        "equity": 8458.546234038286
+      },
+      {
+        "timestamp": "2025-10-04T20:00:00",
+        "equity": 8462.91577430214
+      },
+      {
+        "timestamp": "2025-10-04T21:00:00",
+        "equity": 8449.324173648336
+      },
+      {
+        "timestamp": "2025-10-04T22:00:00",
+        "equity": 8569.74298408554
+      },
+      {
+        "timestamp": "2025-10-04T23:00:00",
+        "equity": 8568.581616536747
+      },
+      {
+        "timestamp": "2025-10-05T00:00:00",
+        "equity": 8699.884533206803
+      },
+      {
+        "timestamp": "2025-10-05T01:00:00",
+        "equity": 8810.024803629112
+      },
+      {
+        "timestamp": "2025-10-05T02:00:00",
+        "equity": 8856.617904240882
+      },
+      {
+        "timestamp": "2025-10-05T03:00:00",
+        "equity": 8718.327280676684
+      },
+      {
+        "timestamp": "2025-10-05T04:00:00",
+        "equity": 8295.437789920685
+      },
+      {
+        "timestamp": "2025-10-05T05:00:00",
+        "equity": 8294.855026080812
+      },
+      {
+        "timestamp": "2025-10-05T06:00:00",
+        "equity": 8309.614109051952
+      },
+      {
+        "timestamp": "2025-10-05T07:00:00",
+        "equity": 8254.668875790067
+      },
+      {
+        "timestamp": "2025-10-05T08:00:00",
+        "equity": 8260.944413734558
+      },
+      {
+        "timestamp": "2025-10-05T09:00:00",
+        "equity": 8330.539963281068
+      },
+      {
+        "timestamp": "2025-10-05T10:00:00",
+        "equity": 8357.052254753704
+      },
+      {
+        "timestamp": "2025-10-05T11:00:00",
+        "equity": 8326.040883652682
+      },
+      {
+        "timestamp": "2025-10-05T12:00:00",
+        "equity": 8385.181694115201
+      },
+      {
+        "timestamp": "2025-10-05T13:00:00",
+        "equity": 8465.503036771697
+      },
+      {
+        "timestamp": "2025-10-05T14:00:00",
+        "equity": 8483.789113291552
+      },
+      {
+        "timestamp": "2025-10-05T15:00:00",
+        "equity": 8492.370647850274
+      },
+      {
+        "timestamp": "2025-10-05T16:00:00",
+        "equity": 8437.77905611181
+      },
+      {
+        "timestamp": "2025-10-05T17:00:00",
+        "equity": 8451.216884487472
+      },
+      {
+        "timestamp": "2025-10-05T18:00:00",
+        "equity": 8468.208004372718
+      },
+      {
+        "timestamp": "2025-10-05T19:00:00",
+        "equity": 8545.058860205945
+      },
+      {
+        "timestamp": "2025-10-05T20:00:00",
+        "equity": 8535.944224165456
+      },
+      {
+        "timestamp": "2025-10-05T21:00:00",
+        "equity": 8486.855210630249
+      },
+      {
+        "timestamp": "2025-10-05T22:00:00",
+        "equity": 8521.887378623836
+      },
+      {
+        "timestamp": "2025-10-05T23:00:00",
+        "equity": 8507.849333742703
+      },
+      {
+        "timestamp": "2025-10-06T00:00:00",
+        "equity": 8496.752016230359
+      },
+      {
+        "timestamp": "2025-10-06T01:00:00",
+        "equity": 8721.156144367917
+      },
+      {
+        "timestamp": "2025-10-06T02:00:00",
+        "equity": 8687.446609962913
+      },
+      {
+        "timestamp": "2025-10-06T03:00:00",
+        "equity": 8704.381403981546
+      },
+      {
+        "timestamp": "2025-10-06T04:00:00",
+        "equity": 8714.49678501713
+      },
+      {
+        "timestamp": "2025-10-06T05:00:00",
+        "equity": 8691.749029323397
+      },
+      {
+        "timestamp": "2025-10-06T06:00:00",
+        "equity": 8791.607767646205
+      },
+      {
+        "timestamp": "2025-10-06T07:00:00",
+        "equity": 8800.946594287201
+      },
+      {
+        "timestamp": "2025-10-06T08:00:00",
+        "equity": 8771.877818973164
+      },
+      {
+        "timestamp": "2025-10-06T09:00:00",
+        "equity": 8733.808396012882
+      },
+      {
+        "timestamp": "2025-10-06T10:00:00",
+        "equity": 8862.527995478216
+      },
+      {
+        "timestamp": "2025-10-06T11:00:00",
+        "equity": 8722.030973449811
+      },
+      {
+        "timestamp": "2025-10-06T12:00:00",
+        "equity": 8956.770144673885
+      },
+      {
+        "timestamp": "2025-10-06T13:00:00",
+        "equity": 8930.901345051752
+      },
+      {
+        "timestamp": "2025-10-06T14:00:00",
+        "equity": 8930.705579288664
+      },
+      {
+        "timestamp": "2025-10-06T15:00:00",
+        "equity": 8893.963464523564
+      },
+      {
+        "timestamp": "2025-10-06T16:00:00",
+        "equity": 8900.444158200187
+      },
+      {
+        "timestamp": "2025-10-06T17:00:00",
+        "equity": 8884.378227674137
+      },
+      {
+        "timestamp": "2025-10-06T18:00:00",
+        "equity": 8734.332676085212
+      },
+      {
+        "timestamp": "2025-10-06T19:00:00",
+        "equity": 8486.180690405552
+      },
+      {
+        "timestamp": "2025-10-06T20:00:00",
+        "equity": 8532.633656481077
+      },
+      {
+        "timestamp": "2025-10-06T21:00:00",
+        "equity": 8509.43579328406
+      },
+      {
+        "timestamp": "2025-10-06T22:00:00",
+        "equity": 8443.46051578557
+      },
+      {
+        "timestamp": "2025-10-06T23:00:00",
+        "equity": 8460.261420223596
+      },
+      {
+        "timestamp": "2025-10-07T00:00:00",
+        "equity": 8440.178814803201
+      },
+      {
+        "timestamp": "2025-10-07T01:00:00",
+        "equity": 8437.118029133566
+      },
+      {
+        "timestamp": "2025-10-07T02:00:00",
+        "equity": 8466.251752281836
+      },
+      {
+        "timestamp": "2025-10-07T03:00:00",
+        "equity": 8457.9150584557
+      },
+      {
+        "timestamp": "2025-10-07T04:00:00",
+        "equity": 8575.84457239433
+      },
+      {
+        "timestamp": "2025-10-07T05:00:00",
+        "equity": 8534.422469127107
+      },
+      {
+        "timestamp": "2025-10-07T06:00:00",
+        "equity": 8604.804834231467
+      },
+      {
+        "timestamp": "2025-10-07T07:00:00",
+        "equity": 8634.733391062757
+      },
+      {
+        "timestamp": "2025-10-07T08:00:00",
+        "equity": 8656.995380229175
+      },
+      {
+        "timestamp": "2025-10-07T09:00:00",
+        "equity": 8662.437988969741
+      },
+      {
+        "timestamp": "2025-10-07T10:00:00",
+        "equity": 8651.511759364414
+      },
+      {
+        "timestamp": "2025-10-07T11:00:00",
+        "equity": 8642.069600573494
+      },
+      {
+        "timestamp": "2025-10-07T12:00:00",
+        "equity": 8693.208515992541
+      },
+      {
+        "timestamp": "2025-10-07T13:00:00",
+        "equity": 8767.63794217513
+      },
+      {
+        "timestamp": "2025-10-07T14:00:00",
+        "equity": 8877.059204944393
+      },
+      {
+        "timestamp": "2025-10-07T15:00:00",
+        "equity": 8924.48758485772
+      },
+      {
+        "timestamp": "2025-10-07T16:00:00",
+        "equity": 8945.221543182322
+      },
+      {
+        "timestamp": "2025-10-07T17:00:00",
+        "equity": 8971.417109040793
+      },
+      {
+        "timestamp": "2025-10-07T18:00:00",
+        "equity": 8994.646177143492
+      },
+      {
+        "timestamp": "2025-10-07T19:00:00",
+        "equity": 8983.627986138708
+      },
+      {
+        "timestamp": "2025-10-07T20:00:00",
+        "equity": 8945.17521921835
+      },
+      {
+        "timestamp": "2025-10-07T21:00:00",
+        "equity": 8968.939669190519
+      },
+      {
+        "timestamp": "2025-10-07T22:00:00",
+        "equity": 8967.695448628852
+      },
+      {
+        "timestamp": "2025-10-07T23:00:00",
+        "equity": 8975.92082129414
+      },
+      {
+        "timestamp": "2025-10-08T00:00:00",
+        "equity": 8982.314941053368
+      },
+      {
+        "timestamp": "2025-10-08T01:00:00",
+        "equity": 8972.101682331378
+      },
+      {
+        "timestamp": "2025-10-08T02:00:00",
+        "equity": 8977.579835250808
+      },
+      {
+        "timestamp": "2025-10-08T03:00:00",
+        "equity": 9040.832848955455
+      },
+      {
+        "timestamp": "2025-10-08T04:00:00",
+        "equity": 9009.728518923777
+      },
+      {
+        "timestamp": "2025-10-08T05:00:00",
+        "equity": 9032.682287022379
+      },
+      {
+        "timestamp": "2025-10-08T06:00:00",
+        "equity": 9028.88782906682
+      },
+      {
+        "timestamp": "2025-10-08T07:00:00",
+        "equity": 9028.510546852487
+      },
+      {
+        "timestamp": "2025-10-08T08:00:00",
+        "equity": 9008.197681141233
+      },
+      {
+        "timestamp": "2025-10-08T09:00:00",
+        "equity": 9021.067163728254
+      },
+      {
+        "timestamp": "2025-10-08T10:00:00",
+        "equity": 9009.031761034385
+      },
+      {
+        "timestamp": "2025-10-08T11:00:00",
+        "equity": 9023.943162996748
+      },
+      {
+        "timestamp": "2025-10-08T12:00:00",
+        "equity": 9025.666650127052
+      },
+      {
+        "timestamp": "2025-10-08T13:00:00",
+        "equity": 9023.323634845112
+      },
+      {
+        "timestamp": "2025-10-08T14:00:00",
+        "equity": 9045.603906445474
+      },
+      {
+        "timestamp": "2025-10-08T15:00:00",
+        "equity": 9043.696682131767
+      },
+      {
+        "timestamp": "2025-10-08T16:00:00",
+        "equity": 9000.035568045281
+      },
+      {
+        "timestamp": "2025-10-08T17:00:00",
+        "equity": 8588.019853874712
+      },
+      {
+        "timestamp": "2025-10-08T18:00:00",
+        "equity": 8603.541264269033
+      },
+      {
+        "timestamp": "2025-10-08T19:00:00",
+        "equity": 8596.03746432568
+      },
+      {
+        "timestamp": "2025-10-08T20:00:00",
+        "equity": 8651.65080854514
+      },
+      {
+        "timestamp": "2025-10-08T21:00:00",
+        "equity": 8637.426766401784
+      },
+      {
+        "timestamp": "2025-10-08T22:00:00",
+        "equity": 8651.470019658134
+      },
+      {
+        "timestamp": "2025-10-08T23:00:00",
+        "equity": 8638.583638614597
+      },
+      {
+        "timestamp": "2025-10-09T00:00:00",
+        "equity": 8672.518402699809
+      },
+      {
+        "timestamp": "2025-10-09T01:00:00",
+        "equity": 8697.454058917856
+      },
+      {
+        "timestamp": "2025-10-09T02:00:00",
+        "equity": 8904.158648687719
+      },
+      {
+        "timestamp": "2025-10-09T03:00:00",
+        "equity": 8833.245901140994
+      },
+      {
+        "timestamp": "2025-10-09T04:00:00",
+        "equity": 8825.283693100077
+      },
+      {
+        "timestamp": "2025-10-09T05:00:00",
+        "equity": 8823.040107605702
+      },
+      {
+        "timestamp": "2025-10-09T06:00:00",
+        "equity": 8988.882482758807
+      },
+      {
+        "timestamp": "2025-10-09T07:00:00",
+        "equity": 8993.525219549718
+      },
+      {
+        "timestamp": "2025-10-09T08:00:00",
+        "equity": 9007.987284007808
+      },
+      {
+        "timestamp": "2025-10-09T09:00:00",
+        "equity": 8953.930693788248
+      },
+      {
+        "timestamp": "2025-10-09T10:00:00",
+        "equity": 8944.8711251047
+      },
+      {
+        "timestamp": "2025-10-09T11:00:00",
+        "equity": 9184.125965897978
+      },
+      {
+        "timestamp": "2025-10-09T12:00:00",
+        "equity": 9177.373131720635
+      },
+      {
+        "timestamp": "2025-10-09T13:00:00",
+        "equity": 9210.595096326573
+      },
+      {
+        "timestamp": "2025-10-09T14:00:00",
+        "equity": 9066.667934910354
+      },
+      {
+        "timestamp": "2025-10-09T15:00:00",
+        "equity": 9094.78835465613
+      },
+      {
+        "timestamp": "2025-10-09T16:00:00",
+        "equity": 9220.792438887853
+      },
+      {
+        "timestamp": "2025-10-09T17:00:00",
+        "equity": 9178.08999755523
+      },
+      {
+        "timestamp": "2025-10-09T18:00:00",
+        "equity": 9219.723907830816
+      },
+      {
+        "timestamp": "2025-10-09T19:00:00",
+        "equity": 9212.168041241162
+      },
+      {
+        "timestamp": "2025-10-09T20:00:00",
+        "equity": 9208.126360353655
+      },
+      {
+        "timestamp": "2025-10-09T21:00:00",
+        "equity": 9206.647314402742
+      },
+      {
+        "timestamp": "2025-10-09T22:00:00",
+        "equity": 9189.542734412722
+      },
+      {
+        "timestamp": "2025-10-09T23:00:00",
+        "equity": 9199.004025168333
+      },
+      {
+        "timestamp": "2025-10-10T00:00:00",
+        "equity": 9187.250044695344
+      },
+      {
+        "timestamp": "2025-10-10T01:00:00",
+        "equity": 9188.594742714125
+      },
+      {
+        "timestamp": "2025-10-10T02:00:00",
+        "equity": 9067.755970104461
+      },
+      {
+        "timestamp": "2025-10-10T03:00:00",
+        "equity": 9188.98323411066
+      },
+      {
+        "timestamp": "2025-10-10T04:00:00",
+        "equity": 9208.147702245864
+      },
+      {
+        "timestamp": "2025-10-10T05:00:00",
+        "equity": 9358.123124537344
+      },
+      {
+        "timestamp": "2025-10-10T06:00:00",
+        "equity": 9361.201057533177
+      },
+      {
+        "timestamp": "2025-10-10T07:00:00",
+        "equity": 9361.702675564664
+      },
+      {
+        "timestamp": "2025-10-10T08:00:00",
+        "equity": 9361.867958654631
+      },
+      {
+        "timestamp": "2025-10-10T09:00:00",
+        "equity": 9343.080322611844
+      },
+      {
+        "timestamp": "2025-10-10T10:00:00",
+        "equity": 9343.027202915271
+      },
+      {
+        "timestamp": "2025-10-10T11:00:00",
+        "equity": 9374.15929731672
+      },
+      {
+        "timestamp": "2025-10-10T12:00:00",
+        "equity": 9353.691189425044
+      },
+      {
+        "timestamp": "2025-10-10T13:00:00",
+        "equity": 9343.764738203598
+      },
+      {
+        "timestamp": "2025-10-10T14:00:00",
+        "equity": 9197.153076945844
+      },
+      {
+        "timestamp": "2025-10-10T15:00:00",
+        "equity": 9298.223048296259
+      },
+      {
+        "timestamp": "2025-10-10T16:00:00",
+        "equity": 9161.944987130202
+      },
+      {
+        "timestamp": "2025-10-10T17:00:00",
+        "equity": 8861.37544002976
+      },
+      {
+        "timestamp": "2025-10-10T18:00:00",
+        "equity": 8840.895415398501
+      },
+      {
+        "timestamp": "2025-10-10T19:00:00",
+        "equity": 8768.187459376237
+      },
+      {
+        "timestamp": "2025-10-10T20:00:00",
+        "equity": 9206.668449115397
+      },
+      {
+        "timestamp": "2025-10-10T21:00:00",
+        "equity": 9356.375232768505
+      },
+      {
+        "timestamp": "2025-10-10T22:00:00",
+        "equity": 9374.860766054366
+      },
+      {
+        "timestamp": "2025-10-10T23:00:00",
+        "equity": 9386.056229875381
+      },
+      {
+        "timestamp": "2025-10-11T00:00:00",
+        "equity": 9376.81346323245
+      },
+      {
+        "timestamp": "2025-10-11T01:00:00",
+        "equity": 9408.31697770554
+      },
+      {
+        "timestamp": "2025-10-11T02:00:00",
+        "equity": 9366.659437906414
+      },
+      {
+        "timestamp": "2025-10-11T03:00:00",
+        "equity": 9376.81346323245
+      },
+      {
+        "timestamp": "2025-10-11T04:00:00",
+        "equity": 9360.280627124672
+      },
+      {
+        "timestamp": "2025-10-11T05:00:00",
+        "equity": 9357.026131827866
+      },
+      {
+        "timestamp": "2025-10-11T06:00:00",
+        "equity": 9371.736450569431
+      },
+      {
+        "timestamp": "2025-10-11T07:00:00",
+        "equity": 9376.553103608705
+      },
+      {
+        "timestamp": "2025-10-11T08:00:00",
+        "equity": 9374.079687183134
+      },
+      {
+        "timestamp": "2025-10-11T09:00:00",
+        "equity": 9393.99719839959
+      },
+      {
+        "timestamp": "2025-10-11T10:00:00",
+        "equity": 9395.819715765801
+      },
+      {
+        "timestamp": "2025-10-11T11:00:00",
+        "equity": 9401.807987111926
+      },
+      {
+        "timestamp": "2025-10-11T12:00:00",
+        "equity": 9408.9678767649
+      },
+      {
+        "timestamp": "2025-10-11T13:00:00",
+        "equity": 9411.3111133786
+      },
+      {
+        "timestamp": "2025-10-11T14:00:00",
+        "equity": 9433.181321773141
+      },
+      {
+        "timestamp": "2025-10-11T15:00:00",
+        "equity": 9455.96278885079
+      },
+      {
+        "timestamp": "2025-10-11T16:00:00",
+        "equity": 9457.915486028873
+      },
+      {
+        "timestamp": "2025-10-11T17:00:00",
+        "equity": 9445.808763524752
+      },
+      {
+        "timestamp": "2025-10-11T18:00:00",
+        "equity": 9469.76184890925
+      },
+      {
+        "timestamp": "2025-10-11T19:00:00",
+        "equity": 9486.55504464077
+      },
+      {
+        "timestamp": "2025-10-11T20:00:00",
+        "equity": 9491.762237115661
+      },
+      {
+        "timestamp": "2025-10-11T21:00:00",
+        "equity": 9491.762237115661
+      },
+      {
+        "timestamp": "2025-10-11T22:00:00",
+        "equity": 9491.241517868173
+      },
+      {
+        "timestamp": "2025-10-11T23:00:00",
+        "equity": 9484.862707086431
+      },
+      {
+        "timestamp": "2025-10-12T00:00:00",
+        "equity": 9525.608988202452
+      },
+      {
+        "timestamp": "2025-10-12T01:00:00",
+        "equity": 9514.413524381436
+      },
+      {
+        "timestamp": "2025-10-12T02:00:00",
+        "equity": 9511.028849272758
+      },
+      {
+        "timestamp": "2025-10-12T03:00:00",
+        "equity": 9473.927602889162
+      },
+      {
+        "timestamp": "2025-10-12T04:00:00",
+        "equity": 9467.809151731164
+      },
+      {
+        "timestamp": "2025-10-12T05:00:00",
+        "equity": 9455.311889791426
+      },
+      {
+        "timestamp": "2025-10-12T06:00:00",
+        "equity": 9426.270781529558
+      },
+      {
+        "timestamp": "2025-10-12T07:00:00",
+        "equity": 9426.330888417919
+      },
+      {
+        "timestamp": "2025-10-12T08:00:00",
+        "equity": 9422.06329934426
+      },
+      {
+        "timestamp": "2025-10-12T09:00:00",
+        "equity": 9291.608691303092
+      },
+      {
+        "timestamp": "2025-10-12T10:00:00",
+        "equity": 9288.801958750035
+      },
+      {
+        "timestamp": "2025-10-12T11:00:00",
+        "equity": 9276.260220974327
+      },
+      {
+        "timestamp": "2025-10-12T12:00:00",
+        "equity": 9267.607375194602
+      },
+      {
+        "timestamp": "2025-10-12T13:00:00",
+        "equity": 9268.191393561237
+      },
+      {
+        "timestamp": "2025-10-12T14:00:00",
+        "equity": 8855.583079218968
+      },
+      {
+        "timestamp": "2025-10-12T15:00:00",
+        "equity": 8593.691322311171
+      },
+      {
+        "timestamp": "2025-10-12T16:00:00",
+        "equity": 8551.172631737078
+      },
+      {
+        "timestamp": "2025-10-12T17:00:00",
+        "equity": 8544.92628983113
+      },
+      {
+        "timestamp": "2025-10-12T18:00:00",
+        "equity": 8675.093838996
+      },
+      {
+        "timestamp": "2025-10-12T19:00:00",
+        "equity": 8805.174739890293
+      },
+      {
+        "timestamp": "2025-10-12T20:00:00",
+        "equity": 8797.156456546745
+      },
+      {
+        "timestamp": "2025-10-12T21:00:00",
+        "equity": 8801.539446710358
+      },
+      {
+        "timestamp": "2025-10-12T22:00:00",
+        "equity": 8929.010505171662
+      },
+      {
+        "timestamp": "2025-10-12T23:00:00",
+        "equity": 8905.097585733318
+      },
+      {
+        "timestamp": "2025-10-13T00:00:00",
+        "equity": 8899.740187967831
+      },
+      {
+        "timestamp": "2025-10-13T01:00:00",
+        "equity": 9036.046133811657
+      },
+      {
+        "timestamp": "2025-10-13T02:00:00",
+        "equity": 9046.961545091768
+      },
+      {
+        "timestamp": "2025-10-13T03:00:00",
+        "equity": 9048.337044177333
+      },
+      {
+        "timestamp": "2025-10-13T04:00:00",
+        "equity": 9068.417174099211
+      },
+      {
+        "timestamp": "2025-10-13T05:00:00",
+        "equity": 8912.346796873519
+      },
+      {
+        "timestamp": "2025-10-13T06:00:00",
+        "equity": 8908.40959406145
+      },
+      {
+        "timestamp": "2025-10-13T07:00:00",
+        "equity": 8894.388503322354
+      },
+      {
+        "timestamp": "2025-10-13T08:00:00",
+        "equity": 8615.703731684063
+      },
+      {
+        "timestamp": "2025-10-13T09:00:00",
+        "equity": 8639.338087687891
+      },
+      {
+        "timestamp": "2025-10-13T10:00:00",
+        "equity": 8676.73743673836
+      },
+      {
+        "timestamp": "2025-10-13T11:00:00",
+        "equity": 8726.28614175364
+      },
+      {
+        "timestamp": "2025-10-13T12:00:00",
+        "equity": 8731.80350137045
+      },
+      {
+        "timestamp": "2025-10-13T13:00:00",
+        "equity": 8678.810354316007
+      },
+      {
+        "timestamp": "2025-10-13T14:00:00",
+        "equity": 8744.266222649854
+      },
+      {
+        "timestamp": "2025-10-13T15:00:00",
+        "equity": 8712.404335558398
+      },
+      {
+        "timestamp": "2025-10-13T16:00:00",
+        "equity": 8674.412709695349
+      },
+      {
+        "timestamp": "2025-10-13T17:00:00",
+        "equity": 8889.908521485268
+      },
+      {
+        "timestamp": "2025-10-13T18:00:00",
+        "equity": 8899.078389011725
+      },
+      {
+        "timestamp": "2025-10-13T19:00:00",
+        "equity": 9029.370118496618
+      },
+      {
+        "timestamp": "2025-10-13T20:00:00",
+        "equity": 9028.397944924303
+      },
+      {
+        "timestamp": "2025-10-13T21:00:00",
+        "equity": 9009.16201275908
+      },
+      {
+        "timestamp": "2025-10-13T22:00:00",
+        "equity": 9000.137518241849
+      },
+      {
+        "timestamp": "2025-10-13T23:00:00",
+        "equity": 8995.938785382861
+      },
+      {
+        "timestamp": "2025-10-14T00:00:00",
+        "equity": 8989.635241831984
+      },
+      {
+        "timestamp": "2025-10-14T01:00:00",
+        "equity": 8988.709255520173
+      },
+      {
+        "timestamp": "2025-10-14T02:00:00",
+        "equity": 8987.579237704565
+      },
+      {
+        "timestamp": "2025-10-14T03:00:00",
+        "equity": 8982.69380702016
+      },
+      {
+        "timestamp": "2025-10-14T04:00:00",
+        "equity": 9042.452153442058
+      },
+      {
+        "timestamp": "2025-10-14T05:00:00",
+        "equity": 9063.21801989816
+      },
+      {
+        "timestamp": "2025-10-14T06:00:00",
+        "equity": 8731.747752914285
+      },
+      {
+        "timestamp": "2025-10-14T07:00:00",
+        "equity": 8601.721105793393
+      },
+      {
+        "timestamp": "2025-10-14T08:00:00",
+        "equity": 8611.629974135694
+      },
+      {
+        "timestamp": "2025-10-14T09:00:00",
+        "equity": 8608.012865729252
+      },
+      {
+        "timestamp": "2025-10-14T10:00:00",
+        "equity": 8580.011033633476
+      },
+      {
+        "timestamp": "2025-10-14T11:00:00",
+        "equity": 8617.939114759045
+      },
+      {
+        "timestamp": "2025-10-14T12:00:00",
+        "equity": 8599.255646527643
+      },
+      {
+        "timestamp": "2025-10-14T13:00:00",
+        "equity": 8586.556943429261
+      },
+      {
+        "timestamp": "2025-10-14T14:00:00",
+        "equity": 8601.319639826173
+      },
+      {
+        "timestamp": "2025-10-14T15:00:00",
+        "equity": 8513.150288283714
+      },
+      {
+        "timestamp": "2025-10-14T16:00:00",
+        "equity": 8506.855936751334
+      },
+      {
+        "timestamp": "2025-10-14T17:00:00",
+        "equity": 8524.101823357098
+      },
+      {
+        "timestamp": "2025-10-14T18:00:00",
+        "equity": 8539.581241207094
+      },
+      {
+        "timestamp": "2025-10-14T19:00:00",
+        "equity": 8538.873552715891
+      },
+      {
+        "timestamp": "2025-10-14T20:00:00",
+        "equity": 8544.32620147298
+      },
+      {
+        "timestamp": "2025-10-14T21:00:00",
+        "equity": 8548.767592194909
+      },
+      {
+        "timestamp": "2025-10-14T22:00:00",
+        "equity": 8570.460625270678
+      },
+      {
+        "timestamp": "2025-10-14T23:00:00",
+        "equity": 8606.75942160792
+      },
+      {
+        "timestamp": "2025-10-15T00:00:00",
+        "equity": 8732.457933026735
+      },
+      {
+        "timestamp": "2025-10-15T01:00:00",
+        "equity": 8695.454766684605
+      },
+      {
+        "timestamp": "2025-10-15T02:00:00",
+        "equity": 8859.834782699945
+      },
+      {
+        "timestamp": "2025-10-15T03:00:00",
+        "equity": 8803.165921943366
+      },
+      {
+        "timestamp": "2025-10-15T04:00:00",
+        "equity": 8875.366070490603
+      },
+      {
+        "timestamp": "2025-10-15T05:00:00",
+        "equity": 8713.79805755808
+      },
+      {
+        "timestamp": "2025-10-15T06:00:00",
+        "equity": 8749.932423357377
+      },
+      {
+        "timestamp": "2025-10-15T07:00:00",
+        "equity": 8785.781245388982
+      },
+      {
+        "timestamp": "2025-10-15T08:00:00",
+        "equity": 8870.40288128987
+      },
+      {
+        "timestamp": "2025-10-15T09:00:00",
+        "equity": 8775.079163172937
+      },
+      {
+        "timestamp": "2025-10-15T10:00:00",
+        "equity": 8731.689297146306
+      },
+      {
+        "timestamp": "2025-10-15T11:00:00",
+        "equity": 8685.49173141937
+      },
+      {
+        "timestamp": "2025-10-15T12:00:00",
+        "equity": 8800.360179847568
+      },
+      {
+        "timestamp": "2025-10-15T13:00:00",
+        "equity": 8940.937249387138
+      },
+      {
+        "timestamp": "2025-10-15T14:00:00",
+        "equity": 8873.478135810221
+      },
+      {
+        "timestamp": "2025-10-15T15:00:00",
+        "equity": 8959.773193489415
+      }
+    ]
+  },
+  "paper_trading": {
+    "paper_trading_summary": {
+      "start_time": "2025-10-16T01:34:37.409569",
+      "end_time": "2025-10-16T04:05:52.602076",
+      "duration_hours": 2.520886801666667,
+      "initial_balance": 10000.0,
+      "final_balance": 9356.395018720712,
+      "total_pnl": -66.99671104655192,
+      "total_return_pct": -0.6699671104655193
+    },
+    "trade_statistics": {
+      "total_trades": 17,
+      "winning_trades": 7,
+      "losing_trades": 10,
+      "win_rate_pct": 41.17647058823529
+    },
+    "performance_metrics": {
+      "avg_win": 2.571299684327196,
+      "avg_loss": -8.49958088368423,
+      "profit_factor": 0.2117645332941226
+    },
+    "trades": [
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "price": 2.4387,
+        "size": 615.6877231867996,
+        "entry_price": 2.4363,
+        "proceeds": 151.47765053564817,
+        "pnl": 1.4776505356481564,
+        "pnl_pct": 0.000985100357098771,
+        "timestamp": "2025-10-16T01:39:44.401652",
+        "signal": {
+          "signal": "BUY",
+          "signal_value": 1,
+          "confidence": 0.5,
+          "source": "technical",
+          "technical": {
+            "signal": "BUY",
+            "strength": 0.5
+          },
+          "ml": {
+            "signal": "HOLD",
+            "confidence": 0.0
+          },
+          "timestamp": "2025-10-16T01:39:44.401437",
+          "indicators": {
+            "rsi": 27.925696594427293,
+            "macd_histogram": -0.005942153237245093,
+            "price": 2.4387
+          },
+          "symbol": "XRP/USDT",
+          "price": 2.4387,
+          "atr": 0.030714285714285694
+        }
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "price": 110650.0,
+        "size": 0.013557624472960578,
+        "entry_price": 110655.2,
+        "proceeds": 149.95166511077537,
+        "pnl": -0.07049964725935555,
+        "pnl_pct": -4.6992820942866577e-05,
+        "timestamp": "2025-10-16T01:49:47.456986",
+        "signal": {
+          "signal": "BUY",
+          "signal_value": 1,
+          "confidence": 0.5,
+          "source": "technical",
+          "technical": {
+            "signal": "BUY",
+            "strength": 0.5
+          },
+          "ml": {
+            "signal": "HOLD",
+            "confidence": 0.0
+          },
+          "timestamp": "2025-10-16T01:49:47.456774",
+          "indicators": {
+            "rsi": 23.288502376377778,
+            "macd_histogram": -173.8865215013874,
+            "price": 110650.0
+          },
+          "symbol": "BTC/USDT",
+          "price": 110650.0,
+          "atr": 859.3214285714255
+        }
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "price": 2.4426,
+        "size": 596.8804018796204,
+        "entry_price": 2.4386,
+        "proceeds": 147.94277640988273,
+        "pnl": 2.387521607518484,
+        "pnl_pct": 0.0016402854096612826,
+        "timestamp": "2025-10-16T01:49:48.565057",
+        "signal": {
+          "signal": "BUY",
+          "signal_value": 1,
+          "confidence": 0.5,
+          "source": "technical",
+          "technical": {
+            "signal": "BUY",
+            "strength": 0.5
+          },
+          "ml": {
+            "signal": "HOLD",
+            "confidence": 0.0
+          },
+          "timestamp": "2025-10-16T01:49:48.564850",
+          "indicators": {
+            "rsi": 29.625151148730495,
+            "macd_histogram": -0.005693264348355995,
+            "price": 2.4426
+          },
+          "symbol": "XRP/USDT",
+          "price": 2.4426,
+          "atr": 0.030714285714285694
+        }
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "price": 2.432,
+        "size": 605.0599271635369,
+        "entry_price": 2.4434,
+        "proceeds": 140.94265943347423,
+        "pnl": -6.897683169664368,
+        "pnl_pct": -0.004665629860031136,
+        "timestamp": "2025-10-16T01:59:52.769565",
+        "signal": {
+          "signal": "BUY",
+          "signal_value": 1,
+          "confidence": 0.5,
+          "source": "technical",
+          "technical": {
+            "signal": "BUY",
+            "strength": 0.5
+          },
+          "ml": {
+            "signal": "HOLD",
+            "confidence": 0.0
+          },
+          "timestamp": "2025-10-16T01:59:52.769333",
+          "indicators": {
+            "rsi": 25.00000000000007,
+            "macd_histogram": -0.006369731584823099,
+            "price": 2.432
+          },
+          "symbol": "XRP/USDT",
+          "price": 2.432,
+          "atr": 0.03073571428571428
+        }
+      },
+      {
+        "symbol": "COAI/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "price": 15.9,
+        "size": 92.30670250271396,
+        "entry_price": 16.005,
+        "proceeds": 157.4290811183785,
+        "pnl": 9.69220376278484,
+        "pnl_pct": 0.006560449859418848,
+        "timestamp": "2025-10-16T02:09:56.784574",
+        "signal": {
+          "signal": "SELL",
+          "signal_value": -1,
+          "confidence": 0.5,
+          "source": "technical",
+          "technical": {
+            "signal": "SELL",
+            "strength": 0.5
+          },
+          "ml": {
+            "signal": "HOLD",
+            "confidence": 0.0
+          },
+          "timestamp": "2025-10-16T02:09:56.784280",
+          "indicators": {
+            "rsi": 60.68216714191709,
+            "macd_histogram": -0.13507359340813352,
+            "price": 15.9
+          },
+          "symbol": "COAI/USDT",
+          "price": 15.9,
+          "atr": 1.917857142857143
+        }
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "price": 2.4245,
+        "size": 598.1373019658012,
+        "entry_price": 2.4329,
+        "proceeds": 140.49647085874705,
+        "pnl": -5.024353336512708,
+        "pnl_pct": -0.0034526696534999232,
+        "timestamp": "2025-10-16T02:09:56.948099",
+        "signal": {
+          "signal": "BUY",
+          "signal_value": 1,
+          "confidence": 0.5,
+          "source": "technical",
+          "technical": {
+            "signal": "BUY",
+            "strength": 0.5
+          },
+          "ml": {
+            "signal": "HOLD",
+            "confidence": 0.0
+          },
+          "timestamp": "2025-10-16T02:09:56.947893",
+          "indicators": {
+            "rsi": 27.73826458036993,
+            "macd_histogram": -0.007539542590611676,
+            "price": 2.4245
+          },
+          "symbol": "XRP/USDT",
+          "price": 2.4245,
+          "atr": 0.02911428571428571
+        }
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "price": 110206.6,
+        "size": 0.012991399837975117,
+        "entry_price": 110333.0,
+        "proceeds": 141.69589889281087,
+        "pnl": -1.6421129395199792,
+        "pnl_pct": -0.001145622796443441,
+        "timestamp": "2025-10-16T02:14:58.041718",
+        "signal": {
+          "signal": "BUY",
+          "signal_value": 1,
+          "confidence": 0.5,
+          "source": "technical",
+          "technical": {
+            "signal": "BUY",
+            "strength": 0.5
+          },
+          "ml": {
+            "signal": "HOLD",
+            "confidence": 0.0
+          },
+          "timestamp": "2025-10-16T02:14:58.041505",
+          "indicators": {
+            "rsi": 25.486235993913425,
+            "macd_histogram": -198.9550408408445,
+            "price": 110206.6
+          },
+          "symbol": "BTC/USDT",
+          "price": 110206.6,
+          "atr": 821.1214285714252
+        }
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "price": 0.19639,
+        "size": 7432.069219265915,
+        "entry_price": 0.19883,
+        "proceeds": 129.63758339165537,
+        "pnl": -18.134248895008817,
+        "pnl_pct": -0.012271789971332282,
+        "timestamp": "2025-10-16T02:14:58.706930",
+        "signal": {
+          "signal": "BUY",
+          "signal_value": 1,
+          "confidence": 0.5,
+          "source": "technical",
+          "technical": {
+            "signal": "BUY",
+            "strength": 0.5
+          },
+          "ml": {
+            "signal": "HOLD",
+            "confidence": 0.0
+          },
+          "timestamp": "2025-10-16T02:14:58.706709",
+          "indicators": {
+            "rsi": 27.69571639586424,
+            "macd_histogram": -0.0006730866256670724,
+            "price": 0.19639
+          },
+          "symbol": "DOGE/USDT",
+          "price": 0.19639,
+          "atr": 0.0030064285714285705
+        }
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "price": 2.4193,
+        "size": 601.1534443550399,
+        "entry_price": 2.4175,
+        "proceeds": 146.41092137266983,
+        "pnl": 1.0820761998389528,
+        "pnl_pct": 0.0007445708376421104,
+        "timestamp": "2025-10-16T02:20:01.466853",
+        "signal": {
+          "signal": "BUY",
+          "signal_value": 1,
+          "confidence": 0.5,
+          "source": "technical",
+          "technical": {
+            "signal": "BUY",
+            "strength": 0.5
+          },
+          "ml": {
+            "signal": "HOLD",
+            "confidence": 0.0
+          },
+          "timestamp": "2025-10-16T02:20:01.466681",
+          "indicators": {
+            "rsi": 26.74897119341567,
+            "macd_histogram": -0.00787139444246357,
+            "price": 2.4193
+          },
+          "symbol": "XRP/USDT",
+          "price": 2.4193,
+          "atr": 0.02960714285714285
+        }
+      },
+      {
+        "symbol": "BTC/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "price": 110336.9,
+        "size": 0.01296867766455474,
+        "entry_price": 110380.5,
+        "proceeds": 142.58347814906378,
+        "pnl": -0.5654343461746622,
+        "pnl_pct": -0.0003949973047776176,
+        "timestamp": "2025-10-16T02:30:06.390281",
+        "signal": {
+          "signal": "BUY",
+          "signal_value": 1,
+          "confidence": 0.5,
+          "source": "technical",
+          "technical": {
+            "signal": "BUY",
+            "strength": 0.5
+          },
+          "ml": {
+            "signal": "HOLD",
+            "confidence": 0.0
+          },
+          "timestamp": "2025-10-16T02:30:06.390088",
+          "indicators": {
+            "rsi": 26.439354801676075,
+            "macd_histogram": -190.63959924540745,
+            "price": 110336.9
+          },
+          "symbol": "BTC/USDT",
+          "price": 110336.9,
+          "atr": 827.1285714285685
+        }
+      },
+      {
+        "symbol": "DOGE/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "price": 0.19698,
+        "size": 7159.262696512306,
+        "entry_price": 0.19695,
+        "proceeds": 141.21645668870525,
+        "pnl": 0.21477788089538527,
+        "pnl_pct": 0.00015232292460016375,
+        "timestamp": "2025-10-16T02:30:07.071633",
+        "signal": {
+          "signal": "BUY",
+          "signal_value": 1,
+          "confidence": 0.5,
+          "source": "technical",
+          "technical": {
+            "signal": "BUY",
+            "strength": 0.5
+          },
+          "ml": {
+            "signal": "HOLD",
+            "confidence": 0.0
+          },
+          "timestamp": "2025-10-16T02:30:07.071438",
+          "indicators": {
+            "rsi": 28.957528957529036,
+            "macd_histogram": -0.0006354342040146604,
+            "price": 0.19698
+          },
+          "symbol": "DOGE/USDT",
+          "price": 0.19698,
+          "atr": 0.0030257142857142865
+        }
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "price": 2.4168,
+        "size": 583.3243092958024,
+        "entry_price": 2.4186,
+        "proceeds": 140.0328336895502,
+        "pnl": -1.0499837567325878,
+        "pnl_pct": -0.0007442322004466409,
+        "timestamp": "2025-10-16T02:30:07.475593",
+        "signal": {
+          "signal": "BUY",
+          "signal_value": 1,
+          "confidence": 0.5,
+          "source": "technical",
+          "technical": {
+            "signal": "BUY",
+            "strength": 0.5
+          },
+          "ml": {
+            "signal": "HOLD",
+            "confidence": 0.0
+          },
+          "timestamp": "2025-10-16T02:30:07.475386",
+          "indicators": {
+            "rsi": 26.298044504383043,
+            "macd_histogram": -0.008030938602007681,
+            "price": 2.4168
+          },
+          "symbol": "XRP/USDT",
+          "price": 2.4168,
+          "atr": 0.029800000000000017
+        }
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "price": 2.4192,
+        "size": 583.3073085641804,
+        "entry_price": 2.4172,
+        "proceeds": 142.16365724326218,
+        "pnl": 1.1666146171284915,
+        "pnl_pct": 0.0008274036074798213,
+        "timestamp": "2025-10-16T02:40:12.296641",
+        "signal": {
+          "signal": "BUY",
+          "signal_value": 1,
+          "confidence": 0.5,
+          "source": "technical",
+          "technical": {
+            "signal": "BUY",
+            "strength": 0.5
+          },
+          "ml": {
+            "signal": "HOLD",
+            "confidence": 0.0
+          },
+          "timestamp": "2025-10-16T02:40:12.296448",
+          "indicators": {
+            "rsi": 26.73063742289247,
+            "macd_histogram": -0.00787777620884505,
+            "price": 2.4192
+          },
+          "symbol": "XRP/USDT",
+          "price": 2.4192,
+          "atr": 0.02992142857142856
+        }
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "price": 2.427,
+        "size": 581.8391724929469,
+        "entry_price": 2.4236,
+        "proceeds": 142.99279503186668,
+        "pnl": 1.97825318647606,
+        "pnl_pct": 0.0014028717610166982,
+        "timestamp": "2025-10-16T02:50:17.491832",
+        "signal": {
+          "signal": "BUY",
+          "signal_value": 1,
+          "confidence": 0.5,
+          "source": "technical",
+          "technical": {
+            "signal": "BUY",
+            "strength": 0.5
+          },
+          "ml": {
+            "signal": "HOLD",
+            "confidence": 0.0
+          },
+          "timestamp": "2025-10-16T02:50:17.491617",
+          "indicators": {
+            "rsi": 28.240405503258586,
+            "macd_histogram": -0.007379998431067564,
+            "price": 2.427
+          },
+          "symbol": "XRP/USDT",
+          "price": 2.427,
+          "atr": 0.02992142857142856
+        }
+      },
+      {
+        "symbol": "XRP/USDT",
+        "action": "CLOSE_LONG",
+        "type": "LONG",
+        "price": 2.4228,
+        "size": 580.7156441172092,
+        "entry_price": 2.4288,
+        "proceeds": 137.55992177848464,
+        "pnl": -3.484293864703129,
+        "pnl_pct": -0.002470355731225207,
+        "timestamp": "2025-10-16T03:05:25.535660",
+        "signal": {
+          "signal": "BUY",
+          "signal_value": 1,
+          "confidence": 0.5,
+          "source": "technical",
+          "technical": {
+            "signal": "BUY",
+            "strength": 0.5
+          },
+          "ml": {
+            "signal": "HOLD",
+            "confidence": 0.0
+          },
+          "timestamp": "2025-10-16T03:05:25.535475",
+          "indicators": {
+            "rsi": 22.590139808682835,
+            "macd_histogram": -0.007559512817504669,
+            "price": 2.4228
+          },
+          "symbol": "XRP/USDT",
+          "price": 2.4228,
+          "atr": 0.029535714285714252
+        }
+      },
+      {
+        "symbol": "COAI/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "price": 16.197,
+        "size": 91.68653666091986,
+        "entry_price": 16.092,
+        "proceeds": 137.9148884453556,
+        "pnl": -9.627086349396624,
+        "pnl_pct": -0.006524981357196149,
+        "timestamp": "2025-10-16T03:30:38.190677",
+        "signal": {
+          "signal": "SELL",
+          "signal_value": -1,
+          "confidence": 0.5,
+          "source": "technical",
+          "technical": {
+            "signal": "SELL",
+            "strength": 0.5
+          },
+          "ml": {
+            "signal": "HOLD",
+            "confidence": 0.0
+          },
+          "timestamp": "2025-10-16T03:30:38.190449",
+          "indicators": {
+            "rsi": 61.13868908925134,
+            "macd_histogram": -0.27290388734115556,
+            "price": 16.197
+          },
+          "symbol": "COAI/USDT",
+          "price": 16.197,
+          "atr": 1.9977857142857143
+        }
+      },
+      {
+        "symbol": "COAI/USDT",
+        "action": "CLOSE_SHORT",
+        "type": "SHORT",
+        "price": 16.37,
+        "size": 89.74385205564113,
+        "entry_price": 15.941,
+        "proceeds": 104.56056203002748,
+        "pnl": -38.500112531870066,
+        "pnl_pct": -0.026911737030299244,
+        "timestamp": "2025-10-16T03:55:49.809237",
+        "signal": {
+          "signal": "SELL",
+          "signal_value": -1,
+          "confidence": 0.5,
+          "source": "technical",
+          "technical": {
+            "signal": "SELL",
+            "strength": 0.5
+          },
+          "ml": {
+            "signal": "HOLD",
+            "confidence": 0.0
+          },
+          "timestamp": "2025-10-16T03:55:49.809033",
+          "indicators": {
+            "rsi": 61.80804460374354,
+            "macd_histogram": -0.2618634315006987,
+            "price": 16.37
+          },
+          "symbol": "COAI/USDT",
+          "price": 16.37,
+          "atr": 2.0275714285714286
+        }
+      }
+    ],
+    "equity_curve": [
+      {
+        "timestamp": "2025-10-16T01:34:42.869825",
+        "equity": 9850.0
+      },
+      {
+        "timestamp": "2025-10-16T01:39:44.725386",
+        "equity": 10001.477650535648
+      },
+      {
+        "timestamp": "2025-10-16T01:44:46.390621",
+        "equity": 9558.128398688585
+      },
+      {
+        "timestamp": "2025-10-16T01:49:48.885902",
+        "equity": 9856.022840209242
+      },
+      {
+        "timestamp": "2025-10-16T01:54:50.988430",
+        "equity": 9708.182497606103
+      },
+      {
+        "timestamp": "2025-10-16T01:59:53.090875",
+        "equity": 9849.125157039578
+      },
+      {
+        "timestamp": "2025-10-16T02:04:54.982668",
+        "equity": 9555.867455488724
+      },
+      {
+        "timestamp": "2025-10-16T02:09:57.268796",
+        "equity": 9710.454995633518
+      },
+      {
+        "timestamp": "2025-10-16T02:14:59.357279",
+        "equity": 9543.260833015896
+      },
+      {
+        "timestamp": "2025-10-16T02:20:01.862596",
+        "equity": 9405.521163085517
+      },
+      {
+        "timestamp": "2025-10-16T02:25:04.900950",
+        "equity": 9264.438345639235
+      },
+      {
+        "timestamp": "2025-10-16T02:30:07.803932",
+        "equity": 9688.271114166555
+      },
+      {
+        "timestamp": "2025-10-16T02:35:09.904768",
+        "equity": 9258.805799116111
+      },
+      {
+        "timestamp": "2025-10-16T02:40:12.633235",
+        "equity": 9400.969456359373
+      },
+      {
+        "timestamp": "2025-10-16T02:45:15.111194",
+        "equity": 9259.954914513983
+      },
+      {
+        "timestamp": "2025-10-16T02:50:17.819692",
+        "equity": 9402.94770954585
+      },
+      {
+        "timestamp": "2025-10-16T02:55:20.451854",
+        "equity": 9261.903493902662
+      },
+      {
+        "timestamp": "2025-10-16T03:00:23.151316",
+        "equity": 9261.903493902662
+      },
+      {
+        "timestamp": "2025-10-16T03:05:25.861388",
+        "equity": 9399.463415681146
+      },
+      {
+        "timestamp": "2025-10-16T03:10:28.378302",
+        "equity": 9399.463415681146
+      },
+      {
+        "timestamp": "2025-10-16T03:15:31.245640",
+        "equity": 9399.463415681146
+      },
+      {
+        "timestamp": "2025-10-16T03:20:33.724517",
+        "equity": 9399.463415681146
+      },
+      {
+        "timestamp": "2025-10-16T03:25:36.202515",
+        "equity": 9399.463415681146
+      },
+      {
+        "timestamp": "2025-10-16T03:30:38.677203",
+        "equity": 9537.378304126501
+      },
+      {
+        "timestamp": "2025-10-16T03:35:40.952325",
+        "equity": 9537.378304126501
+      },
+      {
+        "timestamp": "2025-10-16T03:40:43.220389",
+        "equity": 9537.378304126501
+      },
+      {
+        "timestamp": "2025-10-16T03:45:45.538836",
+        "equity": 9537.378304126501
+      },
+      {
+        "timestamp": "2025-10-16T03:50:47.810197",
+        "equity": 9394.317629564604
+      },
+      {
+        "timestamp": "2025-10-16T03:55:50.301403",
+        "equity": 9498.878191594631
+      },
+      {
+        "timestamp": "2025-10-16T04:00:52.601563",
+        "equity": 9356.395018720712
+      }
+    ],
+    "hourly_snapshots": [
+      {
+        "timestamp": "2025-10-16T01:34:42.869822",
+        "balance": 9850.0,
+        "equity": 9850.0,
+        "positions": 1,
+        "total_trades": 1
+      },
+      {
+        "timestamp": "2025-10-16T01:39:44.725383",
+        "balance": 10001.477650535648,
+        "equity": 10001.477650535648,
+        "positions": 0,
+        "total_trades": 2
+      },
+      {
+        "timestamp": "2025-10-16T01:44:46.390619",
+        "balance": 9558.128398688585,
+        "equity": 9558.128398688585,
+        "positions": 3,
+        "total_trades": 5
+      },
+      {
+        "timestamp": "2025-10-16T01:49:48.885900",
+        "balance": 9856.022840209242,
+        "equity": 9856.022840209242,
+        "positions": 1,
+        "total_trades": 7
+      },
+      {
+        "timestamp": "2025-10-16T01:54:50.988427",
+        "balance": 9708.182497606103,
+        "equity": 9708.182497606103,
+        "positions": 2,
+        "total_trades": 8
+      },
+      {
+        "timestamp": "2025-10-16T01:59:53.090873",
+        "balance": 9849.125157039578,
+        "equity": 9849.125157039578,
+        "positions": 1,
+        "total_trades": 9
+      },
+      {
+        "timestamp": "2025-10-16T02:04:54.982666",
+        "balance": 9555.867455488724,
+        "equity": 9555.867455488724,
+        "positions": 3,
+        "total_trades": 11
+      },
+      {
+        "timestamp": "2025-10-16T02:09:57.268794",
+        "balance": 9710.454995633518,
+        "equity": 9710.454995633518,
+        "positions": 2,
+        "total_trades": 14
+      },
+      {
+        "timestamp": "2025-10-16T02:14:59.357276",
+        "balance": 9543.260833015896,
+        "equity": 9543.260833015896,
+        "positions": 3,
+        "total_trades": 19
+      },
+      {
+        "timestamp": "2025-10-16T02:20:01.862594",
+        "balance": 9405.521163085517,
+        "equity": 9405.521163085517,
+        "positions": 4,
+        "total_trades": 22
+      },
+      {
+        "timestamp": "2025-10-16T02:25:04.900948",
+        "balance": 9264.438345639235,
+        "equity": 9264.438345639235,
+        "positions": 5,
+        "total_trades": 23
+      },
+      {
+        "timestamp": "2025-10-16T02:30:07.803929",
+        "balance": 9688.271114166555,
+        "equity": 9688.271114166555,
+        "positions": 2,
+        "total_trades": 26
+      },
+      {
+        "timestamp": "2025-10-16T02:35:09.904766",
+        "balance": 9258.805799116111,
+        "equity": 9258.805799116111,
+        "positions": 5,
+        "total_trades": 29
+      },
+      {
+        "timestamp": "2025-10-16T02:40:12.633231",
+        "balance": 9400.969456359373,
+        "equity": 9400.969456359373,
+        "positions": 4,
+        "total_trades": 30
+      },
+      {
+        "timestamp": "2025-10-16T02:45:15.111192",
+        "balance": 9259.954914513983,
+        "equity": 9259.954914513983,
+        "positions": 5,
+        "total_trades": 31
+      },
+      {
+        "timestamp": "2025-10-16T02:50:17.819690",
+        "balance": 9402.94770954585,
+        "equity": 9402.94770954585,
+        "positions": 4,
+        "total_trades": 32
+      },
+      {
+        "timestamp": "2025-10-16T02:55:20.451852",
+        "balance": 9261.903493902662,
+        "equity": 9261.903493902662,
+        "positions": 5,
+        "total_trades": 33
+      },
+      {
+        "timestamp": "2025-10-16T03:00:23.151313",
+        "balance": 9261.903493902662,
+        "equity": 9261.903493902662,
+        "positions": 5,
+        "total_trades": 33
+      },
+      {
+        "timestamp": "2025-10-16T03:05:25.861386",
+        "balance": 9399.463415681146,
+        "equity": 9399.463415681146,
+        "positions": 4,
+        "total_trades": 34
+      },
+      {
+        "timestamp": "2025-10-16T03:10:28.378300",
+        "balance": 9399.463415681146,
+        "equity": 9399.463415681146,
+        "positions": 4,
+        "total_trades": 34
+      },
+      {
+        "timestamp": "2025-10-16T03:15:31.245638",
+        "balance": 9399.463415681146,
+        "equity": 9399.463415681146,
+        "positions": 4,
+        "total_trades": 34
+      },
+      {
+        "timestamp": "2025-10-16T03:20:33.724515",
+        "balance": 9399.463415681146,
+        "equity": 9399.463415681146,
+        "positions": 4,
+        "total_trades": 34
+      },
+      {
+        "timestamp": "2025-10-16T03:25:36.202513",
+        "balance": 9399.463415681146,
+        "equity": 9399.463415681146,
+        "positions": 4,
+        "total_trades": 34
+      },
+      {
+        "timestamp": "2025-10-16T03:30:38.677201",
+        "balance": 9537.378304126501,
+        "equity": 9537.378304126501,
+        "positions": 3,
+        "total_trades": 35
+      },
+      {
+        "timestamp": "2025-10-16T03:35:40.952323",
+        "balance": 9537.378304126501,
+        "equity": 9537.378304126501,
+        "positions": 3,
+        "total_trades": 35
+      },
+      {
+        "timestamp": "2025-10-16T03:40:43.220387",
+        "balance": 9537.378304126501,
+        "equity": 9537.378304126501,
+        "positions": 3,
+        "total_trades": 35
+      },
+      {
+        "timestamp": "2025-10-16T03:45:45.538834",
+        "balance": 9537.378304126501,
+        "equity": 9537.378304126501,
+        "positions": 3,
+        "total_trades": 35
+      },
+      {
+        "timestamp": "2025-10-16T03:50:47.810195",
+        "balance": 9394.317629564604,
+        "equity": 9394.317629564604,
+        "positions": 4,
+        "total_trades": 36
+      },
+      {
+        "timestamp": "2025-10-16T03:55:50.301401",
+        "balance": 9498.878191594631,
+        "equity": 9498.878191594631,
+        "positions": 3,
+        "total_trades": 37
+      },
+      {
+        "timestamp": "2025-10-16T04:00:52.601561",
+        "balance": 9356.395018720712,
+        "equity": 9356.395018720712,
+        "positions": 4,
+        "total_trades": 38
+      }
+    ]
+  }
+}
