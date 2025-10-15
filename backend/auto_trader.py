@@ -11,6 +11,7 @@ from binance_client import BinanceClient
 from technical_indicators import TechnicalIndicators
 from trading_strategy import TradingStrategy, RiskManager
 from ml_engine import MLEngine
+from trailing_stop_manager import TrailingStopManager, MLTrailingStopOptimizer
 
 logging.basicConfig(
     level=logging.INFO,
@@ -48,6 +49,14 @@ class AutoTrader:
             take_profit_pct=0.05
         )
         self.ml_engine = None
+
+        # Trailing Stop Manager with ML optimization
+        self.trailing_stop_manager = TrailingStopManager(
+            base_atr_multiplier=2.5,
+            min_profit_threshold=0.01,
+            acceleration_step=0.1
+        )
+        self.trailing_stop_optimizer = MLTrailingStopOptimizer()
 
         # Trading state
         self.balance = initial_balance
@@ -146,6 +155,9 @@ class AutoTrader:
 
             logger.info(f"{symbol}: Opening LONG position - Size: {position_size:.6f}, Price: ${price:.2f}")
 
+            # Initialize trailing stop for this position
+            self.trailing_stop_manager.initialize_position(symbol, price, 'LONG')
+
             # Store position
             self.positions[symbol] = {
                 'type': 'LONG',
@@ -180,6 +192,9 @@ class AutoTrader:
             )
 
             logger.info(f"{symbol}: Opening SHORT position - Size: {position_size:.6f}, Price: ${price:.2f}")
+
+            # Initialize trailing stop for this position
+            self.trailing_stop_manager.initialize_position(symbol, price, 'SHORT')
 
             # Store position
             self.positions[symbol] = {
@@ -255,59 +270,61 @@ class AutoTrader:
             # Remove position
             del self.positions[symbol]
 
+            # Remove from trailing stop manager
+            self.trailing_stop_manager.remove_position(symbol)
+
             return trade
 
         return None
 
-    async def check_stop_loss_take_profit(self):
-        """Check all positions for stop loss and take profit triggers"""
-        current_prices = {}
-
-        # Get current prices for all positions
+    async def check_trailing_stops(self):
+        """Check all positions for trailing stop triggers with ATR-based dynamic stops"""
+        # Get current prices and market data for all positions
         for symbol in list(self.positions.keys()):
             try:
-                price = await self.client.get_price(symbol)
-                current_prices[symbol] = price
+                # Get current price
+                current_price = await self.client.get_price(symbol)
+
+                # Get market data to calculate ATR
+                data = await self.get_market_data(symbol, interval='1h', limit=20)
+
+                # Calculate ATR from technical indicators
+                indicators = TechnicalIndicators.calculate_all(
+                    data['high'].tolist(),
+                    data['low'].tolist(),
+                    data['close'].tolist(),
+                    data['volume'].tolist()
+                )
+                atr_value = indicators.get('atr', current_price * 0.02)  # Default to 2% if ATR not available
+
+                # Update trailing stop and check if should close
+                stop_price, should_close = self.trailing_stop_manager.update_trailing_stop(
+                    symbol, current_price, atr_value
+                )
+
+                if should_close:
+                    position = self.positions[symbol]
+                    position_type = position['type']
+
+                    logger.info(f"{symbol}: Trailing stop hit! Closing {position_type} position at ${current_price:.2f}")
+
+                    # Close position
+                    signal = {
+                        'symbol': symbol,
+                        'signal': 'SELL',
+                        'price': current_price,
+                        'confidence': 1.0,
+                        'source': 'trailing_stop'
+                    }
+                    await self.execute_trade(signal)
+                else:
+                    # Log current trailing stop level
+                    position_info = self.trailing_stop_manager.get_position_info(symbol)
+                    if position_info:
+                        logger.debug(f"{symbol}: Price ${current_price:.2f} | Trailing Stop: ${stop_price:.2f}")
+
             except Exception as e:
-                logger.error(f"Failed to get price for {symbol}: {e}")
-                continue
-
-        # Check each position
-        for symbol, position in list(self.positions.items()):
-            if symbol not in current_prices:
-                continue
-
-            current_price = current_prices[symbol]
-            entry_price = position['entry_price']
-            position_type = position['type']
-
-            # Check stop loss
-            if self.risk_manager.check_stop_loss(entry_price, current_price, position_type):
-                logger.warning(f"{symbol}: STOP LOSS triggered at ${current_price:.2f}")
-
-                # Close position
-                signal = {
-                    'symbol': symbol,
-                    'signal': 'SELL',
-                    'price': current_price,
-                    'confidence': 1.0,
-                    'source': 'stop_loss'
-                }
-                await self.execute_trade(signal)
-
-            # Check take profit
-            elif self.risk_manager.check_take_profit(entry_price, current_price, position_type):
-                logger.info(f"{symbol}: TAKE PROFIT triggered at ${current_price:.2f}")
-
-                # Close position
-                signal = {
-                    'symbol': symbol,
-                    'signal': 'SELL',
-                    'price': current_price,
-                    'confidence': 1.0,
-                    'source': 'take_profit'
-                }
-                await self.execute_trade(signal)
+                logger.error(f"Error checking trailing stop for {symbol}: {e}")
 
     async def trading_loop(self, interval: int = 300):
         """Main trading loop
@@ -342,8 +359,8 @@ class AutoTrader:
             logger.info(f"Balance: ${self.balance:,.2f} | Open Positions: {len(self.positions)}")
 
             try:
-                # Check stop loss and take profit for existing positions
-                await self.check_stop_loss_take_profit()
+                # Check trailing stops for existing positions
+                await self.check_trailing_stops()
 
                 # Analyze each symbol
                 for symbol in self.symbols:
