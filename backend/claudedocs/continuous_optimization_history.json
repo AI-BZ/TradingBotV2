@@ -1,0 +1,3001 @@
+{
+  "deadline_kst": "2025-10-17T06:00:00",
+  "best_version": {
+    "version": "5.3",
+    "total_return": 10.0494962129222,
+    "win_rate": 42.168674698795186,
+    "total_trades": 166,
+    "profit_factor": 1.5201159619188034,
+    "sharpe": 2.710778539860397,
+    "max_drawdown": 13.18744667532801,
+    "composite_score": 14.132189898365837,
+    "coin_stats": {
+      "BNB/USDT": {
+        "trades": 36,
+        "wins": 13,
+        "losses": 23,
+        "total_pnl": 189.69349893284462
+      },
+      "ETH/USDT": {
+        "trades": 28,
+        "wins": 12,
+        "losses": 16,
+        "total_pnl": 108.77884604445151
+      },
+      "DOGE/USDT": {
+        "trades": 22,
+        "wins": 11,
+        "losses": 11,
+        "total_pnl": 175.85681651899242
+      },
+      "XRP/USDT": {
+        "trades": 20,
+        "wins": 7,
+        "losses": 13,
+        "total_pnl": 17.92581394485046
+      },
+      "SOL/USDT": {
+        "trades": 24,
+        "wins": 9,
+        "losses": 15,
+        "total_pnl": 177.4902755288824
+      },
+      "SUI/USDT": {
+        "trades": 18,
+        "wins": 9,
+        "losses": 9,
+        "total_pnl": 258.6427714243661
+      },
+      "1000PEPE/USDT": {
+        "trades": 18,
+        "wins": 9,
+        "losses": 9,
+        "total_pnl": 76.5615988978326
+      }
+    },
+    "symbols": [
+      "ETH/USDT",
+      "SOL/USDT",
+      "BNB/USDT",
+      "XRP/USDT",
+      "DOGE/USDT",
+      "SUI/USDT",
+      "1000PEPE/USDT"
+    ],
+    "params": {
+      "hard_stop_atr_multiplier": 2.0,
+      "use_dynamic_hard_stop": true
+    }
+  },
+  "best_score": 14.132189898365837,
+  "excluded_symbols": [
+    "BTC/USDT",
+    "HYPE/USDT",
+    "XPL/USDT"
+  ],
+  "versions": [
+    {
+      "version": "5.0",
+      "total_return": 3.302932861714964,
+      "win_rate": 37.916666666666664,
+      "total_trades": 240,
+      "profit_factor": 1.0940600147916053,
+      "sharpe": 0.6050931088816616,
+      "max_drawdown": 17.504997264500634,
+      "composite_score": 5.094479392032518,
+      "coin_stats": {
+        "XPL/USDT": {
+          "trades": 32,
+          "wins": 6,
+          "losses": 26,
+          "total_pnl": -449.9356089764957
+        },
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 182.1292675654298
+        },
+        "HYPE/USDT": {
+          "trades": 32,
+          "wins": 10,
+          "losses": 22,
+          "total_pnl": -170.84137538314485
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 100.63779628194871
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 167.14244607543014
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 14.893692759627996
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 172.27730435428944
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 245.69888206310213
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 72.62270346414596
+        },
+        "BTC/USDT": {
+          "trades": 10,
+          "wins": 5,
+          "losses": 5,
+          "total_pnl": -4.331822032837284
+        }
+      },
+      "symbols": [
+        "BTC/USDT",
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "XPL/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT",
+        "HYPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.1",
+      "total_return": 7.969159521330131,
+      "win_rate": 40.86538461538461,
+      "total_trades": 208,
+      "profit_factor": 1.317436599577001,
+      "sharpe": 1.8438050904273025,
+      "max_drawdown": 15.90010851103074,
+      "composite_score": 10.769762573156044,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 186.06635088372448
+        },
+        "HYPE/USDT": {
+          "trades": 32,
+          "wins": 10,
+          "losses": 22,
+          "total_pnl": -174.47895947853942
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 103.22294394353595
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 171.60804633045407
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 15.295124877319562
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 174.353111932047
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 251.48506641616288
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 73.86097347444442
+        },
+        "BTC/USDT": {
+          "trades": 10,
+          "wins": 5,
+          "losses": 5,
+          "total_pnl": -4.496706246135862
+        }
+      },
+      "symbols": [
+        "BTC/USDT",
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT",
+        "HYPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.2",
+      "total_return": 9.899335766501009,
+      "win_rate": 42.61363636363637,
+      "total_trades": 176,
+      "profit_factor": 1.4973270700764425,
+      "sharpe": 2.606765169328635,
+      "max_drawdown": 14.923697741821437,
+      "composite_score": 13.95200969450147,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 188.0527856745629
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 105.62122898415373
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 174.8375222598302
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 16.51140426550601
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.56375932512682
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 256.6906551882129
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 75.02236729940293
+        },
+        "BTC/USDT": {
+          "trades": 10,
+          "wins": 5,
+          "losses": 5,
+          "total_pnl": -4.366146346694656
+        }
+      },
+      "symbols": [
+        "BTC/USDT",
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.3",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.4",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.5",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.6",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.7",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.8",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.9",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.10",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.11",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.12",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.13",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.14",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.15",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.16",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.17",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.18",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.19",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.20",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.21",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.22",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.23",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.24",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.25",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.26",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.27",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.28",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.29",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.30",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.31",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.32",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.33",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.34",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.35",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.36",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.37",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.38",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.39",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.40",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.41",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    },
+    {
+      "version": "5.42",
+      "total_return": 10.0494962129222,
+      "win_rate": 42.168674698795186,
+      "total_trades": 166,
+      "profit_factor": 1.5201159619188034,
+      "sharpe": 2.710778539860397,
+      "max_drawdown": 13.18744667532801,
+      "composite_score": 14.132189898365837,
+      "coin_stats": {
+        "BNB/USDT": {
+          "trades": 36,
+          "wins": 13,
+          "losses": 23,
+          "total_pnl": 189.69349893284462
+        },
+        "ETH/USDT": {
+          "trades": 28,
+          "wins": 12,
+          "losses": 16,
+          "total_pnl": 108.77884604445151
+        },
+        "DOGE/USDT": {
+          "trades": 22,
+          "wins": 11,
+          "losses": 11,
+          "total_pnl": 175.85681651899242
+        },
+        "XRP/USDT": {
+          "trades": 20,
+          "wins": 7,
+          "losses": 13,
+          "total_pnl": 17.92581394485046
+        },
+        "SOL/USDT": {
+          "trades": 24,
+          "wins": 9,
+          "losses": 15,
+          "total_pnl": 177.4902755288824
+        },
+        "SUI/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 258.6427714243661
+        },
+        "1000PEPE/USDT": {
+          "trades": 18,
+          "wins": 9,
+          "losses": 9,
+          "total_pnl": 76.5615988978326
+        }
+      },
+      "symbols": [
+        "ETH/USDT",
+        "SOL/USDT",
+        "BNB/USDT",
+        "XRP/USDT",
+        "DOGE/USDT",
+        "SUI/USDT",
+        "1000PEPE/USDT"
+      ],
+      "params": {
+        "hard_stop_atr_multiplier": 2.0,
+        "use_dynamic_hard_stop": true
+      }
+    }
+  ]
+}

@@ -32,6 +32,16 @@ const Dashboard: React.FC<DashboardProps> = ({ apiUrl }) => {
     },
   });
 
+  // Fetch real-time performance metrics
+  const { data: performanceData } = useQuery({
+    queryKey: ['performance'],
+    queryFn: async () => {
+      const response = await axios.get(`${apiUrl}/api/v1/trading/performance`);
+      return response.data;
+    },
+    refetchInterval: 10000, // Update every 10 seconds
+  });
+
   return (
     <div className="dashboard">
       {/* Header */}
@@ -47,7 +57,7 @@ const Dashboard: React.FC<DashboardProps> = ({ apiUrl }) => {
 
       {/* Main Content */}
       <div className="dashboard-content">
-        {/* Top Stats */}
+        {/* Top Stats - Real-time data */}
         <div className="stats-grid">
           <div className="stat-card">
             <div className="stat-icon blue">
@@ -55,8 +65,16 @@ const Dashboard: React.FC<DashboardProps> = ({ apiUrl }) => {
             </div>
             <div className="stat-info">
               <p className="stat-label">Win Rate</p>
-              <p className="stat-value">58.3%</p>
-              <p className="stat-change positive">+2.3% vs last week</p>
+              <p className="stat-value">
+                {performanceData?.win_rate
+                  ? `${performanceData.win_rate.toFixed(1)}%`
+                  : 'Loading...'}
+              </p>
+              <p className="stat-change positive">
+                {performanceData?.win_rate_change
+                  ? `${performanceData.win_rate_change > 0 ? '+' : ''}${performanceData.win_rate_change.toFixed(1)}% vs baseline`
+                  : 'Calculating...'}
+              </p>
             </div>
           </div>
 
@@ -66,8 +84,16 @@ const Dashboard: React.FC<DashboardProps> = ({ apiUrl }) => {
             </div>
             <div className="stat-info">
               <p className="stat-label">Total P&L</p>
-              <p className="stat-value">+$1,520</p>
-              <p className="stat-change positive">+15.2%</p>
+              <p className="stat-value">
+                {performanceData?.total_pnl !== undefined
+                  ? `${performanceData.total_pnl > 0 ? '+' : ''}$${performanceData.total_pnl.toFixed(2)}`
+                  : 'Loading...'}
+              </p>
+              <p className={`stat-change ${performanceData?.total_pnl >= 0 ? 'positive' : 'negative'}`}>
+                {performanceData?.total_return
+                  ? `${performanceData.total_return > 0 ? '+' : ''}${performanceData.total_return.toFixed(2)}%`
+                  : 'Calculating...'}
+              </p>
             </div>
           </div>
 
@@ -77,8 +103,14 @@ const Dashboard: React.FC<DashboardProps> = ({ apiUrl }) => {
             </div>
             <div className="stat-info">
               <p className="stat-label">Total Trades</p>
-              <p className="stat-value">247</p>
-              <p className="stat-change neutral">Last 30 days</p>
+              <p className="stat-value">
+                {performanceData?.total_trades ?? 'Loading...'}
+              </p>
+              <p className="stat-change neutral">
+                {performanceData?.active_positions
+                  ? `${performanceData.active_positions} active positions`
+                  : 'Real-time trading'}
+              </p>
             </div>
           </div>
 
@@ -88,8 +120,14 @@ const Dashboard: React.FC<DashboardProps> = ({ apiUrl }) => {
             </div>
             <div className="stat-info">
               <p className="stat-label">Max Drawdown</p>
-              <p className="stat-value">-18.4%</p>
-              <p className="stat-change neutral">Within limits</p>
+              <p className="stat-value">
+                {performanceData?.max_drawdown
+                  ? `${performanceData.max_drawdown.toFixed(1)}%`
+                  : 'Loading...'}
+              </p>
+              <p className="stat-change neutral">
+                {performanceData?.risk_status ?? 'Monitoring...'}
+              </p>
             </div>
           </div>
         </div>

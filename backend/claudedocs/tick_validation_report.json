@@ -1,0 +1,31 @@
+{
+  "timestamp": "2025-10-17T08:37:25.984137",
+  "summary": {
+    "total_checks": 16,
+    "passed": 16,
+    "violations": 0,
+    "warnings": 0,
+    "pass_rate": 100.0
+  },
+  "passed_checks": [
+    "\u2705 \ud2f1 \ub370\uc774\ud130 \uc218\uc9d1\uae30 \uc874\uc7ac",
+    "\u2705 \ud2f1 \uae30\ubc18 \uc9c0\ud45c \uc874\uc7ac",
+    "\u2705 \ud2f1 \ubc31\ud14c\uc2a4\ud130 \uc874\uc7ac",
+    "\u2705 Binance \uce94\ub4e4 \ub370\uc774\ud130 \ud638\ucd9c \uc5c6\uc74c",
+    "\u2705 CCXT \uce94\ub4e4 \ub370\uc774\ud130 \ud638\ucd9c \uc5c6\uc74c",
+    "\u2705 1\uc2dc\uac04 \uce94\ub4e4 \uc778\ud130\ubc8c \uc5c6\uc74c",
+    "\u2705 5\ubd84 \uce94\ub4e4 \uc778\ud130\ubc8c \uc5c6\uc74c",
+    "\u2705 15\ubd84 \uce94\ub4e4 \uc778\ud130\ubc8c \uc5c6\uc74c",
+    "\u2705 1\ubd84 \uce94\ub4e4 \uc778\ud130\ubc8c \uc5c6\uc74c",
+    "\u2705 realtime_tick_trader.py: from tick_data_collector import",
+    "\u2705 realtime_tick_trader.py: from tick_indicators import",
+    "\u2705 trading_strategy.py: from tick_indicators import",
+    "\u2705 Binance Futures WebSocket URL",
+    "\u2705 Ticker \uc2a4\ud2b8\ub9bc",
+    "\u2705 Ticker \uad6c\ub3c5 \ud568\uc218",
+    "\u2705 WebSocket \uc5f0\uacb0"
+  ],
+  "violations": [],
+  "warnings": [],
+  "overall_status": "PASS"
+}

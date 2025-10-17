@@ -28,18 +28,21 @@ class PaperTrader:
 
     def __init__(self,
                  initial_balance: float = 10000.0,
-                 leverage: int = 10,
+                 leverage: int = 1,  # Changed from 10 to 1 (no leverage for safety)
+                 use_limit_orders: bool = True,  # NEW: Use limit orders for Maker fee (0.02% vs 0.04%)
                  use_ai_adaptation: bool = True):
         """Initialize paper trader
 
         Args:
             initial_balance: Starting balance in USDT
-            leverage: Leverage for futures trading
+            leverage: Leverage for futures trading (default: 1 = no leverage)
+            use_limit_orders: Use limit orders instead of market (Maker 0.02% vs Taker 0.04%)
             use_ai_adaptation: Enable AI-driven strategy adaptation
         """
         self.initial_balance = initial_balance
         self.balance = initial_balance
         self.leverage = leverage
+        self.use_limit_orders = use_limit_orders
         self.use_ai_adaptation = use_ai_adaptation
 
         # Initialize Binance client
@@ -160,7 +163,9 @@ class PaperTrader:
         action = signal['signal']
 
         # Check if we should trade
-        if not self.strategy.should_trade(signal, min_confidence=0.5):
+        # TEMPORARY: Lowered to 30% for testing (no ML model trained yet)
+        # TODO: Restore to 50% after ML model is trained with collected data
+        if not self.strategy.should_trade(signal, min_confidence=0.3):
             logger.info(f"{symbol}: Signal {action} confidence too low, skipping")
             return None
 
@@ -176,22 +181,32 @@ class PaperTrader:
                 self.balance, price, signal['confidence']
             )
 
-            logger.info(f"📈 {symbol}: Opening LONG - Size: {position_size:.6f} @ ${price:,.2f}")
+            # Calculate limit order price (slightly below market for LONG)
+            # This ensures we get Maker fee (0.02%) instead of Taker (0.04%)
+            if self.use_limit_orders:
+                limit_price = price * 0.9995  # 0.05% below market
+                order_type = "LIMIT"
+                logger.info(f"📈 {symbol}: Opening LONG (LIMIT) - Size: {position_size:.6f} @ ${limit_price:,.2f} (market: ${price:,.2f})")
+            else:
+                limit_price = price
+                order_type = "MARKET"
+                logger.info(f"📈 {symbol}: Opening LONG (MARKET) - Size: {position_size:.6f} @ ${price:,.2f}")
 
             # Initialize trailing stop
-            self.trailing_stop_manager.initialize_position(symbol, price, 'LONG')
+            self.trailing_stop_manager.initialize_position(symbol, limit_price, 'LONG')
 
             # Store position
             self.positions[symbol] = {
                 'type': 'LONG',
-                'entry_price': price,
+                'entry_price': limit_price,
                 'size': position_size,
                 'entry_time': datetime.now(),
-                'signal': signal
+                'signal': signal,
+                'order_type': order_type
             }
 
             # Update balance (simulated)
-            cost = position_size * price / self.leverage
+            cost = position_size * limit_price / self.leverage
             self.balance -= cost
 
             trade = {
@@ -214,29 +229,39 @@ class PaperTrader:
                 self.balance, price, signal['confidence']
             )
 
-            logger.info(f"📉 {symbol}: Opening SHORT - Size: {position_size:.6f} @ ${price:,.2f}")
+            # Calculate limit order price (slightly above market for SHORT)
+            # This ensures we get Maker fee (0.02%) instead of Taker (0.04%)
+            if self.use_limit_orders:
+                limit_price = price * 1.0005  # 0.05% above market
+                order_type = "LIMIT"
+                logger.info(f"📉 {symbol}: Opening SHORT (LIMIT) - Size: {position_size:.6f} @ ${limit_price:,.2f} (market: ${price:,.2f})")
+            else:
+                limit_price = price
+                order_type = "MARKET"
+                logger.info(f"📉 {symbol}: Opening SHORT (MARKET) - Size: {position_size:.6f} @ ${price:,.2f}")
 
             # Initialize trailing stop
-            self.trailing_stop_manager.initialize_position(symbol, price, 'SHORT')
+            self.trailing_stop_manager.initialize_position(symbol, limit_price, 'SHORT')
 
             # Store position
             self.positions[symbol] = {
                 'type': 'SHORT',
-                'entry_price': price,
+                'entry_price': limit_price,
                 'size': position_size,
                 'entry_time': datetime.now(),
-                'signal': signal
+                'signal': signal,
+                'order_type': order_type
             }
 
             # Update balance (simulated)
-            cost = position_size * price / self.leverage
+            cost = position_size * limit_price / self.leverage
             self.balance -= cost
 
             trade = {
                 'symbol': symbol,
                 'action': 'OPEN_SHORT',
                 'type': 'SHORT',
-                'price': price,
+                'price': limit_price,
                 'size': position_size,
                 'cost': cost,
                 'timestamp': datetime.now(),
@@ -253,15 +278,31 @@ class PaperTrader:
             size = position['size']
             position_type = position['type']
 
-            # Calculate P&L based on position type
-            if position_type == 'LONG':
-                pnl = (price - entry_price) * size
-                pnl_pct = (price - entry_price) / entry_price
-            else:  # SHORT
-                pnl = (entry_price - price) * size
-                pnl_pct = (entry_price - price) / entry_price
+            # Calculate limit order close price
+            # For LONG: sell slightly below market (price * 0.9995)
+            # For SHORT: buy slightly above market (price * 1.0005)
+            if self.use_limit_orders:
+                if position_type == 'LONG':
+                    close_price = price * 0.9995  # Sell 0.05% below market
+                    order_type = "LIMIT"
+                else:  # SHORT
+                    close_price = price * 1.0005  # Buy 0.05% above market
+                    order_type = "LIMIT"
+                logger.info(f"💰 {symbol}: Closing {position_type} (LIMIT) @ ${close_price:,.2f} (market: ${price:,.2f})")
+            else:
+                close_price = price
+                order_type = "MARKET"
+                logger.info(f"💰 {symbol}: Closing {position_type} (MARKET) @ ${price:,.2f}")
 
-            logger.info(f"💰 {symbol}: Closing {position_type} - P&L: ${pnl:,.2f} ({pnl_pct:+.2%})")
+            # Calculate P&L based on actual close price
+            if position_type == 'LONG':
+                pnl = (close_price - entry_price) * size
+                pnl_pct = (close_price - entry_price) / entry_price
+            else:  # SHORT
+                pnl = (entry_price - close_price) * size
+                pnl_pct = (entry_price - close_price) / entry_price
+
+            logger.info(f"  → P&L: ${pnl:,.2f} ({pnl_pct:+.2%})")
 
             # Update balance (simulated)
             proceeds = (size * entry_price / self.leverage) + pnl
@@ -279,14 +320,15 @@ class PaperTrader:
                 'symbol': symbol,
                 'action': f'CLOSE_{position_type}',
                 'type': position_type,
-                'price': price,
+                'price': close_price,  # Use close_price instead of market price
                 'size': size,
                 'entry_price': entry_price,
                 'proceeds': proceeds,
                 'pnl': pnl,
                 'pnl_pct': pnl_pct,
                 'timestamp': datetime.now(),
-                'signal': signal
+                'signal': signal,
+                'order_type': order_type
             }
             self.trade_history.append(trade)
 

@@ -53,10 +53,10 @@ class TechnicalIndicators:
             signal_period: Signal line period
 
         Returns:
-            Dict with 'macd', 'signal', 'histogram'
+            Dict with 'macd', 'signal', 'histogram', 'prev_histogram'
         """
         if len(prices) < slow_period:
-            return {'macd': 0.0, 'signal': 0.0, 'histogram': 0.0}
+            return {'macd': 0.0, 'signal': 0.0, 'histogram': 0.0, 'prev_histogram': 0.0}
 
         df = pd.DataFrame({'close': prices})
 
@@ -73,10 +73,14 @@ class TechnicalIndicators:
         # Histogram
         histogram = macd - signal
 
+        # Get previous histogram for momentum detection
+        prev_histogram = float(histogram.iloc[-2]) if len(histogram) > 1 else 0.0
+
         return {
             'macd': float(macd.iloc[-1]),
             'signal': float(signal.iloc[-1]),
-            'histogram': float(histogram.iloc[-1])
+            'histogram': float(histogram.iloc[-1]),
+            'prev_histogram': prev_histogram
         }
 
     @staticmethod

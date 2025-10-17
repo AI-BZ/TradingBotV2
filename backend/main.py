@@ -163,7 +163,7 @@ async def websocket_market_data(websocket: WebSocket):
     await manager.connect(websocket)
     try:
         # Default symbols to track
-        symbols = ['BTC/USDT', 'ETH/USDT', 'BNB/USDT', 'SOL/USDT']
+        symbols = ['ETH/USDT', 'SOL/USDT', 'BNB/USDT', 'DOGE/USDT', 'XRP/USDT', 'SUI/USDT', '1000PEPE/USDT']
 
         while True:
             # Fetch real prices from Binance
@@ -199,6 +199,52 @@ async def shutdown_event():
     logger.info("Shutting down - closing Binance client connections...")
     await binance_client.close()
     logger.info("Shutdown complete")
+
+
+# Real-time performance tracking
+performance_tracker = {
+    'start_balance': 10000.0,
+    'current_balance': 10000.0,
+    'total_trades': 0,
+    'winning_trades': 0,
+    'losing_trades': 0,
+    'max_balance': 10000.0,
+    'min_balance': 10000.0,
+    'active_positions': 0,
+    'strategy_version': '5.3',
+}
+
+@app.get("/api/v1/trading/performance")
+async def get_trading_performance():
+    """Get real-time trading performance metrics"""
+    try:
+        total_pnl = performance_tracker['current_balance'] - performance_tracker['start_balance']
+        total_return = (total_pnl / performance_tracker['start_balance']) * 100
+
+        win_rate = 0
+        if performance_tracker['total_trades'] > 0:
+            win_rate = (performance_tracker['winning_trades'] / performance_tracker['total_trades']) * 100
+
+        max_drawdown = 0
+        if performance_tracker['max_balance'] > 0:
+            max_drawdown = ((performance_tracker['max_balance'] - performance_tracker['min_balance'])
+                          / performance_tracker['max_balance']) * 100
+
+        return {
+            "total_pnl": round(total_pnl, 2),
+            "total_return": round(total_return, 2),
+            "win_rate": round(win_rate, 2),
+            "win_rate_change": 0,  # Calculate vs baseline
+            "total_trades": performance_tracker['total_trades'],
+            "active_positions": performance_tracker['active_positions'],
+            "max_drawdown": round(max_drawdown, 2),
+            "risk_status": "Within limits" if max_drawdown < 20 else "Caution",
+            "strategy_version": performance_tracker['strategy_version'],
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Error getting performance: {e}")
+        return JSONResponse(status_code=500, content={"error": str(e)})
 
 # Trading endpoints
 @app.post("/api/v1/trading/analyze")

@@ -1,0 +1,89 @@
+{
+  "timestamp": "20251016_103532",
+  "duration_hours": 1.2058306616666667,
+  "tests_completed": 14,
+  "best_strategy": {
+    "name": "Baseline",
+    "score": 0,
+    "parameters": {
+      "name": "Baseline",
+      "bb_compression": 0.05,
+      "atr_expansion": 0.015,
+      "hard_stop": 0.015,
+      "trailing_multiplier": 1.8
+    },
+    "results": {}
+  },
+  "all_results": [
+    {
+      "name": "Baseline",
+      "score": 0,
+      "return": 0
+    },
+    {
+      "name": "Tight_Entry",
+      "score": 0,
+      "return": 0
+    },
+    {
+      "name": "Loose_Entry",
+      "score": 0,
+      "return": 0
+    },
+    {
+      "name": "Tight_Stop",
+      "score": 0,
+      "return": 0
+    },
+    {
+      "name": "Loose_Stop",
+      "score": 0,
+      "return": 0
+    },
+    {
+      "name": "Tight_Trail",
+      "score": 0,
+      "return": 0
+    },
+    {
+      "name": "Loose_Trail",
+      "score": 0,
+      "return": 0
+    },
+    {
+      "name": "Balanced",
+      "score": 0,
+      "return": 0
+    },
+    {
+      "name": "Aggressive",
+      "score": 0,
+      "return": 0
+    },
+    {
+      "name": "Conservative",
+      "score": 0,
+      "return": 0
+    },
+    {
+      "name": "VeryTight",
+      "score": 0,
+      "return": 0
+    },
+    {
+      "name": "VeryLoose",
+      "score": 0,
+      "return": 0
+    },
+    {
+      "name": "MediumTight",
+      "score": 0,
+      "return": 0
+    },
+    {
+      "name": "MediumLoose",
+      "score": 0,
+      "return": 0
+    }
+  ]
+}

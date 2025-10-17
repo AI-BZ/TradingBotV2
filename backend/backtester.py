@@ -150,12 +150,13 @@ class Backtester:
             logger.error(f"Error loading data for {symbol}: {e}")
             return pd.DataFrame()
 
-    def analyze_bar(self, data: pd.DataFrame, idx: int) -> Optional[Dict]:
+    def analyze_bar(self, data: pd.DataFrame, idx: int, symbol: str = None) -> Optional[Dict]:
         """Analyze single bar and generate signal
 
         Args:
             data: Historical data
             idx: Current bar index
+            symbol: Trading symbol for coin-specific parameters
 
         Returns:
             Trading signal or None
@@ -175,8 +176,8 @@ class Backtester:
         )
         indicators['close'] = float(history['close'].iloc[-1])
 
-        # Generate signal
-        signal = self.strategy.generate_signal(history, indicators)
+        # Generate signal (with coin-specific parameters)
+        signal = self.strategy.generate_signal(history, indicators, symbol)
         signal['price'] = float(history['close'].iloc[-1])
         signal['timestamp'] = history['timestamp'].iloc[-1]
         signal['atr'] = indicators.get('atr', signal['price'] * 0.02)
@@ -206,8 +207,55 @@ class Backtester:
         if not self.risk_manager.can_open_position(self.balance):
             return None
 
-        # Open LONG position
-        if action == 'BUY' and symbol not in self.positions:
+        # TWO-WAY SIMULTANEOUS ENTRY (Straddle Strategy)
+        if action == 'BOTH' and f"{symbol}_LONG" not in self.positions and f"{symbol}_SHORT" not in self.positions:
+            # Get coin-specific hard stop
+            coin_params = self.strategy.get_coin_parameters(symbol)
+            hard_stop_pct = coin_params.get('hard_stop', 0.015)
+
+            # Calculate position size (10% each side = 20% total)
+            base_position_size = self.balance * 0.1 / price
+
+            # LONG position
+            self.trailing_stop_manager.initialize_position(f"{symbol}_LONG", price, 'LONG')
+            self.positions[f"{symbol}_LONG"] = {
+                'type': 'LONG',
+                'entry_price': price,
+                'size': base_position_size,
+                'entry_time': timestamp,
+                'signal': signal,
+                'highest_price': price,
+                'hard_stop_pct': hard_stop_pct  # Coin-specific hard stop
+            }
+
+            # SHORT position
+            self.trailing_stop_manager.initialize_position(f"{symbol}_SHORT", price, 'SHORT')
+            self.positions[f"{symbol}_SHORT"] = {
+                'type': 'SHORT',
+                'entry_price': price,
+                'size': base_position_size,
+                'entry_time': timestamp,
+                'signal': signal,
+                'lowest_price': price,
+                'hard_stop_pct': hard_stop_pct  # Coin-specific hard stop
+            }
+
+            # Update balance (20% total: 10% LONG + 10% SHORT)
+            total_cost = (base_position_size * price * 2) / self.leverage
+            self.balance -= total_cost
+
+            logger.info(f"TWO-WAY ENTRY: {symbol} @ ${price:.2f} - LONG+SHORT {base_position_size:.6f} each")
+
+            return {
+                'action': 'OPEN_BOTH',
+                'symbol': symbol,
+                'price': price,
+                'size': base_position_size,
+                'timestamp': timestamp
+            }
+
+        # Open LONG position (traditional)
+        elif action == 'BUY' and symbol not in self.positions:
             position_size = self.risk_manager.calculate_position_size(
                 self.balance, price, signal['confidence']
             )
@@ -237,7 +285,7 @@ class Backtester:
                 'timestamp': timestamp
             }
 
-        # Open SHORT position
+        # Open SHORT position (traditional)
         elif action == 'SELL' and symbol not in self.positions:
             position_size = self.risk_manager.calculate_position_size(
                 self.balance, price, signal['confidence']
@@ -271,7 +319,7 @@ class Backtester:
         return None
 
     def check_trailing_stop_backtest(self, symbol: str, current_price: float, atr: float, timestamp: datetime) -> Optional[Dict]:
-        """Check trailing stop for backtest
+        """Check trailing stop and hard stop for backtest
 
         Args:
             symbol: Trading symbol
@@ -285,17 +333,64 @@ class Backtester:
         if symbol not in self.positions:
             return None
 
-        # Update trailing stop
+        position = self.positions[symbol]
+        entry_price = position['entry_price']
+        size = position['size']
+        position_type = position['type']
+
+        # Calculate current P&L
+        if position_type == 'LONG':
+            pnl_pct = (current_price - entry_price) / entry_price
+        else:  # SHORT
+            pnl_pct = (entry_price - current_price) / entry_price
+
+        # Check HARD STOP first (-1.5% for Two-Way strategy)
+        hard_stop_pct = position.get('hard_stop_pct', None)
+        if hard_stop_pct and pnl_pct <= -hard_stop_pct:
+            # Hard stop triggered
+            if position_type == 'LONG':
+                pnl = (current_price - entry_price) * size
+            else:
+                pnl = (entry_price - current_price) * size
+
+            # Update balance
+            proceeds = (size * entry_price / self.leverage) + pnl
+            self.balance += proceeds
+
+            # Update risk manager
+            self.risk_manager.update_daily_pnl(pnl)
+
+            # Remove position
+            del self.positions[symbol]
+            self.trailing_stop_manager.remove_position(symbol)
+
+            # Record trade
+            trade = {
+                'symbol': symbol,
+                'action': f'CLOSE_{position_type}',
+                'type': position_type,
+                'entry_price': entry_price,
+                'exit_price': current_price,
+                'size': size,
+                'pnl': pnl,
+                'pnl_pct': pnl_pct,
+                'entry_time': position['entry_time'],
+                'exit_time': timestamp,
+                'duration_hours': (timestamp - position['entry_time']).total_seconds() / 3600,
+                'exit_reason': 'hard_stop'
+            }
+            self.trade_history.append(trade)
+
+            logger.info(f"HARD STOP: {symbol} {position_type} @ ${current_price:.2f} | P&L: ${pnl:.2f} ({pnl_pct:.2%})")
+
+            return trade
+
+        # Check TRAILING STOP
         stop_price, should_close = self.trailing_stop_manager.update_trailing_stop(
             symbol, current_price, atr
         )
 
         if should_close:
-            position = self.positions[symbol]
-            entry_price = position['entry_price']
-            size = position['size']
-            position_type = position['type']
-
             # Calculate P&L
             if position_type == 'LONG':
                 pnl = (current_price - entry_price) * size
@@ -405,11 +500,14 @@ class Backtester:
                     logger.info(f"Progress: {progress:.1f}% ({idx}/{total_bars}) - Balance: ${self.balance:,.2f}")
 
                 # Check trailing stops for all open positions
-                for symbol in list(self.positions.keys()):
-                    if symbol not in historical_data:
+                for position_key in list(self.positions.keys()):
+                    # Extract base symbol (remove _LONG/_SHORT suffix)
+                    base_symbol = position_key.replace('_LONG', '').replace('_SHORT', '')
+
+                    if base_symbol not in historical_data:
                         continue
 
-                    data = historical_data[symbol]
+                    data = historical_data[base_symbol]
                     if idx >= len(data):
                         continue
 
@@ -428,15 +526,16 @@ class Backtester:
                     else:
                         atr = current_price * 0.02
 
-                    # Check trailing stop
-                    self.check_trailing_stop_backtest(symbol, current_price, atr, timestamp)
+                    # Check trailing stop (use position_key, not base_symbol)
+                    self.check_trailing_stop_backtest(position_key, current_price, atr, timestamp)
 
                 # Analyze each symbol for new signals
                 for symbol, data in historical_data.items():
                     if idx >= len(data):
                         continue
 
-                    signal = self.analyze_bar(data, idx)
+                    # Pass symbol for coin-specific parameters
+                    signal = self.analyze_bar(data, idx, symbol)
                     if signal:
                         signal['symbol'] = symbol
                         trade = self.execute_backtest_trade(signal, symbol)
@@ -460,6 +559,58 @@ class Backtester:
                     'timestamp': timestamp,
                     'equity': total_equity
                 })
+
+            # FORCE CLOSE ALL REMAINING POSITIONS AT END OF BACKTEST
+            logger.info("\n🔒 Force closing all remaining positions at backtest end...")
+            for position_key in list(self.positions.keys()):
+                position = self.positions[position_key]
+                base_symbol = position_key.replace('_LONG', '').replace('_SHORT', '')
+
+                if base_symbol in historical_data:
+                    final_data = historical_data[base_symbol]
+                    final_price = float(final_data.iloc[-1]['close'])
+                    final_timestamp = final_data.iloc[-1]['timestamp']
+
+                    # Calculate P&L
+                    entry_price = position['entry_price']
+                    size = position['size']
+                    position_type = position['type']
+
+                    if position_type == 'LONG':
+                        pnl = (final_price - entry_price) * size
+                        pnl_pct = (final_price - entry_price) / entry_price
+                    else:  # SHORT
+                        pnl = (entry_price - final_price) * size
+                        pnl_pct = (entry_price - final_price) / entry_price
+
+                    # Update balance
+                    proceeds = (size * entry_price / self.leverage) + pnl
+                    self.balance += proceeds
+
+                    # Update risk manager
+                    self.risk_manager.update_daily_pnl(pnl)
+
+                    # Record trade
+                    trade = {
+                        'symbol': position_key,
+                        'action': f'CLOSE_{position_type}',
+                        'type': position_type,
+                        'entry_price': entry_price,
+                        'exit_price': final_price,
+                        'size': size,
+                        'pnl': pnl,
+                        'pnl_pct': pnl_pct,
+                        'entry_time': position['entry_time'],
+                        'exit_time': final_timestamp,
+                        'duration_hours': (final_timestamp - position['entry_time']).total_seconds() / 3600,
+                        'exit_reason': 'backtest_end'
+                    }
+                    self.trade_history.append(trade)
+
+                    logger.info(f"  Force closed {position_key} @ ${final_price:.2f} | P&L: ${pnl:.2f} ({pnl_pct:+.2%})")
+
+            # Clear positions
+            self.positions.clear()
 
             # Calculate results
             results = self.calculate_results()
