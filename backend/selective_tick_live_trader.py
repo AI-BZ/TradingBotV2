@@ -465,7 +465,7 @@ class SelectiveTickLiveTrader:
             await self._close_position(position_key, price, reason, timestamp)
 
     async def get_performance(self) -> dict:
-        """Get current performance metrics"""
+        """Get current performance metrics with per-coin breakdown"""
 
         total_pnl = self.balance - self.initial_balance
         total_return = (total_pnl / self.initial_balance) * 100
@@ -487,6 +487,60 @@ class SelectiveTickLiveTrader:
         else:
             trades_per_day = 0
 
+        # Per-coin statistics
+        per_coin_stats = {}
+        for symbol in self.symbols:
+            coin_trades = [t for t in self.trades if t['symbol'] == symbol]
+            coin_winning = [t for t in coin_trades if t['pnl'] > 0]
+            coin_pnl = sum(t['pnl'] for t in coin_trades)
+
+            per_coin_stats[symbol] = {
+                'total_trades': len(coin_trades),
+                'winning_trades': len(coin_winning),
+                'win_rate': (len(coin_winning) / len(coin_trades) * 100) if coin_trades else 0,
+                'total_pnl': coin_pnl,
+                'avg_profit_per_trade': coin_pnl / len(coin_trades) if coin_trades else 0,
+                'trades_per_day': len(coin_trades) / days if self.trades and days > 0 else 0
+            }
+
+        # Active positions details
+        active_positions_list = []
+        for position_key, position in self.positions.items():
+            # Get current price from tick buffer
+            current_price = 0
+            if position['symbol'] in self.tick_buffers and self.tick_buffers[position['symbol']]:
+                current_price = self.tick_buffers[position['symbol']][-1].price
+
+            # Calculate unrealized P&L
+            entry_price = position['entry_price']
+            size = position['size']
+
+            if current_price > 0:
+                if position['type'] == 'LONG':
+                    unrealized_pnl = (current_price - entry_price) * size * self.leverage
+                else:  # SHORT
+                    unrealized_pnl = (entry_price - current_price) * size * self.leverage
+
+                unrealized_pnl_pct = (unrealized_pnl / (entry_price * size * self.leverage)) * 100
+            else:
+                unrealized_pnl = 0
+                unrealized_pnl_pct = 0
+
+            # Calculate hold duration
+            hold_duration = (datetime.now() - position['entry_time']).total_seconds()
+
+            active_positions_list.append({
+                'symbol': position['symbol'],
+                'type': position['type'],
+                'entry_price': entry_price,
+                'current_price': current_price,
+                'size': size,
+                'unrealized_pnl': unrealized_pnl,
+                'unrealized_pnl_pct': unrealized_pnl_pct,
+                'hold_duration_seconds': hold_duration,
+                'confidence': position.get('confidence', 0)
+            })
+
         return {
             'balance': self.balance,
             'total_pnl': total_pnl,
@@ -501,7 +555,9 @@ class SelectiveTickLiveTrader:
             'active_positions': len(self.positions),
             'signals_generated': self.signals_generated,
             'signals_skipped_cooldown': self.signals_skipped_cooldown,
-            'strategy': 'Strategy B - Selective High-Confidence'
+            'strategy': 'Strategy B - Selective High-Confidence',
+            'per_coin_stats': per_coin_stats,
+            'active_positions_list': active_positions_list
         }
 
     async def stop(self):

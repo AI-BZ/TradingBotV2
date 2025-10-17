@@ -295,6 +295,33 @@ async def get_trading_performance():
         # Get performance from Strategy B trader
         performance = await selective_trader.get_performance()
 
+        # Round per-coin stats
+        per_coin_rounded = {}
+        for symbol, stats in performance.get('per_coin_stats', {}).items():
+            per_coin_rounded[symbol] = {
+                'total_trades': stats['total_trades'],
+                'winning_trades': stats['winning_trades'],
+                'win_rate': round(stats['win_rate'], 2),
+                'total_pnl': round(stats['total_pnl'], 2),
+                'avg_profit_per_trade': round(stats['avg_profit_per_trade'], 2),
+                'trades_per_day': round(stats['trades_per_day'], 1)
+            }
+
+        # Round active positions
+        positions_rounded = []
+        for pos in performance.get('active_positions_list', []):
+            positions_rounded.append({
+                'symbol': pos['symbol'],
+                'type': pos['type'],
+                'entry_price': round(pos['entry_price'], 2),
+                'current_price': round(pos['current_price'], 2),
+                'size': round(pos['size'], 4),
+                'unrealized_pnl': round(pos['unrealized_pnl'], 2),
+                'unrealized_pnl_pct': round(pos['unrealized_pnl_pct'], 2),
+                'hold_duration_seconds': int(pos['hold_duration_seconds']),
+                'confidence': round(pos['confidence'], 2)
+            })
+
         return {
             "status": "running",
             "strategy": performance['strategy'],
@@ -310,6 +337,8 @@ async def get_trading_performance():
             "signals_generated": performance['signals_generated'],
             "signals_skipped_cooldown": performance['signals_skipped_cooldown'],
             "risk_status": "Within limits" if performance['max_drawdown'] < 20 else "Caution",
+            "per_coin_stats": per_coin_rounded,
+            "active_positions_list": positions_rounded,
             "timestamp": datetime.now().isoformat()
         }
     except Exception as e:

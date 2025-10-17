@@ -648,30 +648,42 @@
                     </div>
                 `;
 
-                // Per-Coin Performance (Mock data - will be replaced with real data)
+                // Per-Coin Performance (REAL DATA from API)
+                const perCoinStats = data.per_coin_stats || {};
                 coinContainer.innerHTML = symbols.map(symbol => {
                     const coinName = symbolNames[symbol];
-                    // Mock data - in real implementation, this would come from API
-                    const coinPnl = (Math.random() * 200 - 100).toFixed(2);
-                    const coinTrades = Math.floor(Math.random() * 50);
-                    const coinWinRate = (Math.random() * 40 + 50).toFixed(1);
+                    const ccxtSymbol = `${coinName}/USDT`;
+                    const stats = perCoinStats[ccxtSymbol] || {
+                        total_trades: 0,
+                        win_rate: 0,
+                        total_pnl: 0,
+                        trades_per_day: 0
+                    };
 
                     return `
                         <div class="coin-perf-card">
                             <div class="coin-perf-header">
                                 <div class="coin-perf-name">${coinName}/USDT</div>
-                                <div class="coin-perf-pnl ${coinPnl >= 0 ? 'positive' : 'negative'}">
-                                    ${coinPnl >= 0 ? '+' : ''}$${coinPnl}
+                                <div class="coin-perf-pnl ${stats.total_pnl >= 0 ? 'positive' : 'negative'}">
+                                    ${stats.total_pnl >= 0 ? '+' : ''}$${stats.total_pnl.toFixed(2)}
                                 </div>
                             </div>
                             <div class="coin-perf-stats">
                                 <div class="coin-stat">
                                     <span class="coin-stat-label">거래 수</span>
-                                    <span class="coin-stat-value">${coinTrades}</span>
+                                    <span class="coin-stat-value">${stats.total_trades}</span>
                                 </div>
                                 <div class="coin-stat">
                                     <span class="coin-stat-label">승률</span>
-                                    <span class="coin-stat-value">${coinWinRate}%</span>
+                                    <span class="coin-stat-value">${stats.win_rate.toFixed(1)}%</span>
+                                </div>
+                                <div class="coin-stat">
+                                    <span class="coin-stat-label">일평균 거래</span>
+                                    <span class="coin-stat-value">${stats.trades_per_day.toFixed(1)}</span>
+                                </div>
+                                <div class="coin-stat">
+                                    <span class="coin-stat-label">승수</span>
+                                    <span class="coin-stat-value">${stats.winning_trades}/${stats.total_trades}</span>
                                 </div>
                             </div>
                         </div>
@@ -690,54 +702,40 @@
             }
         }
 
-        // Update Active Positions
+        // Update Active Positions (REAL DATA from API)
         function updatePositions(performanceData) {
             const tbody = document.getElementById('positions-body');
 
-            // Mock data - in real implementation, this would come from API
-            if (performanceData.active_positions === 0) {
+            const positionsList = performanceData.active_positions_list || [];
+
+            if (positionsList.length === 0) {
                 tbody.innerHTML = '<tr><td colspan="8" class="loading">현재 활성 포지션이 없습니다</td></tr>';
                 return;
             }
 
-            // Generate mock positions
-            const mockPositions = [];
-            for (let i = 0; i < Math.min(performanceData.active_positions, 5); i++) {
-                const symbol = symbols[Math.floor(Math.random() * symbols.length)];
-                const direction = Math.random() > 0.5 ? 'LONG' : 'SHORT';
-                const entryPrice = currentPrices[symbol] || 100;
-                const currentPrice = entryPrice * (1 + (Math.random() * 0.04 - 0.02));
-                const pnl = (currentPrice - entryPrice) * (direction === 'LONG' ? 1 : -1);
-                const pnlPercent = (pnl / entryPrice) * 100;
+            // Convert CCXT format to display format
+            tbody.innerHTML = positionsList.map(pos => {
+                const symbolParts = pos.symbol.split('/');
+                const displaySymbol = symbolParts[0];
+                const durationMinutes = Math.floor(pos.hold_duration_seconds / 60);
 
-                mockPositions.push({
-                    symbol: symbolNames[symbol],
-                    direction,
-                    entryPrice,
-                    currentPrice,
-                    quantity: (Math.random() * 10 + 1).toFixed(4),
-                    pnl,
-                    pnlPercent,
-                    duration: Math.floor(Math.random() * 120) + 1
-                });
-            }
-
-            tbody.innerHTML = mockPositions.map(pos => `
-                <tr>
-                    <td><strong>${pos.symbol}/USDT</strong></td>
-                    <td><span class="${pos.direction === 'LONG' ? 'position-long' : 'position-short'}">${pos.direction}</span></td>
-                    <td>$${pos.entryPrice.toFixed(2)}</td>
-                    <td>$${pos.currentPrice.toFixed(2)}</td>
-                    <td>${pos.quantity}</td>
-                    <td class="${pos.pnl >= 0 ? 'position-long' : 'position-short'}">
-                        ${pos.pnl >= 0 ? '+' : ''}$${pos.pnl.toFixed(2)}
-                    </td>
-                    <td class="${pos.pnlPercent >= 0 ? 'position-long' : 'position-short'}">
-                        ${pos.pnlPercent >= 0 ? '+' : ''}${pos.pnlPercent.toFixed(2)}%
-                    </td>
-                    <td>${pos.duration}분</td>
-                </tr>
-            `).join('');
+                return `
+                    <tr>
+                        <td><strong>${displaySymbol}/USDT</strong></td>
+                        <td><span class="${pos.type === 'LONG' ? 'position-long' : 'position-short'}">${pos.type}</span></td>
+                        <td>$${pos.entry_price.toFixed(2)}</td>
+                        <td>$${pos.current_price.toFixed(2)}</td>
+                        <td>${pos.size.toFixed(4)}</td>
+                        <td class="${pos.unrealized_pnl >= 0 ? 'position-long' : 'position-short'}">
+                            ${pos.unrealized_pnl >= 0 ? '+' : ''}$${pos.unrealized_pnl.toFixed(2)}
+                        </td>
+                        <td class="${pos.unrealized_pnl_pct >= 0 ? 'position-long' : 'position-short'}">
+                            ${pos.unrealized_pnl_pct >= 0 ? '+' : ''}${pos.unrealized_pnl_pct.toFixed(2)}%
+                        </td>
+                        <td>${durationMinutes}분 ${pos.hold_duration_seconds % 60}초</td>
+                    </tr>
+                `;
+            }).join('');
         }
 
         // Initial load
