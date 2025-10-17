@@ -1,0 +1,20 @@
+{
+  "performance": {
+    "balance": 10000.0,
+    "total_pnl": 0.0,
+    "total_return": 0.0,
+    "total_trades": 0,
+    "trades_per_day": 0,
+    "winning_trades": 0,
+    "win_rate": 0,
+    "avg_profit_per_trade": 0,
+    "max_drawdown": 0.0,
+    "total_fees_paid": 0.0,
+    "active_positions": 0,
+    "signals_generated": 0,
+    "signals_skipped_cooldown": 0,
+    "strategy": "Strategy B - Selective High-Confidence"
+  },
+  "trades": [],
+  "timestamp": "2025-10-18T00:12:40.947374"
+}
