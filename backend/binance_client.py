@@ -85,6 +85,39 @@ class BinanceClient:
 
         return result
 
+    async def get_ticker(self, symbol: str) -> Dict:
+        """Get 24h ticker statistics for a symbol
+
+        Args:
+            symbol: Trading pair (e.g., 'BTC/USDT')
+
+        Returns:
+            Dictionary with volume, percentage change, etc.
+        """
+        try:
+            ticker = await self.exchange.fetch_ticker(symbol)
+            return ticker
+        except Exception as e:
+            logger.error(f"Error fetching ticker for {symbol}: {e}")
+            raise
+
+    async def get_orderbook(self, symbol: str, limit: int = 5) -> Dict:
+        """Get orderbook (bids/asks) for a symbol
+
+        Args:
+            symbol: Trading pair (e.g., 'BTC/USDT')
+            limit: Number of bids/asks to fetch
+
+        Returns:
+            Dictionary with 'bids' and 'asks' arrays
+        """
+        try:
+            orderbook = await self.exchange.fetch_order_book(symbol, limit)
+            return orderbook
+        except Exception as e:
+            logger.error(f"Error fetching orderbook for {symbol}: {e}")
+            raise
+
     async def get_klines(
         self,
         symbol: str,
