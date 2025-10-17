@@ -1,6 +1,6 @@
 """
 TradingBot V2 - FastAPI Main Application
-Real-time crypto trading bot with AI analysis
+Real-time crypto trading bot with Strategy B (Selective High-Confidence)
 """
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
@@ -14,6 +14,7 @@ import os
 
 # Import trading components
 from binance_client import BinanceClient
+from selective_tick_live_trader import SelectiveTickLiveTrader
 
 # Configure logging
 logging.basicConfig(
@@ -29,6 +30,10 @@ binance_client = BinanceClient(
     testnet=True,
     use_futures=True
 )
+
+# Initialize Strategy B trader (7 coins)
+selective_trader = None
+trading_task = None
 
 app = FastAPI(
     title="TradingBot V2 API",
@@ -201,45 +206,110 @@ async def shutdown_event():
     logger.info("Shutdown complete")
 
 
-# Real-time performance tracking
-performance_tracker = {
-    'start_balance': 10000.0,
-    'current_balance': 10000.0,
-    'total_trades': 0,
-    'winning_trades': 0,
-    'losing_trades': 0,
-    'max_balance': 10000.0,
-    'min_balance': 10000.0,
-    'active_positions': 0,
-    'strategy_version': '5.3',
-}
+# Strategy B trading endpoints
+@app.post("/api/v1/trading/start")
+async def start_trading():
+    """Start Strategy B trading for 7 coins"""
+    global selective_trader, trading_task
+
+    if trading_task and not trading_task.done():
+        return {"status": "already_running", "message": "Trading is already active"}
+
+    try:
+        # Initialize trader
+        symbols = [
+            'ETH/USDT',
+            'SOL/USDT',
+            'BNB/USDT',
+            'DOGE/USDT',
+            'XRP/USDT',
+            'SUI/USDT',
+            '1000PEPE/USDT'
+        ]
+
+        selective_trader = SelectiveTickLiveTrader(
+            binance_client=binance_client,
+            symbols=symbols,
+            initial_balance=10000.0,
+            leverage=10,
+            position_size_pct=0.1,
+            taker_fee=0.0005,
+            slippage_pct=0.0001,
+            cooldown_seconds=300
+        )
+
+        # Start trading in background
+        trading_task = asyncio.create_task(selective_trader.start())
+
+        logger.info("✅ Strategy B trading started for 7 coins")
+
+        return {
+            "status": "started",
+            "strategy": "Strategy B - Selective High-Confidence",
+            "symbols": symbols,
+            "expected_trades_per_day": "~162 per symbol",
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Error starting trading: {e}")
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+
+@app.post("/api/v1/trading/stop")
+async def stop_trading():
+    """Stop Strategy B trading"""
+    global selective_trader, trading_task
+
+    if not trading_task or trading_task.done():
+        return {"status": "not_running", "message": "Trading is not active"}
+
+    try:
+        if selective_trader:
+            await selective_trader.stop()
+
+        if trading_task:
+            trading_task.cancel()
+
+        logger.info("🛑 Strategy B trading stopped")
+
+        return {
+            "status": "stopped",
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Error stopping trading: {e}")
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
 
 @app.get("/api/v1/trading/performance")
 async def get_trading_performance():
-    """Get real-time trading performance metrics"""
+    """Get real-time trading performance metrics from Strategy B"""
     try:
-        total_pnl = performance_tracker['current_balance'] - performance_tracker['start_balance']
-        total_return = (total_pnl / performance_tracker['start_balance']) * 100
+        if not selective_trader:
+            return {
+                "status": "not_started",
+                "message": "Trading not started yet",
+                "timestamp": datetime.now().isoformat()
+            }
 
-        win_rate = 0
-        if performance_tracker['total_trades'] > 0:
-            win_rate = (performance_tracker['winning_trades'] / performance_tracker['total_trades']) * 100
-
-        max_drawdown = 0
-        if performance_tracker['max_balance'] > 0:
-            max_drawdown = ((performance_tracker['max_balance'] - performance_tracker['min_balance'])
-                          / performance_tracker['max_balance']) * 100
+        # Get performance from Strategy B trader
+        performance = await selective_trader.get_performance()
 
         return {
-            "total_pnl": round(total_pnl, 2),
-            "total_return": round(total_return, 2),
-            "win_rate": round(win_rate, 2),
-            "win_rate_change": 0,  # Calculate vs baseline
-            "total_trades": performance_tracker['total_trades'],
-            "active_positions": performance_tracker['active_positions'],
-            "max_drawdown": round(max_drawdown, 2),
-            "risk_status": "Within limits" if max_drawdown < 20 else "Caution",
-            "strategy_version": performance_tracker['strategy_version'],
+            "status": "running",
+            "strategy": performance['strategy'],
+            "total_pnl": round(performance['total_pnl'], 2),
+            "total_return": round(performance['total_return'], 2),
+            "win_rate": round(performance['win_rate'], 2),
+            "total_trades": performance['total_trades'],
+            "trades_per_day": round(performance['trades_per_day'], 1),
+            "avg_profit_per_trade": round(performance['avg_profit_per_trade'], 2),
+            "active_positions": performance['active_positions'],
+            "max_drawdown": round(performance['max_drawdown'], 2),
+            "total_fees_paid": round(performance['total_fees_paid'], 2),
+            "signals_generated": performance['signals_generated'],
+            "signals_skipped_cooldown": performance['signals_skipped_cooldown'],
+            "risk_status": "Within limits" if performance['max_drawdown'] < 20 else "Caution",
             "timestamp": datetime.now().isoformat()
         }
     except Exception as e:

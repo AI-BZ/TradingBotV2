@@ -1,0 +1,303 @@
+{
+  "ETH/USDT": {
+    "symbol": "ETH/USDT",
+    "avg_price": 2480.7459599999997,
+    "total_ticks": 10000,
+    "std_volatility": 0.23726668604991025,
+    "std_volatility_pct": 0.009564328225285522,
+    "std_volatility_range": {
+      "min": 0.0,
+      "max": 2.4577777777781193,
+      "median": 0.13555555555558385
+    },
+    "atr_volatility": 9.945555555555547,
+    "atr_volatility_pct": 0.40090987613885093,
+    "atr_range": {
+      "min": 2.6799999999998363,
+      "max": 48.120000000000346,
+      "median": 7.400000000000091
+    },
+    "percentile_90": 0.44777777777790106,
+    "percentile_90_pct": 0.01805012625226249,
+    "rolling_std": {
+      "60s_avg": 0.09619790747525254,
+      "300s_avg": 0.1526006867626773,
+      "600s_avg": 0.16706468067194524
+    },
+    "recommended_thresholds": {
+      "std_based": {
+        "conservative": 0.4745333720998205,
+        "moderate": 0.3559000290748654,
+        "aggressive": 0.23726668604991025
+      },
+      "atr_based": {
+        "conservative": 4.9727777777777735,
+        "moderate": 2.983666666666664,
+        "aggressive": 1.9891111111111095
+      },
+      "percentile_based": {
+        "conservative": 0.6716666666668516,
+        "moderate": 0.44777777777790106,
+        "aggressive": 0.31344444444453073
+      }
+    }
+  },
+  "SOL/USDT": {
+    "symbol": "SOL/USDT",
+    "avg_price": 146.4772085,
+    "total_ticks": 10000,
+    "std_volatility": 0.018957713440334117,
+    "std_volatility_pct": 0.012942432228515688,
+    "std_volatility_range": {
+      "min": 0.0,
+      "max": 0.22677777777778374,
+      "median": 0.01144444444443593
+    },
+    "atr_volatility": 0.8325959595959583,
+    "atr_volatility_pct": 0.5684133170765324,
+    "atr_range": {
+      "min": 0.20000000000001705,
+      "max": 3.2169999999999845,
+      "median": 0.657999999999987
+    },
+    "percentile_90": 0.037333333333322116,
+    "percentile_90_pct": 0.02548746915348412,
+    "rolling_std": {
+      "60s_avg": 0.007771960012044677,
+      "300s_avg": 0.012575994431203993,
+      "600s_avg": 0.013621162354236648
+    },
+    "recommended_thresholds": {
+      "std_based": {
+        "conservative": 0.037915426880668235,
+        "moderate": 0.028436570160501176,
+        "aggressive": 0.018957713440334117
+      },
+      "atr_based": {
+        "conservative": 0.41629797979797917,
+        "moderate": 0.2497787878787875,
+        "aggressive": 0.16651919191919168
+      },
+      "percentile_based": {
+        "conservative": 0.055999999999983174,
+        "moderate": 0.037333333333322116,
+        "aggressive": 0.02613333333332548
+      }
+    }
+  },
+  "BNB/USDT": {
+    "symbol": "BNB/USDT",
+    "avg_price": 551.561655,
+    "total_ticks": 10000,
+    "std_volatility": 0.051518027008808295,
+    "std_volatility_pct": 0.009340393144046298,
+    "std_volatility_range": {
+      "min": 0.0,
+      "max": 0.5277777777778283,
+      "median": 0.029999999999972715
+    },
+    "atr_volatility": 2.305959595959591,
+    "atr_volatility_pct": 0.41807830095795745,
+    "atr_range": {
+      "min": 0.5299999999999727,
+      "max": 11.06000000000006,
+      "median": 1.740000000000009
+    },
+    "percentile_90": 0.10000000000002274,
+    "percentile_90_pct": 0.018130339390620392,
+    "rolling_std": {
+      "60s_avg": 0.020507632442421066,
+      "300s_avg": 0.03261260865447848,
+      "600s_avg": 0.035578071133843786
+    },
+    "recommended_thresholds": {
+      "std_based": {
+        "conservative": 0.10303605401761659,
+        "moderate": 0.07727704051321244,
+        "aggressive": 0.051518027008808295
+      },
+      "atr_based": {
+        "conservative": 1.1529797979797956,
+        "moderate": 0.6917878787878773,
+        "aggressive": 0.46119191919191826
+      },
+      "percentile_based": {
+        "conservative": 0.1500000000000341,
+        "moderate": 0.10000000000002274,
+        "aggressive": 0.07000000000001591
+      }
+    }
+  },
+  "DOGE/USDT": {
+    "symbol": "DOGE/USDT",
+    "avg_price": 0.107732165,
+    "total_ticks": 10000,
+    "std_volatility": 1.6226505577716316e-05,
+    "std_volatility_pct": 0.015061895003888872,
+    "std_volatility_range": {
+      "min": 0.0,
+      "max": 0.00016000000000000736,
+      "median": 1.0000000000010001e-05
+    },
+    "atr_volatility": 0.0007468686868686884,
+    "atr_volatility_pct": 0.6932643439112992,
+    "atr_range": {
+      "min": 0.00012000000000000899,
+      "max": 0.0028499999999999914,
+      "median": 0.0006200000000000094
+    },
+    "percentile_90": 3.444444444444805e-05,
+    "percentile_90_pct": 0.031972293923962315,
+    "rolling_std": {
+      "60s_avg": 6.589611244658907e-06,
+      "300s_avg": 1.0703871329536532e-05,
+      "600s_avg": 1.1639292208038848e-05
+    },
+    "recommended_thresholds": {
+      "std_based": {
+        "conservative": 3.245301115543263e-05,
+        "moderate": 2.4339758366574472e-05,
+        "aggressive": 1.6226505577716316e-05
+      },
+      "atr_based": {
+        "conservative": 0.0003734343434343442,
+        "moderate": 0.0002240606060606065,
+        "aggressive": 0.00014937373737373768
+      },
+      "percentile_based": {
+        "conservative": 5.166666666667208e-05,
+        "moderate": 3.444444444444805e-05,
+        "aggressive": 2.4111111111113637e-05
+      }
+    }
+  },
+  "XRP/USDT": {
+    "symbol": "XRP/USDT",
+    "avg_price": 0.6021834,
+    "total_ticks": 10000,
+    "std_volatility": 0.00011242326214616092,
+    "std_volatility_pct": 0.018669272873706066,
+    "std_volatility_range": {
+      "min": 0.0,
+      "max": 0.0010444444444445145,
+      "median": 4.4444444444513564e-05
+    },
+    "atr_volatility": 0.004204040404040409,
+    "atr_volatility_pct": 0.698132895068248,
+    "atr_range": {
+      "min": 0.0008000000000000229,
+      "max": 0.026899999999999924,
+      "median": 0.0028000000000000247
+    },
+    "percentile_90": 0.0001777777777778322,
+    "percentile_90_pct": 0.02952219834984362,
+    "rolling_std": {
+      "60s_avg": 3.8180820033590786e-05,
+      "300s_avg": 6.137604777290684e-05,
+      "600s_avg": 6.770227390025527e-05
+    },
+    "recommended_thresholds": {
+      "std_based": {
+        "conservative": 0.00022484652429232183,
+        "moderate": 0.00016863489321924138,
+        "aggressive": 0.00011242326214616092
+      },
+      "atr_based": {
+        "conservative": 0.0021020202020202044,
+        "moderate": 0.0012612121212121226,
+        "aggressive": 0.0008408080808080818
+      },
+      "percentile_based": {
+        "conservative": 0.0002666666666667483,
+        "moderate": 0.0001777777777778322,
+        "aggressive": 0.00012444444444448255
+      }
+    }
+  },
+  "SUI/USDT": {
+    "symbol": "SUI/USDT",
+    "avg_price": 1.7870907999999999,
+    "total_ticks": 10000,
+    "std_volatility": 0.0003968661320525181,
+    "std_volatility_pct": 0.022207384876723562,
+    "std_volatility_range": {
+      "min": 0.0,
+      "max": 0.0037000000000000366,
+      "median": 0.0002888888888890051
+    },
+    "atr_volatility": 0.01897373737373737,
+    "atr_volatility_pct": 1.0617108752245477,
+    "atr_range": {
+      "min": 0.0052000000000000934,
+      "max": 0.07069999999999999,
+      "median": 0.016699999999999937
+    },
+    "percentile_90": 0.0009222222222222687,
+    "percentile_90_pct": 0.05160466509157054,
+    "rolling_std": {
+      "60s_avg": 0.00018155340713689157,
+      "300s_avg": 0.00029273472541907524,
+      "600s_avg": 0.0003169594889117852
+    },
+    "recommended_thresholds": {
+      "std_based": {
+        "conservative": 0.0007937322641050362,
+        "moderate": 0.0005952991980787772,
+        "aggressive": 0.0003968661320525181
+      },
+      "atr_based": {
+        "conservative": 0.009486868686868684,
+        "moderate": 0.00569212121212121,
+        "aggressive": 0.0037947474747474738
+      },
+      "percentile_based": {
+        "conservative": 0.001383333333333403,
+        "moderate": 0.0009222222222222687,
+        "aggressive": 0.000645555555555588
+      }
+    }
+  },
+  "1000PEPE/USDT": {
+    "symbol": "1000PEPE/USDT",
+    "avg_price": 0.01003038635,
+    "total_ticks": 10000,
+    "std_volatility": 2.67673507323406e-06,
+    "std_volatility_pct": 0.026686260925872115,
+    "std_volatility_range": {
+      "min": 0.0,
+      "max": 3.054444444444519e-05,
+      "median": 1.7222222222224026e-06
+    },
+    "atr_volatility": 0.00012776565656565656,
+    "atr_volatility_pct": 1.2737859949498014,
+    "atr_range": {
+      "min": 3.28999999999989e-05,
+      "max": 0.00037290000000000066,
+      "median": 0.0001060999999999996
+    },
+    "percentile_90": 6.088888888889157e-06,
+    "percentile_90_pct": 0.06070443028238047,
+    "rolling_std": {
+      "60s_avg": 1.1621399495625678e-06,
+      "300s_avg": 1.872663158707222e-06,
+      "600s_avg": 2.045537644259845e-06
+    },
+    "recommended_thresholds": {
+      "std_based": {
+        "conservative": 5.35347014646812e-06,
+        "moderate": 4.01510260985109e-06,
+        "aggressive": 2.67673507323406e-06
+      },
+      "atr_based": {
+        "conservative": 6.388282828282828e-05,
+        "moderate": 3.832969696969697e-05,
+        "aggressive": 2.5553131313131312e-05
+      },
+      "percentile_based": {
+        "conservative": 9.133333333333736e-06,
+        "moderate": 6.088888888889157e-06,
+        "aggressive": 4.26222222222241e-06
+      }
+    }
+  }
+}

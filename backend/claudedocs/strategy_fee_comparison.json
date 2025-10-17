@@ -1,0 +1,27 @@
+{
+  "strategy_a": {
+    "trades": 5666,
+    "trades_per_day": 809.4285714285714,
+    "gross_pnl": 152617.26654195087,
+    "fees": 41272.56854331236,
+    "net_pnl": 111344.69799863848,
+    "final_balance": 121344.69799863848,
+    "return_pct": 1113.4469799863848,
+    "win_rate": 42.2696787857395,
+    "avg_profit_per_trade": 19.651376279322005
+  },
+  "strategy_b": {
+    "trades": 1133,
+    "trades_per_day": 161.85714285714286,
+    "gross_pnl": 129152.85370013605,
+    "fees": 7578.249038079877,
+    "net_pnl": 121574.60466205612,
+    "final_balance": 131574.60466205614,
+    "return_pct": 1215.7460466205614,
+    "win_rate": 100.0,
+    "avg_profit_per_trade": 107.30326978116163
+  },
+  "winner": "Strategy B (\uc120\ud0dd\uc801 \uace0\uc2e0\ub8b0\ub3c4)",
+  "advantage_usd": 10229.906663417656,
+  "fee_savings": 33694.31950523248
+}

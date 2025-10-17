@@ -128,6 +128,91 @@ class TickIndicators:
         return volatility
 
     @staticmethod
+    def calculate_atr_like_volatility(
+        ticks: List,
+        lookback_seconds: int = 600,  # 10 minutes window
+        window_size: int = 100  # ticks per window (approx 10 sec)
+    ) -> float:
+        """ATR-like volatility from tick data
+
+        Calculates volatility based on high-low range within time windows,
+        similar to traditional ATR but adapted for tick data.
+
+        This matches the scale of candle-based ATR better than standard deviation.
+
+        Args:
+            ticks: List of Tick objects
+            lookback_seconds: Time window in seconds
+            window_size: Number of ticks per sub-window
+
+        Returns:
+            ATR-like volatility value
+        """
+        if len(ticks) < window_size:
+            return 0.0
+
+        # Filter ticks within lookback window
+        cutoff_time = ticks[-1].timestamp - timedelta(seconds=lookback_seconds)
+        recent_ticks = [t for t in ticks if t.timestamp >= cutoff_time]
+
+        if len(recent_ticks) < window_size:
+            return 0.0
+
+        # Calculate high-low range for each window
+        ranges = []
+        for i in range(0, len(recent_ticks) - window_size, window_size):
+            window = recent_ticks[i:i+window_size]
+            high = max(t.price for t in window)
+            low = min(t.price for t in window)
+            ranges.append(high - low)
+
+        # Average of ranges (similar to ATR)
+        atr_like = np.mean(ranges) if ranges else 0.0
+        return atr_like
+
+    @staticmethod
+    def calculate_hybrid_volatility(
+        ticks: List,
+        lookback_seconds: int = 600
+    ) -> tuple[float, float, float]:
+        """Hybrid volatility calculation
+
+        Combines standard deviation and ATR-like methods for robust volatility measurement.
+        Returns multiple volatility measures for flexible threshold setting.
+
+        CRITICAL FIX: Changed from min() to max() to prevent std component from dominating.
+        Std dev was 10x too small, causing hybrid to be too low for signal generation.
+
+        Args:
+            ticks: List of Tick objects
+            lookback_seconds: Time window in seconds
+
+        Returns:
+            (std_volatility, atr_volatility, hybrid_volatility)
+            - std_volatility: Standard deviation based (~$0.24)
+            - atr_volatility: ATR-like high-low range based (~$10)
+            - hybrid_volatility: Max of both scaled values (not min)
+        """
+        if len(ticks) < 10:
+            return 0.0, 0.0, 0.0
+
+        # Standard deviation volatility
+        std_vol = TickIndicators.calculate_tick_volatility(ticks, lookback_seconds)
+
+        # ATR-like volatility
+        atr_vol = TickIndicators.calculate_atr_like_volatility(ticks, lookback_seconds)
+
+        # Hybrid: use max instead of min (FIXED)
+        # Scale std_vol up by 10x (was 2x), atr_vol down by 0.2x (was 0.3x)
+        # Then take MAXIMUM to ensure we capture real volatility
+        std_scaled = std_vol * 10.0  # $0.24 * 10 = $2.40 (0.097%)
+        atr_scaled = atr_vol * 0.2   # $10 * 0.2 = $2.00 (0.081%)
+
+        hybrid_vol = max(std_scaled, atr_scaled) if atr_scaled > 0 else std_scaled
+
+        return std_vol, atr_vol, hybrid_vol
+
+    @staticmethod
     def calculate_tick_momentum(
         ticks: List,
         lookback_seconds: int = 3600
@@ -179,8 +264,12 @@ class TickIndicators:
     ) -> Tuple[float, float, float]:
         """Tick-based Bollinger Bands
 
-        Uses VWAP as middle band, volatility for upper/lower bands.
+        Uses VWAP as middle band, ATR-like volatility for upper/lower bands.
         NO assumption of OHLCV candles.
+
+        CRITICAL FIX: Uses ATR-like volatility instead of std dev to create
+        proper width bands. Std dev (~$0.16) was creating ultra-narrow bands,
+        causing BB position to go out of 0-1 range.
 
         Args:
             ticks: List of Tick objects
@@ -196,8 +285,9 @@ class TickIndicators:
         # Middle band = VWAP
         middle = TickIndicators.calculate_vwap(ticks, lookback_seconds)
 
-        # Band width = volatility
-        volatility = TickIndicators.calculate_tick_volatility(ticks, lookback_seconds)
+        # Band width = ATR-like volatility (FIXED: was using std dev)
+        # ATR-like (~$10) creates proper width bands vs std dev (~$0.16)
+        volatility = TickIndicators.calculate_atr_like_volatility(ticks, lookback_seconds)
 
         # Upper/lower bands
         upper = middle + (num_std * volatility)

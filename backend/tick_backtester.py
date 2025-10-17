@@ -40,7 +40,9 @@ class TickBacktester:
         symbols: List[str],
         initial_balance: float = 10000.0,
         leverage: int = 10,
-        position_size_pct: float = 0.1
+        position_size_pct: float = 0.1,
+        taker_fee: float = 0.0005,  # 0.05% Binance Futures Taker
+        slippage_pct: float = 0.0001  # 0.01% average slippage
     ):
         """Initialize tick backtester
 
@@ -49,12 +51,16 @@ class TickBacktester:
             initial_balance: Starting balance
             leverage: Futures leverage
             position_size_pct: Position size as % of balance per side
+            taker_fee: Trading fee rate (default 0.05% Binance Futures)
+            slippage_pct: Slippage percentage (default 0.01%)
         """
         self.symbols = symbols
         self.initial_balance = initial_balance
         self.balance = initial_balance
         self.leverage = leverage
         self.position_size_pct = position_size_pct
+        self.taker_fee = taker_fee
+        self.slippage_pct = slippage_pct
 
         # Tick data storage
         self.tick_buffers: Dict[str, List[Tick]] = {symbol: [] for symbol in symbols}
@@ -63,6 +69,9 @@ class TickBacktester:
         self.positions: Dict[str, dict] = {}
         self.orders: List[dict] = []
         self.trades: List[dict] = []
+
+        # Fee tracking
+        self.total_fees_paid = 0.0
 
         # Performance tracking
         self.equity_curve: List[dict] = []
@@ -77,6 +86,7 @@ class TickBacktester:
         logger.info(f"   Symbols: {', '.join(symbols)}")
         logger.info(f"   Initial balance: ${initial_balance:,.2f}")
         logger.info(f"   Leverage: {leverage}x")
+        logger.info(f"   Fees: {taker_fee*100:.3f}% + Slippage: {slippage_pct*100:.3f}%")
 
     async def load_tick_data_from_file(
         self,
@@ -202,11 +212,22 @@ class TickBacktester:
         if len(recent_ticks) < 100:
             return
 
-        # Calculate tick indicators
-        indicators = self.tick_indicators.generate_tick_summary(
+        # Calculate hybrid volatility (fixes the scale mismatch issue)
+        std_vol, atr_vol, hybrid_vol = self.tick_indicators.calculate_hybrid_volatility(
             recent_ticks,
             lookback_seconds=600  # 10 minutes
         )
+
+        # Calculate other tick indicators
+        indicators = self.tick_indicators.generate_tick_summary(
+            recent_ticks,
+            lookback_seconds=600
+        )
+
+        # Add hybrid volatility metrics to indicators
+        indicators['std_volatility'] = std_vol
+        indicators['atr_volatility'] = atr_vol
+        indicators['hybrid_volatility'] = hybrid_vol
 
         # Generate signal
         signal = self._get_tick_signal(symbol, indicators, tick.price)
@@ -217,36 +238,64 @@ class TickBacktester:
             self._close_all_positions(symbol, tick.price, tick.timestamp, signal['reason'])
 
     def _get_tick_signal(self, symbol: str, indicators: dict, current_price: float) -> dict:
-        """Generate signal from tick indicators"""
+        """Generate signal from tick indicators (using hybrid volatility)"""
 
-        volatility = indicators.get('volatility', 0)
+        # Use hybrid volatility which properly scales to tick data
+        hybrid_vol = indicators.get('hybrid_volatility', 0)
+        atr_vol = indicators.get('atr_volatility', 0)
+        std_vol = indicators.get('std_volatility', 0)
         bb = indicators.get('bollinger_bands', {})
         bb_position = bb.get('position', 0.5)
 
-        # Two-way entry: high volatility + middle BB position
-        if volatility > current_price * 0.01:
-            if 0.4 < bb_position < 0.6:
-                return {
-                    'action': 'BOTH',
-                    'confidence': 0.75,
-                    'reason': f'High volatility + BB middle',
-                    'indicators': indicators
-                }
+        # Two-way entry: SIGNIFICANT volatility + middle BB position
+        # 목표: 승률 높이기 + 거래 줄이기 + 한 건당 수익 크게
+        #
+        # 조건 강화 (Fix: 임계값 로직 수정):
+        # 1. 하이브리드 변동성이 가격 대비 충분히 커야 함 (0.15% 이상)
+        #    - ETH @ $2,480: $0.372 이상 (기존 $0.48 hybrid 기준)
+        # 2. ATR 변동성이 가격 대비 의미있어야 함 (0.3% 이상)
+        #    - ETH @ $2,480: $7.44 이상 (median $7.40 기준)
+        # 3. Bollinger Band 중간 영역 (진입 안전 구간)
+        #
+        # 이전 문제: atr_vol >= atr_vol * 0.3 (항상 true)
+        # 수정: 가격 대비 절대 % 임계값 사용
 
-        # Close positions: low volatility OR extreme BB
+        if atr_vol > 0 and hybrid_vol > 0:
+            # 가격 대비 % 기준 임계값 (Price-relative thresholds)
+            hybrid_pct = (hybrid_vol / current_price) * 100
+            atr_pct = (atr_vol / current_price) * 100
+
+            # ADJUSTED THRESHOLDS (based on actual tick data analysis):
+            # 하이브리드 변동성: 가격의 0.04% 이상 (median ~0.04% from debug)
+            # ATR 변동성: 가격의 0.15% 이상 (median ~0.18% from debug)
+            # 목적: 실제 시장 변동성에 맞춘 현실적인 임계값
+            if hybrid_pct >= 0.04 and atr_pct >= 0.15:
+                # Bollinger Band 중간 영역 (진입 안전 구간)
+                if 0.40 < bb_position < 0.60:  # 조금 여유있는 중간 영역
+                    return {
+                        'action': 'BOTH',
+                        'confidence': 0.80,
+                        'reason': f'Moderate volatility (H:{hybrid_pct:.2f}% A:{atr_pct:.2f}%) + BB center',
+                        'indicators': indicators
+                    }
+
+        # Close positions: low volatility OR extreme BB OR profit target
         has_positions = any(p['symbol'] == symbol for p in self.positions.values())
         if has_positions:
-            if volatility < current_price * 0.005:
-                return {
-                    'action': 'CLOSE',
-                    'confidence': 0.80,
-                    'reason': 'Low volatility'
-                }
-            if bb_position < 0.1 or bb_position > 0.9:
+            # 1. 변동성 급락 (시장 안정화)
+            if hybrid_vol < atr_vol * 0.05:  # ATR의 5% 미만
                 return {
                     'action': 'CLOSE',
                     'confidence': 0.85,
-                    'reason': f'Extreme BB position ({bb_position:.2%})'
+                    'reason': f'Volatility collapsed ({hybrid_vol:.4f})'
+                }
+
+            # 2. Bollinger Band 극단 (방향 전환 신호)
+            if bb_position < 0.15 or bb_position > 0.85:
+                return {
+                    'action': 'CLOSE',
+                    'confidence': 0.80,
+                    'reason': f'Extreme BB ({bb_position:.2%})'
                 }
 
         return {'action': 'HOLD', 'confidence': 0.5, 'reason': 'No signal'}
@@ -290,12 +339,17 @@ class TickBacktester:
             'confidence': signal['confidence']
         }
 
-        # Initialize trailing stops
-        volatility = signal.get('indicators', {}).get('volatility', price * 0.01)
-        self.trailing_stop_manager.update_trailing_stop(long_key, price, volatility)
-        self.trailing_stop_manager.update_trailing_stop(short_key, price, volatility)
+        # Initialize trailing stops FIRST (critical fix)
+        # Must call initialize_position() before update_trailing_stop()
+        self.trailing_stop_manager.initialize_position(long_key, price, 'LONG')
+        self.trailing_stop_manager.initialize_position(short_key, price, 'SHORT')
 
-        logger.debug(f"🎯 TWO-WAY ENTRY: {symbol} @ ${price:.2f}")
+        # Now update with hybrid volatility as ATR
+        hybrid_vol = signal.get('indicators', {}).get('hybrid_volatility', price * 0.01)
+        self.trailing_stop_manager.update_trailing_stop(long_key, price, hybrid_vol)
+        self.trailing_stop_manager.update_trailing_stop(short_key, price, hybrid_vol)
+
+        logger.debug(f"🎯 TWO-WAY ENTRY: {symbol} @ ${price:.2f} | Vol: ${hybrid_vol:.4f}")
 
     def _check_trailing_stops(self, symbol: str, current_price: float, timestamp: datetime):
         """Check trailing stops for all positions"""
@@ -343,19 +397,34 @@ class TickBacktester:
         if not position:
             return
 
-        # Calculate P&L
+        # Apply slippage (unfavorable execution)
         entry_price = position['entry_price']
         size = position['size']
 
         if position['type'] == 'LONG':
-            pnl = (exit_price - entry_price) * size * self.leverage
+            # LONG: buy higher (entry), sell lower (exit)
+            entry_with_slippage = entry_price * (1 + self.slippage_pct)
+            exit_with_slippage = exit_price * (1 - self.slippage_pct)
+            pnl_gross = (exit_with_slippage - entry_with_slippage) * size * self.leverage
         else:  # SHORT
-            pnl = (entry_price - exit_price) * size * self.leverage
+            # SHORT: sell lower (entry), buy higher (exit)
+            entry_with_slippage = entry_price * (1 - self.slippage_pct)
+            exit_with_slippage = exit_price * (1 + self.slippage_pct)
+            pnl_gross = (entry_with_slippage - exit_with_slippage) * size * self.leverage
 
-        pnl_pct = (pnl / (entry_price * size * self.leverage)) * 100
+        # Calculate fees (entry + exit)
+        position_value = entry_price * size
+        entry_fee = position_value * self.taker_fee
+        exit_fee = position_value * self.taker_fee
+        total_fee = entry_fee + exit_fee
+
+        # Net P&L after fees and slippage
+        pnl_net = pnl_gross - total_fee
+        pnl_pct = (pnl_net / (entry_price * size * self.leverage)) * 100
 
         # Update balance
-        self.balance += pnl
+        self.balance += pnl_net
+        self.total_fees_paid += total_fee
         self.max_balance = max(self.max_balance, self.balance)
         self.min_balance = min(self.min_balance, self.balance)
 
@@ -367,7 +436,9 @@ class TickBacktester:
             'entry_price': entry_price,
             'exit_price': exit_price,
             'size': size,
-            'pnl': pnl,
+            'pnl_gross': pnl_gross,
+            'fees': total_fee,
+            'pnl': pnl_net,
             'pnl_pct': pnl_pct,
             'entry_time': position['entry_time'].isoformat(),
             'exit_time': timestamp.isoformat(),
@@ -381,8 +452,8 @@ class TickBacktester:
         del self.positions[position_key]
 
         logger.debug(
-            f"{'✅' if pnl > 0 else '❌'} CLOSE: {position_key} | "
-            f"P&L: ${pnl:+.2f} ({pnl_pct:+.2f}%) | {reason}"
+            f"{'✅' if pnl_net > 0 else '❌'} CLOSE: {position_key} | "
+            f"P&L: ${pnl_net:+.2f} ({pnl_pct:+.2f}%) | Fee: ${total_fee:.2f} | {reason}"
         )
 
     def _close_all_positions(
@@ -559,6 +630,8 @@ class TickBacktester:
             'max_drawdown': max_dd,
             'max_balance': self.max_balance,
             'min_balance': self.min_balance,
+            'total_fees_paid': self.total_fees_paid,
+            'fee_percentage': (self.total_fees_paid / abs(total_pnl) * 100) if total_pnl != 0 else 0,
             'total_ticks_processed': total_ticks,
             'elapsed_seconds': elapsed_seconds,
             'ticks_per_second': total_ticks / elapsed_seconds if elapsed_seconds > 0 else 0,
