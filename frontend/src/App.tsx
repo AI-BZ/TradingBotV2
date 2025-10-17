@@ -13,7 +13,8 @@ const queryClient = new QueryClient({
 });
 
 function App() {
-  const [apiUrl] = useState('http://167.179.108.246');
+  // Use the same protocol and domain as the current page
+  const apiUrl = `${window.location.protocol}//${window.location.host}`;
 
   return (
     <QueryClientProvider client={queryClient}>
