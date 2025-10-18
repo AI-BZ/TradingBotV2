@@ -15,6 +15,8 @@ import os
 # Import trading components
 from binance_client import BinanceClient
 from selective_tick_live_trader import SelectiveTickLiveTrader
+from strategy_a_trader import StrategyATrader
+from strategy_c_trader import StrategyCTrader
 
 # Configure logging
 logging.basicConfig(
@@ -31,9 +33,14 @@ binance_client = BinanceClient(
     use_futures=True
 )
 
-# Initialize Strategy B trader (7 coins)
-selective_trader = None
-trading_task = None
+# Initialize traders for all strategies
+strategy_a_trader = None
+strategy_b_trader = None  # Main strategy (formerly selective_trader)
+strategy_c_trader = None
+
+trading_task_a = None
+trading_task_b = None
+trading_task_c = None
 
 app = FastAPI(
     title="TradingBot V2 API",
@@ -206,13 +213,114 @@ async def shutdown_event():
     logger.info("Shutdown complete")
 
 
-# Strategy B trading endpoints
+# Three-Strategy Trading Endpoints
+
+@app.post("/api/v1/trading/start-all")
+async def start_all_strategies():
+    """Start all three strategies simultaneously"""
+    global strategy_a_trader, strategy_b_trader, strategy_c_trader
+    global trading_task_a, trading_task_b, trading_task_c
+
+    # Check if any are already running
+    if (trading_task_a and not trading_task_a.done()) or \
+       (trading_task_b and not trading_task_b.done()) or \
+       (trading_task_c and not trading_task_c.done()):
+        return {"status": "already_running", "message": "Some strategies are already active"}
+
+    try:
+        # Initialize symbols (same for all strategies)
+        symbols = [
+            'ETH/USDT',
+            'SOL/USDT',
+            'BNB/USDT',
+            'DOGE/USDT',
+            'XRP/USDT',
+            'SUI/USDT',
+            '1000PEPE/USDT'
+        ]
+
+        # Initialize Strategy A (Conservative)
+        strategy_a_trader = StrategyATrader(
+            binance_client=binance_client,
+            symbols=symbols,
+            initial_balance=10000.0,
+            leverage=10,
+            position_size_pct=0.1,
+            taker_fee=0.0005,
+            slippage_pct=0.0001,
+            cooldown_seconds=300
+        )
+
+        # Initialize Strategy B (Selective - Main Strategy)
+        strategy_b_trader = SelectiveTickLiveTrader(
+            binance_client=binance_client,
+            symbols=symbols,
+            initial_balance=10000.0,
+            leverage=10,
+            position_size_pct=0.1,
+            taker_fee=0.0005,
+            slippage_pct=0.0001,
+            cooldown_seconds=300
+        )
+
+        # Initialize Strategy C (Aggressive)
+        strategy_c_trader = StrategyCTrader(
+            binance_client=binance_client,
+            symbols=symbols,
+            initial_balance=10000.0,
+            leverage=10,
+            position_size_pct=0.1,
+            taker_fee=0.0005,
+            slippage_pct=0.0001,
+            cooldown_seconds=180  # Shorter cooldown for aggressive strategy
+        )
+
+        # Start all strategies in background
+        trading_task_a = asyncio.create_task(strategy_a_trader.start())
+        trading_task_b = asyncio.create_task(strategy_b_trader.start())
+        trading_task_c = asyncio.create_task(strategy_c_trader.start())
+
+        logger.info("✅ All three strategies started")
+
+        return {
+            "status": "started",
+            "strategies": {
+                "strategy_a": {
+                    "name": "Conservative",
+                    "expected_trades_per_day": "~809 per symbol",
+                    "hybrid_volatility": "≥0.04%",
+                    "atr_volatility": "≥0.15%",
+                    "cooldown": "300s"
+                },
+                "strategy_b": {
+                    "name": "Selective (Main)",
+                    "expected_trades_per_day": "~162 per symbol",
+                    "hybrid_volatility": "≥0.08%",
+                    "atr_volatility": "≥0.30%",
+                    "cooldown": "300s"
+                },
+                "strategy_c": {
+                    "name": "Aggressive",
+                    "expected_trades_per_day": "~1500-2000 per symbol",
+                    "hybrid_volatility": "≥0.02%",
+                    "atr_volatility": "≥0.10%",
+                    "cooldown": "180s"
+                }
+            },
+            "symbols": symbols,
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Error starting all strategies: {e}")
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+
 @app.post("/api/v1/trading/start")
 async def start_trading():
-    """Start Strategy B trading for 7 coins"""
-    global selective_trader, trading_task
+    """Start Strategy B trading only (backward compatibility)"""
+    global strategy_b_trader, trading_task_b
 
-    if trading_task and not trading_task.done():
+    if trading_task_b and not trading_task_b.done():
         return {"status": "already_running", "message": "Trading is already active"}
 
     try:
@@ -227,7 +335,7 @@ async def start_trading():
             '1000PEPE/USDT'
         ]
 
-        selective_trader = SelectiveTickLiveTrader(
+        strategy_b_trader = SelectiveTickLiveTrader(
             binance_client=binance_client,
             symbols=symbols,
             initial_balance=10000.0,
@@ -239,7 +347,7 @@ async def start_trading():
         )
 
         # Start trading in background
-        trading_task = asyncio.create_task(selective_trader.start())
+        trading_task_b = asyncio.create_task(strategy_b_trader.start())
 
         logger.info("✅ Strategy B trading started for 7 coins")
 
@@ -255,20 +363,59 @@ async def start_trading():
         return JSONResponse(status_code=500, content={"error": str(e)})
 
 
+@app.post("/api/v1/trading/stop-all")
+async def stop_all_strategies():
+    """Stop all strategies"""
+    global strategy_a_trader, strategy_b_trader, strategy_c_trader
+    global trading_task_a, trading_task_b, trading_task_c
+
+    try:
+        stopped = []
+
+        if strategy_a_trader:
+            await strategy_a_trader.stop()
+            stopped.append("Strategy A")
+        if trading_task_a:
+            trading_task_a.cancel()
+
+        if strategy_b_trader:
+            await strategy_b_trader.stop()
+            stopped.append("Strategy B")
+        if trading_task_b:
+            trading_task_b.cancel()
+
+        if strategy_c_trader:
+            await strategy_c_trader.stop()
+            stopped.append("Strategy C")
+        if trading_task_c:
+            trading_task_c.cancel()
+
+        logger.info("🛑 All strategies stopped")
+
+        return {
+            "status": "stopped",
+            "strategies_stopped": stopped,
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Error stopping all strategies: {e}")
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+
 @app.post("/api/v1/trading/stop")
 async def stop_trading():
-    """Stop Strategy B trading"""
-    global selective_trader, trading_task
+    """Stop Strategy B trading (backward compatibility)"""
+    global strategy_b_trader, trading_task_b
 
-    if not trading_task or trading_task.done():
+    if not trading_task_b or trading_task_b.done():
         return {"status": "not_running", "message": "Trading is not active"}
 
     try:
-        if selective_trader:
-            await selective_trader.stop()
+        if strategy_b_trader:
+            await strategy_b_trader.stop()
 
-        if trading_task:
-            trading_task.cancel()
+        if trading_task_b:
+            trading_task_b.cancel()
 
         logger.info("🛑 Strategy B trading stopped")
 
@@ -281,11 +428,87 @@ async def stop_trading():
         return JSONResponse(status_code=500, content={"error": str(e)})
 
 
+@app.get("/api/v1/trading/performance/{strategy}")
+async def get_strategy_performance(strategy: str):
+    """Get performance for specific strategy (a, b, or c)"""
+    global strategy_a_trader, strategy_b_trader, strategy_c_trader
+
+    trader = None
+    if strategy.lower() == 'a':
+        trader = strategy_a_trader
+    elif strategy.lower() == 'b':
+        trader = strategy_b_trader
+    elif strategy.lower() == 'c':
+        trader = strategy_c_trader
+    else:
+        return JSONResponse(status_code=400, content={"error": "Invalid strategy. Use 'a', 'b', or 'c'"})
+
+    if not trader:
+        return {
+            "status": "not_started",
+            "message": f"Strategy {strategy.upper()} not started yet",
+            "timestamp": datetime.now().isoformat()
+        }
+
+    try:
+        performance = await trader.get_performance()
+
+        # Round per-coin stats
+        per_coin_rounded = {}
+        for symbol, stats in performance.get('per_coin_stats', {}).items():
+            per_coin_rounded[symbol] = {
+                'total_trades': stats['total_trades'],
+                'winning_trades': stats['winning_trades'],
+                'win_rate': round(stats['win_rate'], 2),
+                'total_pnl': round(stats['total_pnl'], 2),
+                'avg_profit_per_trade': round(stats['avg_profit_per_trade'], 2),
+                'trades_per_day': round(stats['trades_per_day'], 1)
+            }
+
+        # Round active positions
+        positions_rounded = []
+        for pos in performance.get('active_positions_list', []):
+            positions_rounded.append({
+                'symbol': pos['symbol'],
+                'type': pos['type'],
+                'entry_price': round(pos['entry_price'], 2),
+                'current_price': round(pos['current_price'], 2),
+                'size': round(pos['size'], 4),
+                'unrealized_pnl': round(pos['unrealized_pnl'], 2),
+                'unrealized_pnl_pct': round(pos['unrealized_pnl_pct'], 2),
+                'hold_duration_seconds': int(pos['hold_duration_seconds']),
+                'confidence': round(pos['confidence'], 2)
+            })
+
+        return {
+            "status": "running",
+            "strategy": performance['strategy'],
+            "total_pnl": round(performance['total_pnl'], 2),
+            "total_return": round(performance['total_return'], 2),
+            "win_rate": round(performance['win_rate'], 2),
+            "total_trades": performance['total_trades'],
+            "trades_per_day": round(performance['trades_per_day'], 1),
+            "avg_profit_per_trade": round(performance['avg_profit_per_trade'], 2),
+            "active_positions": performance['active_positions'],
+            "max_drawdown": round(performance['max_drawdown'], 2),
+            "total_fees_paid": round(performance['total_fees_paid'], 2),
+            "signals_generated": performance['signals_generated'],
+            "signals_skipped_cooldown": performance['signals_skipped_cooldown'],
+            "risk_status": "Within limits" if performance['max_drawdown'] < 20 else "Caution",
+            "per_coin_stats": per_coin_rounded,
+            "active_positions_list": positions_rounded,
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Error getting performance for strategy {strategy}: {e}")
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+
 @app.get("/api/v1/trading/performance")
 async def get_trading_performance():
-    """Get real-time trading performance metrics from Strategy B"""
+    """Get real-time trading performance metrics from Strategy B (backward compatibility)"""
     try:
-        if not selective_trader:
+        if not strategy_b_trader:
             return {
                 "status": "not_started",
                 "message": "Trading not started yet",
@@ -293,7 +516,7 @@ async def get_trading_performance():
             }
 
         # Get performance from Strategy B trader
-        performance = await selective_trader.get_performance()
+        performance = await strategy_b_trader.get_performance()
 
         # Round per-coin stats
         per_coin_rounded = {}

@@ -73,10 +73,13 @@ class SelectiveTickLiveTrader:
         # Tick data storage (per symbol)
         self.tick_buffers: Dict[str, List[Tick]] = {symbol: [] for symbol in symbols}
 
-        # Trading state
-        self.positions: Dict[str, dict] = {}
-        self.trades: List[dict] = []
+        # Trading state - INDEPENDENT POSITIONS
+        self.positions: Dict[str, dict] = {}  # position_key -> position_data
+        self.trades: List[dict] = []  # Completed trades
         self.total_fees_paid = 0.0
+
+        # Pair tracking for 1 SET management
+        self.pair_tracking: Dict[str, dict] = {}  # pair_id -> {long_key, short_key, entry_time, first_closed, first_closed_pnl}
 
         # Cooldown tracking (per symbol)
         self.last_entry_time: Dict[str, float] = {symbol: 0 for symbol in symbols}
@@ -297,64 +300,97 @@ class SelectiveTickLiveTrader:
         signal: dict,
         timestamp: datetime
     ):
-        """Execute two-way entry (LONG + SHORT straddle)"""
+        """Execute two-way entry (LONG + SHORT as TWO INDEPENDENT positions)
+
+        Strategy: Enter both sides simultaneously, manage independently
+        - LONG position: Profits when price rises
+        - SHORT position: Profits when price falls
+        - Each has independent trailing stop
+        - Losing side: Hard stop at -1.5%
+        - Winning side: Trailing stop to maximize profit
+        """
 
         # Check if already have positions for this symbol
         if any(p['symbol'] == symbol for p in self.positions.values()):
             return
 
-        # Calculate position size
+        # Calculate position size (per side)
         position_size_usd = self.balance * self.position_size_pct
         position_size = position_size_usd / price
 
-        # LONG position
+        # Create pair ID for tracking statistics
+        pair_id = f"{symbol}_PAIR_{timestamp.timestamp()}"
+
+        # Create LONG position key
         long_key = f"{symbol}_LONG_{timestamp.timestamp()}"
+
+        # Create SHORT position key
+        short_key = f"{symbol}_SHORT_{timestamp.timestamp()}"
+
+        # Store LONG position
         self.positions[long_key] = {
             'symbol': symbol,
-            'type': 'LONG',
+            'side': 'LONG',
             'entry_price': price,
             'size': position_size,
             'entry_time': timestamp,
-            'confidence': signal['confidence']
+            'confidence': signal['confidence'],
+            'pair_id': pair_id,  # Link to pair for statistics
+            'peak_price': price,  # For trailing stop
+            'indicators': signal.get('indicators', {})
         }
 
-        # SHORT position
-        short_key = f"{symbol}_SHORT_{timestamp.timestamp()}"
+        # Store SHORT position
         self.positions[short_key] = {
             'symbol': symbol,
-            'type': 'SHORT',
+            'side': 'SHORT',
             'entry_price': price,
             'size': position_size,
             'entry_time': timestamp,
-            'confidence': signal['confidence']
+            'confidence': signal['confidence'],
+            'pair_id': pair_id,  # Link to pair for statistics
+            'peak_price': price,  # For trailing stop
+            'indicators': signal.get('indicators', {})
         }
 
-        # Initialize trailing stops
-        hybrid_vol = signal.get('indicators', {}).get('hybrid_volatility', price * 0.01)
-        self.trailing_stop_manager.initialize_position(long_key, price, 'LONG')
-        self.trailing_stop_manager.initialize_position(short_key, price, 'SHORT')
-        self.trailing_stop_manager.update_trailing_stop(long_key, price, hybrid_vol)
-        self.trailing_stop_manager.update_trailing_stop(short_key, price, hybrid_vol)
+        # Track pair for 1 SET management
+        self.pair_tracking[pair_id] = {
+            'long_key': long_key,
+            'short_key': short_key,
+            'entry_time': timestamp,
+            'symbol': symbol,
+            'first_closed': None,  # 'LONG' or 'SHORT' - which closed first
+            'first_closed_pnl': 0.0,  # P&L of first closed position
+            'first_closed_fee': 0.0  # Fee of first closed position
+        }
 
         # Update last entry time
         self.last_entry_time[symbol] = timestamp.timestamp()
 
         logger.info(
-            f"🎯 ENTRY: {symbol} @ ${price:.2f} | "
+            f"🎯 TWO-WAY ENTRY: {symbol} @ ${price:.2f} | "
+            f"Size: ${position_size_usd:.0f}/side | "
             f"Conf: {signal['confidence']:.0%} | "
             f"{signal['reason']}"
         )
 
     async def _check_trailing_stops(self, symbol: str, current_price: float, timestamp: datetime):
-        """Check trailing stops for all positions"""
+        """Check trailing stops for EACH position INDEPENDENTLY
+
+        Strategy: LONG and SHORT positions managed separately
+        - Each position has independent trailing stop
+        - Losing side: Hard stop at -1.5%
+        - Winning side: Trailing stop to maximize profit
+        - They close INDEPENDENTLY at different times
+        """
 
         positions_to_close = []
 
-        for position_key, position in self.positions.items():
+        for pos_key, position in self.positions.items():
             if position['symbol'] != symbol:
                 continue
 
-            # Get volatility
+            # Get volatility for trailing stop calculation
             recent_ticks = self.tick_buffers[symbol][-100:]
             if len(recent_ticks) < 10:
                 continue
@@ -364,19 +400,101 @@ class SelectiveTickLiveTrader:
                 lookback_seconds=60
             )
 
-            # Check stop
-            stop_price, should_close = self.trailing_stop_manager.update_trailing_stop(
-                position_key,
-                current_price,
-                volatility
-            )
+            # Calculate P&L for THIS position
+            entry_price = position['entry_price']
+            size = position['size']
+            side = position['side']
+
+            if side == 'LONG':
+                # LONG profits when price rises
+                pnl = (current_price - entry_price) * size * self.leverage
+                # Update peak price (highest price seen)
+                position['peak_price'] = max(position['peak_price'], current_price)
+            else:  # SHORT
+                # SHORT profits when price falls
+                pnl = (entry_price - current_price) * size * self.leverage
+                # Update peak price (lowest price seen)
+                position['peak_price'] = min(position['peak_price'], current_price)
+
+            # Calculate P&L percentage
+            position_value = entry_price * size * self.leverage
+            pnl_pct = (pnl / position_value) * 100
+
+            # Calculate max profit seen so far
+            if side == 'LONG':
+                max_pnl = (position['peak_price'] - entry_price) * size * self.leverage
+            else:  # SHORT
+                max_pnl = (entry_price - position['peak_price']) * size * self.leverage
+
+            # Trailing stop distance (ATR-based)
+            atr_multiplier = 1.8  # From trading_strategy.py
+            trailing_distance = volatility * atr_multiplier
+
+            # Hard stop-loss (adjustable based on 1 SET status)
+            hard_stop_pct = -1.5  # Default: -1.5% (from trading_strategy.py)
+
+            # Check if this is the REMAINING position after first close
+            min_profit_needed = position.get('min_profit_to_breakeven', 0)
+            is_remaining_position = min_profit_needed > 0
+
+            # Check if should close
+            should_close = False
+            close_reason = ""
+
+            if is_remaining_position:
+                # REMAINING POSITION (after first close): Different logic
+                # Goal: Recover first loss and maximize profit with trailing stop
+
+                if pnl < -min_profit_needed:
+                    # SET loss would be too large (double loss)
+                    should_close = True
+                    close_reason = f"SET Protection (Current: ${pnl:.2f}, First loss: ${-min_profit_needed:.2f})"
+
+                elif pnl >= min_profit_needed:
+                    # Reached break-even point, now use trailing stop to maximize
+                    if max_pnl > min_profit_needed:  # Had profit beyond break-even
+                        # Calculate pullback from peak
+                        if side == 'LONG':
+                            pullback = position['peak_price'] - current_price
+                        else:  # SHORT
+                            pullback = current_price - position['peak_price']
+
+                        if pullback >= trailing_distance:
+                            should_close = True
+                            close_reason = f"Trailing Stop (Max: ${max_pnl:.2f}, Current: ${pnl:.2f})"
+                    # else: Keep holding to reach minimum profit
+                # else: Keep holding, not at break-even yet
+
+            else:
+                # NORMAL POSITION (both sides still active)
+                # 1. Hard stop-loss hit (LOSING SIDE)
+                if pnl_pct <= hard_stop_pct:
+                    should_close = True
+                    close_reason = f"Hard Stop Loss ({pnl_pct:.2f}%)"
+
+                # 2. Trailing stop from peak (WINNING SIDE)
+                elif max_pnl > 0:  # Only trail if we've been in profit
+                    # Calculate how far price has pulled back from peak
+                    if side == 'LONG':
+                        pullback = position['peak_price'] - current_price
+                    else:  # SHORT
+                        pullback = current_price - position['peak_price']
+
+                    if pullback >= trailing_distance:
+                        should_close = True
+                        close_reason = f"Trailing Stop (Max: ${max_pnl:.2f}, Current: ${pnl:.2f})"
 
             if should_close:
-                positions_to_close.append(position_key)
+                positions_to_close.append((pos_key, close_reason))
+                logger.debug(
+                    f"  {symbol} {side} Close Signal | "
+                    f"P&L: ${pnl:.2f} ({pnl_pct:.2f}%) | "
+                    f"{close_reason}"
+                )
 
-        # Close positions
-        for position_key in positions_to_close:
-            await self._close_position(position_key, current_price, "Trailing Stop", timestamp)
+        # Close positions INDEPENDENTLY
+        for pos_key, reason in positions_to_close:
+            await self._close_position(pos_key, current_price, reason, timestamp)
 
     async def _close_position(
         self,
@@ -385,17 +503,24 @@ class SelectiveTickLiveTrader:
         reason: str,
         timestamp: datetime
     ):
-        """Close a position and record trade"""
+        """Close position with 1 SET management
+
+        Strategy:
+        - First close: Record loss, adjust remaining position's stop-loss
+        - Second close: Calculate 1 SET P&L (profit - first_loss - all fees)
+        """
 
         position = self.positions.get(position_key)
         if not position:
             return
 
-        # Apply slippage
         entry_price = position['entry_price']
         size = position['size']
+        side = position['side']
+        pair_id = position.get('pair_id')
 
-        if position['type'] == 'LONG':
+        # Calculate P&L with slippage
+        if side == 'LONG':
             entry_with_slippage = entry_price * (1 + self.slippage_pct)
             exit_with_slippage = exit_price * (1 - self.slippage_pct)
             pnl_gross = (exit_with_slippage - entry_with_slippage) * size * self.leverage
@@ -404,48 +529,99 @@ class SelectiveTickLiveTrader:
             exit_with_slippage = exit_price * (1 + self.slippage_pct)
             pnl_gross = (entry_with_slippage - exit_with_slippage) * size * self.leverage
 
-        # Calculate fees
+        # Calculate fees (entry + exit)
         position_value = entry_price * size
-        total_fee = position_value * self.taker_fee * 2  # Entry + Exit
+        fee = position_value * self.taker_fee * 2  # Entry + Exit
+        pnl_net = pnl_gross - fee
 
-        # Net P&L
-        pnl_net = pnl_gross - total_fee
-        pnl_pct = (pnl_net / (entry_price * size * self.leverage)) * 100
+        # Check if this is FIRST or SECOND close
+        pair_info = self.pair_tracking.get(pair_id)
+        is_first_close = pair_info and pair_info['first_closed'] is None
 
-        # Update balance
-        self.balance += pnl_net
-        self.total_fees_paid += total_fee
-        self.max_balance = max(self.max_balance, self.balance)
-        self.min_balance = min(self.min_balance, self.balance)
+        if is_first_close:
+            # FIRST CLOSE (usually the losing side)
+            logger.info(
+                f"❌ FIRST CLOSE ({side}): {position['symbol']} | "
+                f"P&L: ${pnl_net:+.2f} | Fee: ${fee:.2f} | {reason}"
+            )
 
-        # Record trade
-        trade = {
-            'position_key': position_key,
-            'symbol': position['symbol'],
-            'type': position['type'],
-            'entry_price': entry_price,
-            'exit_price': exit_price,
-            'size': size,
-            'pnl_gross': pnl_gross,
-            'fees': total_fee,
-            'pnl': pnl_net,
-            'pnl_pct': pnl_pct,
-            'entry_time': position['entry_time'].isoformat(),
-            'exit_time': timestamp.isoformat(),
-            'hold_time_seconds': (timestamp - position['entry_time']).total_seconds(),
-            'reason': reason,
-            'balance_after': self.balance
-        }
-        self.trades.append(trade)
+            # Update pair tracking
+            pair_info['first_closed'] = side
+            pair_info['first_closed_pnl'] = pnl_net
+            pair_info['first_closed_fee'] = fee
 
-        # Remove position
-        del self.positions[position_key]
+            # Find remaining position and adjust its stop-loss
+            if side == 'LONG':
+                remaining_key = pair_info['short_key']
+            else:
+                remaining_key = pair_info['long_key']
 
-        logger.info(
-            f"{'✅' if pnl_net > 0 else '❌'} CLOSE: {position['symbol']} {position['type']} | "
-            f"P&L: ${pnl_net:+.2f} ({pnl_pct:+.2f}%) | "
-            f"Fee: ${total_fee:.2f} | {reason}"
-        )
+            remaining_pos = self.positions.get(remaining_key)
+            if remaining_pos:
+                # Adjust remaining position's minimum profit target
+                # Must recover first loss to break even
+                remaining_pos['min_profit_to_breakeven'] = abs(pnl_net) + fee * 2  # Need to cover both fees
+
+                logger.info(
+                    f"📊 REMAINING ({remaining_pos['side']}): "
+                    f"Must profit >${remaining_pos['min_profit_to_breakeven']:.2f} to break even on SET"
+                )
+
+            # Remove first position (don't record as trade yet)
+            del self.positions[position_key]
+
+        else:
+            # SECOND CLOSE (usually the winning side with trailing stop)
+            first_loss = pair_info['first_closed_pnl'] if pair_info else 0
+            first_fee = pair_info['first_closed_fee'] if pair_info else 0
+
+            # Calculate 1 SET P&L
+            set_pnl = pnl_net + first_loss  # Second profit + first loss (negative)
+            set_total_fees = fee + first_fee
+
+            # Update balance (only once for the SET)
+            self.balance += set_pnl
+            self.total_fees_paid += set_total_fees
+            self.max_balance = max(self.max_balance, self.balance)
+            self.min_balance = min(self.min_balance, self.balance)
+
+            # Record as 1 SET trade
+            set_entry_time = pair_info['entry_time'] if pair_info else position['entry_time']
+            trade = {
+                'pair_id': pair_id,
+                'symbol': position['symbol'],
+                'type': '1-SET',
+                'entry_price': entry_price,
+                'exit_price': exit_price,
+                'size': size,
+                'first_closed': pair_info['first_closed'] if pair_info else None,
+                'first_pnl': first_loss,
+                'second_closed': side,
+                'second_pnl': pnl_net,
+                'set_pnl': set_pnl,
+                'pnl': set_pnl,  # For compatibility with performance calculation
+                'set_total_fees': set_total_fees,
+                'fees': set_total_fees,  # For compatibility
+                'entry_time': set_entry_time.isoformat() if hasattr(set_entry_time, 'isoformat') else set_entry_time,
+                'exit_time': timestamp.isoformat(),
+                'hold_time_seconds': (timestamp - set_entry_time).total_seconds() if hasattr(set_entry_time, 'total_seconds') else 0,
+                'reason': reason,
+                'balance_after': self.balance
+            }
+            self.trades.append(trade)
+
+            # Remove second position
+            del self.positions[position_key]
+
+            # Clean up pair tracking
+            if pair_id in self.pair_tracking:
+                del self.pair_tracking[pair_id]
+
+            logger.info(
+                f"{'✅' if set_pnl > 0 else '❌'} SET COMPLETE: {position['symbol']} | "
+                f"1st: ${first_loss:+.2f} | 2nd: ${pnl_net:+.2f} | "
+                f"SET P&L: ${set_pnl:+.2f} | Fees: ${set_total_fees:.2f} | {reason}"
+            )
 
     async def _close_all_positions(
         self,
@@ -454,15 +630,15 @@ class SelectiveTickLiveTrader:
         timestamp: datetime,
         reason: str
     ):
-        """Close all positions for a symbol"""
+        """Close all positions for a symbol (both LONG and SHORT)"""
 
         positions_to_close = [
-            key for key, pos in self.positions.items()
+            pos_key for pos_key, pos in self.positions.items()
             if pos['symbol'] == symbol
         ]
 
-        for position_key in positions_to_close:
-            await self._close_position(position_key, price, reason, timestamp)
+        for pos_key in positions_to_close:
+            await self._close_position(pos_key, price, reason, timestamp)
 
     async def get_performance(self) -> dict:
         """Get current performance metrics with per-coin breakdown"""
@@ -503,9 +679,9 @@ class SelectiveTickLiveTrader:
                 'trades_per_day': len(coin_trades) / days if self.trades and days > 0 else 0
             }
 
-        # Active positions details
+        # Active positions details (each position independently)
         active_positions_list = []
-        for position_key, position in self.positions.items():
+        for pos_key, position in self.positions.items():
             # Get current price from tick buffer
             current_price = 0
             if position['symbol'] in self.tick_buffers and self.tick_buffers[position['symbol']]:
@@ -514,14 +690,17 @@ class SelectiveTickLiveTrader:
             # Calculate unrealized P&L
             entry_price = position['entry_price']
             size = position['size']
+            side = position['side']
 
             if current_price > 0:
-                if position['type'] == 'LONG':
+                if side == 'LONG':
                     unrealized_pnl = (current_price - entry_price) * size * self.leverage
                 else:  # SHORT
                     unrealized_pnl = (entry_price - current_price) * size * self.leverage
 
-                unrealized_pnl_pct = (unrealized_pnl / (entry_price * size * self.leverage)) * 100
+                # Percentage relative to position value
+                position_value = entry_price * size * self.leverage
+                unrealized_pnl_pct = (unrealized_pnl / position_value) * 100
             else:
                 unrealized_pnl = 0
                 unrealized_pnl_pct = 0
@@ -531,7 +710,8 @@ class SelectiveTickLiveTrader:
 
             active_positions_list.append({
                 'symbol': position['symbol'],
-                'type': position['type'],
+                'side': side,
+                'pair_id': position.get('pair_id'),
                 'entry_price': entry_price,
                 'current_price': current_price,
                 'size': size,
@@ -552,10 +732,10 @@ class SelectiveTickLiveTrader:
             'avg_profit_per_trade': avg_profit,
             'max_drawdown': max_dd,
             'total_fees_paid': self.total_fees_paid,
-            'active_positions': len(self.positions),
+            'active_positions': len(self.positions),  # Count of active positions
             'signals_generated': self.signals_generated,
             'signals_skipped_cooldown': self.signals_skipped_cooldown,
-            'strategy': 'Strategy B - Selective High-Confidence',
+            'strategy': 'Strategy B - Selective High-Confidence (1-SET Management)',
             'per_coin_stats': per_coin_stats,
             'active_positions_list': active_positions_list
         }
